@@ -135,6 +135,44 @@ $$('[data-ort]').forEach(el => {
   if (el.getAttribute('role') === 'button') el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zeigeOrt(el.dataset.ort); } });
 });
 
+// ---------- Instagram-Karussell: wischen, Pfeile, Pfeiltasten. Bilder ab Nr. 2 laden erst bei Bedarf ----------
+$$('[data-karussell]').forEach(k => {
+  const ul = $('.insta-folien', k), folien = [...ul.children], n = folien.length;
+  const zahl = $('.insta-zahl', k), status = $('[data-karussell-status]', k), punkte = $$('.insta-punkte i', k);
+  const zurueck = $('.insta-zurueck', k), weiter = $('.insta-weiter', k);
+  let akt = 0, ziel = null, zielUhr = 0;   // ziel: laufendes Blättern per Pfeil, bis dahin Scroll-Zwischenstände ignorieren
+  const laden = i => { const img = folien[i]?.querySelector('img[data-src]'); if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); } };
+  const zeigen = (i, ansagen) => {
+    akt = i;
+    zahl.textContent = `${i + 1}/${n}`;
+    if (ansagen) status.textContent = `Bild ${i + 1} von ${n}`;
+    punkte.forEach((p, j) => p.classList.toggle('an', j === i));
+    zurueck.disabled = i === 0; weiter.disabled = i === n - 1;
+    laden(i); laden(i + 1);
+  };
+  const gehe = i => {
+    i = grenze(i, 0, n - 1); laden(i); ziel = i;
+    clearTimeout(zielUhr); zielUhr = setTimeout(() => { ziel = null; }, 900);
+    ul.scrollTo({ left: i * ul.clientWidth, behavior: RUHIG ? 'auto' : 'smooth' });
+    zeigen(i, true);
+  };
+  ul.addEventListener('pointerdown', () => { ziel = null; });
+  zurueck.addEventListener('click', () => gehe(akt - 1));
+  weiter.addEventListener('click', () => gehe(akt + 1));
+  ul.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); gehe(akt + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); gehe(akt - 1); }
+  });
+  let geplant = false;
+  ul.addEventListener('scroll', () => {
+    if (geplant) return; geplant = true;
+    requestAnimationFrame(() => { geplant = false; const i = grenze(Math.round(ul.scrollLeft / ul.clientWidth), 0, n - 1); if (ziel !== null) { if (Math.abs(ul.scrollLeft - ziel * ul.clientWidth) < 2) ziel = null; return; } if (i !== akt) zeigen(i, false); else laden(i + 1); });
+  }, { passive: true });
+  // Das zweite Bild vorladen, sobald die Kachel in die Nähe kommt, damit das erste Wischen flüssig ist.
+  const nah = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { laden(1); nah.disconnect(); } }, { rootMargin: '300px' });
+  nah.observe(k);
+});
+
 // ---------- Scroll-Effekte ----------
 const kopf = $('.kopf'), balken = $('.fortschritt i');
 const heroFoto = $('[data-parallax]'), heide = $('.wahlkreis-bg'), wahlkreis = $('.wahlkreis'), claim = $('.claim');

@@ -18,8 +18,8 @@ Statische Seite ohne Baustufe, nicht auf Wix. Sie läuft auf GitHub Pages und sp
 
 - **Status ändern:** in `assets/data/wissen.json` bei `status.aktuell`.
 - **Instagram-Auswahl:** Die sechs Beiträge stehen in `index.html` im Abschnitt `#instagram`, die Bilder in `assets/img/instagram/`. Die Seite lädt nichts von Instagram, deshalb bekommt Meta keine Besucherdaten. Die Auswahl wird von Hand gepflegt, nicht automatisch. So tauschst du einen Beitrag aus:
-  1. Bild des Beitrags (höchstens 640 px breit, JPEG) unter dem Kürzel aus der Beitragsadresse speichern, z. B. `DejPYRcjHKs.jpg`.
-  2. In `index.html` Link, Bild, Datum, Bildbeschreibung (`alt`) und den kurzen Textauszug anpassen. Der Auszug stammt wörtlich aus dem Beitrag.
+  1. Bilder des Beitrags (höchstens 640 px breit, JPEG) unter dem Kürzel aus der Beitragsadresse speichern und durchnummerieren, z. B. `DejPYRcjHKs-1.jpg`, `DejPYRcjHKs-2.jpg`.
+  2. In `index.html` die Kachel anpassen: Link, Datum, Bilder mit Bildbeschreibung (`alt`) und den kurzen Textauszug. Der Auszug stammt wörtlich aus dem Beitrag. Bei mehreren Bildern wird die Kachel ein Karussell. Dafür eine bestehende Karussell-Kachel kopieren. Das erste Bild steht in `src`, alle weiteren in `data-src`, damit sie erst beim Blättern laden. Anzahl der Punkte und die Angabe „1/7“ müssen zur Bildzahl passen.
   3. Das Stand-Datum im Hinweistext über den Kacheln ändern.
 - **Wegweiser:** in `assets/data/wegweiser.json` Einträge und `geprueft_am` aktualisieren. Links vorher prüfen.
 
@@ -40,6 +40,7 @@ Diese Fälle zeigt der Wegweiser bewusst vorsichtig an:
 - **Fintel, Führungszeugnis:** Ob es auch im Rathaus Lauenbrück geht, steht nicht auf der Seite der Samtgemeinde. Angezeigt wird „nicht eindeutig“ mit Verweis auf das Bundesamt für Justiz.
 - **Fintel, Straßenschäden:** Bei Bundes- und Landesstraßen ist nicht ausdrücklich belegt, welcher Geschäftsbereich der Landesbehörde zuständig ist.
 - **Neuenkirchen, Wohngeld und Personalausweis; Wietzendorf, Personalausweis:** Die Zuständigkeit ist nur über den Zuständigkeitsfinder des Landes belegt. Eine eigene Seite der Gemeinde dazu gibt es nicht. Verlinkt ist deshalb die Startseite bzw. die Leistungsübersicht.
+- **Instagram, Beitrag vom 25.07.2026:** Das zweite Bild des Karussells ist bewusst nicht übernommen, weil auf dem Banner ein Name steht, der auf der Seite nicht erscheinen soll.
 - **Unterlagen:** Die Listen stammen von den Seiten der jeweils genannten Quelle, meist Stadt Soltau, Munster, Heidekreis oder Landkreis Rotenburg. Bei anderen Orten können sie leicht abweichen. Jede Unterlage zeigt deshalb ihre Quelle.
 
 ## Quellen
