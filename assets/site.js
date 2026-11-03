@@ -41,11 +41,11 @@ if (unterschrift && !RUHIG) {
   let t = 0;
   $$('path', unterschrift).forEach(p => {
     const len = p.getTotalLength();
-    const dauer = Math.max(0.12, len / 520);   // gleichmäßige Schreibgeschwindigkeit
+    const dauer = Math.max(0.05, len / 1400);   // gleichmäßige, zügige Schreibgeschwindigkeit
     p.style.strokeDasharray = `${len} ${len}`;
     p.style.strokeDashoffset = len;
-    p.style.transition = `stroke-dashoffset ${dauer}s cubic-bezier(.45,.05,.55,.95) ${t}s`;
-    t += dauer + 0.05;
+    p.style.transition = `stroke-dashoffset ${dauer}s cubic-bezier(.4,0,.6,1) ${t}s`;
+    t += dauer + 0.015;
   });
 }
 
@@ -65,7 +65,15 @@ const beobachter = new IntersectionObserver(es => es.forEach(e => {
   if (e.target.classList.contains('gruss')) $$('path', e.target).forEach(p => { p.style.strokeDashoffset = 0; });
   beobachter.unobserve(e.target);
 }), { rootMargin: '0px 0px -12% 0px' });
-$$('.rv, .zeilen, .zahl, .karte, [data-reveal], .gruss').forEach(el => beobachter.observe(el));
+$$('.rv, .zeilen, .zahl, .karte, [data-reveal]').forEach(el => beobachter.observe(el));
+// Die Unterschrift startet, sobald sie ins Bild kommt.
+const grussBeobachter = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('sichtbar');
+  $$('path', e.target).forEach(p => { p.style.strokeDashoffset = 0; });
+  grussBeobachter.unobserve(e.target);
+}), { threshold: 0.2 });
+$$('.gruss').forEach(el => grussBeobachter.observe(el));
 
 // ---------- Ortsbänder: anhalten und weiterlaufen ----------
 const baender = $('.baender'), pause = $('.band-pause');
@@ -127,23 +135,32 @@ $$('[data-ort]').forEach(el => {
   if (el.getAttribute('role') === 'button') el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zeigeOrt(el.dataset.ort); } });
 });
 
-// ---------- Instagram: erst nach bewusster Aktivierung von Instagram laden ----------
-const instaKnopf = $('[data-insta-laden]');
-instaKnopf?.addEventListener('click', () => {
-  instaKnopf.disabled = true; instaKnopf.textContent = 'Wird geladen …';
-  $$('[data-permalink]').forEach(li => {
-    const q = document.createElement('blockquote');
-    q.className = 'instagram-media';
-    q.setAttribute('data-instgrm-permalink', li.dataset.permalink);
-    q.setAttribute('data-instgrm-version', '14');
-    const a = document.createElement('a'); a.href = li.dataset.permalink; a.textContent = 'Beitrag auf Instagram ansehen'; q.append(a);
-    li.replaceChildren(q); li.classList.add('eingebettet');
-  });
+// ---------- Instagram: Beiträge automatisch einbetten, sobald der Abschnitt näher kommt ----------
+// Klappt das Laden nicht (z. B. Werbeblocker), bleiben die Kacheln mit Links zu den Beiträgen stehen.
+const instaReihe = $('[data-insta-reihe]');
+const instaLaden = () => {
   const s = document.createElement('script'); s.async = true; s.src = 'https://www.instagram.com/embed.js';
-  s.onload = () => { window.instgrm?.Embeds.process(); instaKnopf.textContent = 'Beiträge geladen'; };
-  s.onerror = () => { instaKnopf.textContent = 'Instagram nicht erreichbar'; };
+  s.onload = () => {
+    if (!window.instgrm) return;
+    $$('[data-permalink]', instaReihe).forEach(li => {
+      const q = document.createElement('blockquote');
+      q.className = 'instagram-media';
+      q.setAttribute('data-instgrm-permalink', li.dataset.permalink);
+      q.setAttribute('data-instgrm-version', '14');
+      const a = document.createElement('a'); a.href = li.dataset.permalink; a.textContent = 'Beitrag auf Instagram ansehen'; q.append(a);
+      li.replaceChildren(q); li.classList.add('eingebettet');
+    });
+    window.instgrm.Embeds.process();
+  };
   document.body.append(s);
-});
+};
+if (instaReihe) {
+  const instaBeobachter = new IntersectionObserver(es => {
+    if (!es.some(e => e.isIntersecting)) return;
+    instaBeobachter.disconnect(); instaLaden();
+  }, { rootMargin: '1200px 0px' });
+  instaBeobachter.observe(instaReihe);
+}
 
 // ---------- Scroll-Effekte ----------
 const kopf = $('.kopf'), balken = $('.fortschritt i');

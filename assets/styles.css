@@ -10,7 +10,9 @@
   --body:'TheSans SPD','Segoe UI',Arial,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --rand:max(20px,5.5vw);
+  --abstand:clamp(56px,9vh,104px);
 }
+@media (max-width:900px){:root{--abstand:clamp(40px,5.5vh,52px)}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:76px}
 body{margin:0;background:var(--papier);color:var(--tinte);font:400 18px/1.6 var(--body);overflow-x:clip;-webkit-font-smoothing:antialiased}
@@ -88,7 +90,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .js .zeilen.sichtbar .maske>span{transform:none}
 
 /* ---------- Einstieg: Foto im Mittelpunkt ---------- */
-.hero{position:relative;min-height:100svh;background:var(--nacht);color:#fff;display:flex;align-items:flex-end;padding:120px var(--rand) clamp(80px,11vh,120px);overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:100svh;background:var(--nacht);color:#fff;display:flex;align-items:flex-end;padding:120px var(--rand) clamp(56px,8vh,96px);overflow:hidden;isolation:isolate}
 .hero-foto{position:absolute;inset:0 0 -10%;margin:0;z-index:-2;overflow:hidden;will-change:transform}
 .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:52% 24%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(11,11,12,.6) 0%,rgba(11,11,12,.22) 30%,rgba(11,11,12,0) 46%),linear-gradient(0deg,rgba(11,11,12,.7) 0%,rgba(11,11,12,0) 30%)}
@@ -108,7 +110,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
   .hero-foto img{object-position:58% 16%}
   .hero::after{display:none}
   .hero-foto::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(0deg,var(--nacht),rgba(11,11,12,0))}
-  .hero-text{margin-top:-64px;padding:0 20px 64px;max-width:none;z-index:2}
+  .hero-text{margin-top:-64px;padding:0 20px 36px;max-width:none;z-index:2}
   .hero-name{font-size:clamp(36px,10.5vw,54px)}
 }
 
@@ -129,10 +131,11 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .intro-kurz .hero-foto img,.intro-kurz .hero-text{animation:leise .5s ease both}
 
 /* ---------- Ortsbänder ---------- */
-.baender{position:relative;z-index:3;padding:18px 0 22px;overflow:hidden}
+.baender{position:relative;z-index:3;padding:22px 0 12px;overflow:hidden}
+@supports (overflow:clip){.baender{overflow:visible;overflow-x:clip;padding-top:14px}}
 .band{display:flex;overflow:hidden;white-space:nowrap}
-.band-a{background:var(--rot);color:#fff;transform:rotate(-1.4deg) scale(1.03);margin-top:-30px}
-.band-b{background:var(--tinte);color:#fff;transform:rotate(1deg) scale(1.03);margin-top:-2px}
+.band-a{background:var(--rot);color:#fff;transform:rotate(-1.2deg) scale(1.03)}
+.band-b{background:var(--tinte);color:#fff;transform:rotate(-.5deg) scale(1.03);margin-top:12px}
 .spur{display:flex;flex:none;list-style:none;margin:0;padding:9px 0 8px;animation:lauf 60s linear infinite}
 .band-b .spur{animation-direction:reverse;animation-duration:74s}
 .spur li{font:800 clamp(15px,1.45vw,21px)/1 var(--display);text-transform:uppercase;letter-spacing:.04em;padding-inline:.7em;display:flex;align-items:center;gap:1.4em}
@@ -141,11 +144,13 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 @keyframes lauf{to{transform:translateX(-50%)}}
 @media (max-width:640px){.spur li{font-size:13.5px;letter-spacing:.03em;padding-inline:.55em;gap:1.1em}.spur{padding:8px 0 7px}}
 .baender.pausiert .spur{animation-play-state:paused}
-.band-pause{position:absolute;right:var(--rand);bottom:0;min-height:32px;padding:4px 12px;border-radius:99px;border:1px solid rgba(20,20,20,.25);background:var(--papier);color:var(--tinte);font:800 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.band-pause{position:relative;display:block;margin:12px var(--rand) 0 auto;min-height:32px;padding:4px 12px;border-radius:99px;border:1px solid rgba(20,20,20,.25);background:var(--papier);color:var(--tinte);font:800 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
 .band-pause:hover{border-color:var(--rot);color:var(--rot)}
+.band-pause[hidden]{display:none}
 
 /* Satz, der beim Scrollen aufleuchtet */
-.claim{padding:16vh var(--rand) 18vh;max-width:1500px;margin:0 auto}
+.claim{padding:var(--abstand) var(--rand);max-width:1500px;margin:0 auto}
+.baender+.claim{padding-top:calc(var(--abstand) * .6)}
 .claim .kicker{margin-bottom:30px}
 .claim-text{font:800 clamp(32px,5.2vw,84px)/1.04 var(--display);text-transform:uppercase;letter-spacing:-.015em;color:var(--tinte)}
 .js .claim-text .w{opacity:.13;transition:opacity .35s,color .35s}
@@ -153,17 +158,17 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .claim-text .w.rot,.claim-text em{color:var(--rot);font-style:normal}
 
 /* Zahlen */
-.zahlen{background:var(--nacht);color:#fff;padding:12vh var(--rand);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.zahlen{background:var(--nacht);color:#fff;padding:var(--abstand) var(--rand);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
 .zahl{display:grid;gap:12px;align-content:start;padding-top:22px;position:relative}
 .zahl::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--rot);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease);transition-delay:calc(var(--i,0) * 120ms)}
 .zahl.sichtbar::before,html:not(.js) .zahl::before{transform:none}
 .zahl small{font:800 14px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--rot-hell);margin-bottom:-6px}
 .zahl b{font:800 clamp(54px,7.5vw,118px)/.85 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
 .zahl span{font:800 13.5px/1.35 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#BDB7B2;max-width:24ch}
-@media (max-width:900px){.zahlen{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:44px;padding-block:10vh}}
+@media (max-width:900px){.zahlen{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}}
 
 /* Warum ich kandidiere – mit geschriebener Unterschrift */
-.warum{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:7vw;padding:16vh var(--rand);max-width:1500px;margin:0 auto}
+.warum{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:7vw;padding:var(--abstand) var(--rand);max-width:1500px;margin:0 auto}
 .warum-kopf{position:sticky;top:120px;align-self:start;display:grid;gap:24px}
 .warum-brief{display:grid;gap:20px;font-size:clamp(18px,1.45vw,21px);line-height:1.65;max-width:60ch}
 .warum-brief .anrede{font:800 clamp(22px,2.2vw,30px)/1.1 var(--display);text-transform:uppercase;color:var(--tinte)}
@@ -171,11 +176,11 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .gruss{margin-top:4px}
 .unterschrift{width:min(100%,420px);height:auto;display:block;overflow:visible}
 .unterschrift path{fill:none;stroke:var(--rot-tief);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
-@media (max-width:900px){.warum{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:12vh}.warum-kopf{position:static}}
+@media (max-width:900px){.warum{grid-template-columns:minmax(0,1fr);gap:28px}.warum-kopf{position:static}}
 
 /* Themen: farbige Bahnen */
-.themen{background:var(--nacht);color:#fff;padding:14vh var(--rand)}
-.themen-kopf{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:5vh}
+.themen{background:var(--nacht);color:#fff;padding:var(--abstand) var(--rand)}
+.themen-kopf{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,4vh,44px)}
 .themen-kopf p{max-width:40ch;color:#CFC9C4}
 .bahnen{display:flex;gap:12px;height:min(70vh,620px)}
 .bahn{--farbe:var(--rot);flex:1;position:relative;overflow:hidden;border-radius:22px;background:color-mix(in srgb,var(--farbe) 30%,#17171A);color:#fff;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;cursor:pointer;text-align:left;border:0;min-width:0;isolation:isolate;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--farbe) 55%,transparent);transition:flex .8s var(--ease),background .5s,transform .35s var(--ease),box-shadow .35s}
@@ -210,7 +215,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 }
 
 /* Über mich: Foto, kurzer Text, zwei aufklappbare Wege */
-.ueber{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:6vw;padding:16vh var(--rand);max-width:1500px;margin:0 auto;align-items:start}
+.ueber{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:6vw;padding:var(--abstand) var(--rand);max-width:1500px;margin:0 auto;align-items:start}
 .ueber-bild{position:sticky;top:110px;border-radius:26px;overflow:hidden;aspect-ratio:4/5;margin:0}
 .js .ueber-bild{clip-path:inset(0 0 100% 0 round 26px);transition:clip-path 1.4s var(--ease)}
 .js .ueber.sichtbar .ueber-bild{clip-path:inset(0 0 0 0 round 26px)}
@@ -238,11 +243,11 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .weg-liste time{font:800 14px/1.45 var(--display);letter-spacing:.04em;color:var(--rot)}
 .weg-liste span{line-height:1.45}
 .weg-liste small{display:block;color:var(--leise);font-size:15px}
-@media (max-width:900px){.ueber{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:12vh}.ueber-bild{position:relative;top:0;max-width:460px}}
+@media (max-width:900px){.ueber{grid-template-columns:minmax(0,1fr);gap:28px}.ueber-bild{position:relative;top:0;max-width:460px}}
 @media (max-width:480px){.weg-liste li{grid-template-columns:minmax(0,1fr);gap:2px}}
 
 /* Wahlkreis mit Karte und Ortskarte */
-.wahlkreis{position:relative;background:var(--nacht);color:#fff;padding:16vh var(--rand);overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:5vw;align-items:center}
+.wahlkreis{position:relative;background:var(--nacht);color:#fff;padding:var(--abstand) var(--rand);overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:5vw;align-items:center}
 .wahlkreis-bg{position:absolute;inset:-12% 0;z-index:-2;background:url(img/heide.jpg) center/cover;opacity:.7;will-change:transform}
 .wahlkreis::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(11,11,12,.95) 25%,rgba(11,11,12,.6) 70%,rgba(11,11,12,.75))}
 .wahlkreis-text{display:grid;gap:24px}
@@ -282,12 +287,12 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .ort-karte.neu{animation:auf .45s var(--ease)}
 .karte-hinweis{font-size:12.5px;color:#A9A29D}
 .wahlkreis .bildnachweis{position:absolute;right:16px;bottom:10px;font-size:11px;color:rgba(255,255,255,.55)}
-@media (max-width:900px){.wahlkreis{grid-template-columns:minmax(0,1fr);padding-block:12vh}}
+@media (max-width:900px){.wahlkreis{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:520px){.orte-liste{grid-template-columns:repeat(2,minmax(0,1fr))}.karte .ort text{font-size:19px}}
 
 /* Wegweiser */
-.wegweiser{padding:16vh var(--rand);max-width:1200px;margin:0 auto}
-.ww-kopf{display:grid;gap:22px;margin-bottom:5vh}
+.wegweiser{padding:var(--abstand) var(--rand);max-width:1200px;margin:0 auto}
+.ww-kopf{display:grid;gap:22px;margin-bottom:clamp(24px,4vh,44px)}
 .ww-kopf>p{color:var(--leise);max-width:52ch}
 .ww{background:#fff;border-radius:26px;padding:clamp(20px,3.5vw,40px);box-shadow:0 30px 70px -45px rgba(0,0,0,.45)}
 .ww-schritte{list-style:none;margin:0 0 26px;padding:0;display:flex;gap:8px;counter-reset:s}
@@ -321,12 +326,10 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .ww-kopiert{font-size:14px;color:var(--rot-tief);align-self:center}
 
 /* Instagram */
-.insta{background:var(--nacht);color:#fff;padding:14vh var(--rand)}
+.insta{background:var(--nacht);color:#fff;padding:var(--abstand) var(--rand)}
 .insta-kopf{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
 .insta-kopf .gross{text-transform:none;font-family:var(--body);letter-spacing:-.03em;font-size:clamp(38px,6vw,90px)}
-.insta-hinweis{display:flex;gap:16px 24px;align-items:center;flex-wrap:wrap;justify-content:space-between;background:var(--nacht2);border-radius:18px;padding:16px 20px;margin-bottom:22px}
-.insta-hinweis p{max-width:70ch;color:#CFC9C4;font-size:15.5px}
-.insta-hinweis .knopf{color:#fff}
+.insta-stand{max-width:70ch;color:#A9A29D;font-size:14px;margin-bottom:18px}
 .insta-reihe{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .insta-kachel>a{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;aspect-ratio:4/5;border-radius:20px;padding:20px;text-decoration:none;color:#fff;overflow:hidden;isolation:isolate;background:linear-gradient(145deg,#2A1F3D,#5B1F44 45%,#C8000D 100%);transition:transform .4s var(--ease)}
 .insta-kachel:nth-child(3n+2)>a{background:linear-gradient(145deg,#1E2A33,#0E6B70 55%,#2BA39B 100%)}
@@ -347,7 +350,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 }
 
 /* Kontakt */
-.kontakt{background:var(--rot);color:#fff;padding:14vh var(--rand);position:relative;overflow:hidden;isolation:isolate}
+.kontakt{background:var(--rot);color:#fff;padding:var(--abstand) var(--rand);position:relative;overflow:hidden;isolation:isolate}
 .kontakt::before{content:"";position:absolute;inset:-30%;z-index:-1;background:radial-gradient(40% 40% at 80% 20%,rgba(255,255,255,.22),transparent 70%),radial-gradient(40% 40% at 10% 100%,rgba(0,0,0,.25),transparent 70%)}
 .kontakt h2{font-size:clamp(58px,11vw,170px);line-height:.82;letter-spacing:-.03em}
 .kontakt h2 .maske:nth-child(2) span{color:var(--nacht)}
@@ -359,10 +362,10 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
 .weg-karte small{display:block;font:800 12px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
 .weg-karte b{font:800 clamp(21px,2vw,28px)/1 var(--display);text-transform:uppercase;overflow-wrap:anywhere}
 .weg-karte svg{width:24px;height:24px;flex:none}
-@media (max-width:900px){.kontakt{padding-block:12vh}.kontakt-unten{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.kontakt-unten{grid-template-columns:minmax(0,1fr)}}
 
 /* Fragen an Heidi (KI) */
-.fragen{padding:16vh var(--rand);max-width:1100px;margin:0 auto}
+.fragen{padding:var(--abstand) var(--rand);max-width:1100px;margin:0 auto}
 .fragen-kopf{display:grid;gap:22px;margin-bottom:5vh}
 .fragen-kopf>p{color:var(--leise);max-width:58ch}
 .chat{background:#fff;border-radius:26px;box-shadow:0 30px 70px -45px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden}
