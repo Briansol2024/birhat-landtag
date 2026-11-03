@@ -135,33 +135,6 @@ $$('[data-ort]').forEach(el => {
   if (el.getAttribute('role') === 'button') el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zeigeOrt(el.dataset.ort); } });
 });
 
-// ---------- Instagram: Beiträge automatisch einbetten, sobald der Abschnitt näher kommt ----------
-// Klappt das Laden nicht (z. B. Werbeblocker), bleiben die Kacheln mit Links zu den Beiträgen stehen.
-const instaReihe = $('[data-insta-reihe]');
-const instaLaden = () => {
-  const s = document.createElement('script'); s.async = true; s.src = 'https://www.instagram.com/embed.js';
-  s.onload = () => {
-    if (!window.instgrm) return;
-    $$('[data-permalink]', instaReihe).forEach(li => {
-      const q = document.createElement('blockquote');
-      q.className = 'instagram-media';
-      q.setAttribute('data-instgrm-permalink', li.dataset.permalink);
-      q.setAttribute('data-instgrm-version', '14');
-      const a = document.createElement('a'); a.href = li.dataset.permalink; a.textContent = 'Beitrag auf Instagram ansehen'; q.append(a);
-      li.replaceChildren(q); li.classList.add('eingebettet');
-    });
-    window.instgrm.Embeds.process();
-  };
-  document.body.append(s);
-};
-if (instaReihe) {
-  const instaBeobachter = new IntersectionObserver(es => {
-    if (!es.some(e => e.isIntersecting)) return;
-    instaBeobachter.disconnect(); instaLaden();
-  }, { rootMargin: '1200px 0px' });
-  instaBeobachter.observe(instaReihe);
-}
-
 // ---------- Scroll-Effekte ----------
 const kopf = $('.kopf'), balken = $('.fortschritt i');
 const heroFoto = $('[data-parallax]'), heide = $('.wahlkreis-bg'), wahlkreis = $('.wahlkreis'), claim = $('.claim');

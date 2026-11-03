@@ -17,7 +17,10 @@ Statische Seite ohne Baustufe, nicht auf Wix. Sie läuft auf GitHub Pages und sp
 ## Pflege
 
 - **Status ändern:** in `assets/data/wissen.json` bei `status.aktuell`.
-- **Instagram-Auswahl:** die sechs Beiträge stehen in `index.html` im Abschnitt `#instagram`. Für jeden Beitrag Link und Datum anpassen und das Stand-Datum im Hinweistext ändern. Die Auswahl wird von Hand gepflegt, nicht automatisch.
+- **Instagram-Auswahl:** Die sechs Beiträge stehen in `index.html` im Abschnitt `#instagram`, die Bilder in `assets/img/instagram/`. Die Seite lädt nichts von Instagram, deshalb bekommt Meta keine Besucherdaten. Die Auswahl wird von Hand gepflegt, nicht automatisch. So tauschst du einen Beitrag aus:
+  1. Bild des Beitrags (höchstens 640 px breit, JPEG) unter dem Kürzel aus der Beitragsadresse speichern, z. B. `DejPYRcjHKs.jpg`.
+  2. In `index.html` Link, Bild, Datum, Bildbeschreibung (`alt`) und den kurzen Textauszug anpassen. Der Auszug stammt wörtlich aus dem Beitrag.
+  3. Das Stand-Datum im Hinweistext über den Kacheln ändern.
 - **Wegweiser:** in `assets/data/wegweiser.json` Einträge und `geprueft_am` aktualisieren. Links vorher prüfen.
 
 ## Offen vor dem öffentlichen Start
