@@ -1,0 +1,322 @@
+{
+  "geprueft_am": "2026-11-03",
+  "hinweis": "Gepflegte Zuordnung mit offiziellen Quellen. unterlagen[].orte oder unterlagen[].kreis schränken eine Angabe auf bestimmte Orte bzw. einen Landkreis ein.",
+  "orte": {
+    "soltau": { "name": "Soltau", "art": "Stadt", "kreis": "heidekreis", "website": "https://www.soltau.de/home.aspx" },
+    "munster": { "name": "Munster", "art": "Stadt", "kreis": "heidekreis", "website": "https://www.munster.de/home.aspx" },
+    "schneverdingen": { "name": "Schneverdingen", "art": "Stadt", "kreis": "heidekreis", "website": "https://www.schneverdingen.de/desktopdefault.aspx" },
+    "bispingen": { "name": "Bispingen", "art": "Gemeinde", "kreis": "heidekreis", "website": "https://gemeinde.bispingen.de/" },
+    "neuenkirchen": { "name": "Neuenkirchen", "art": "Gemeinde", "kreis": "heidekreis", "website": "https://www.dasneuenkirchen.de/de/" },
+    "wietzendorf": { "name": "Wietzendorf", "art": "Gemeinde", "kreis": "heidekreis", "website": "https://www.wietzendorf.de/" },
+    "fintel": { "name": "Samtgemeinde Fintel", "art": "Samtgemeinde", "kreis": "rotenburg", "website": "https://www.sgfintel.de/" }
+  },
+  "kreise": {
+    "heidekreis": { "name": "Landkreis Heidekreis", "website": "https://www.heidekreis.de/" },
+    "rotenburg": { "name": "Landkreis Rotenburg (Wümme)", "website": "https://www.lk-row.de/" }
+  },
+  "anliegen": [
+    {
+      "id": "kita-platz", "kategorie": "familie", "titel": "Kita-Platz",
+      "zustaendig": {
+        "soltau": { "stelle": "Stadt Soltau, Fachdienst Bildung und Sport", "url": "https://www.soltau.de/home/familie-gesundheit-bildung-soziales/kinder.aspx", "ebene": "gemeinde" },
+        "munster": { "stelle": "Stadt Munster, Kita-Anmeldung", "url": "https://kita.munster.de/", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Stadt Schneverdingen, Fachbereich II – Kinderbetreuung, Jugend (Kita-Portal)", "url": "https://kita.schneverdingen.de/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Gemeinde Bispingen, Bürgerservice (Kita-Verwaltung)", "url": "https://serviceportal.bispingen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/23190/show", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Gemeinde Neuenkirchen", "url": "https://www.dasneuenkirchen.de/de/familie/kindertagesstaetten/", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Gemeinde Wietzendorf", "url": "https://www.wietzendorf.de/kita", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Samtgemeinde Fintel, Fachdienst Kindertagesstätten", "url": "https://www.sgfintel.de/familie-soziales/kindertagesstaetten/dienstleistungen/anmeldung/", "ebene": "gemeinde" }
+      },
+      "schritt": "Kind bei der Stadt oder Gemeinde für einen Kita-Platz anmelden und den Anmeldezeitraum beachten.",
+      "unterlagen": [
+        { "text": "Arbeitgeberbescheinigung(en), Impfnachweise des Kindes, ggf. Ausbildungsvertrag oder Schul- bzw. Studienbescheinigung (zum Hochladen bei der Online-Anmeldung)", "quelle": "https://serviceportal.bispingen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/23190/show", "orte": ["bispingen"] },
+        { "text": "Arbeitgeberbescheinigung, bis 20. Januar im Rathaus abgeben", "quelle": "https://www.soltau.de/home/familie-gesundheit-bildung-soziales/kinder.aspx", "orte": ["soltau"] }
+      ],
+      "hinweis": "Im Heidekreis hat der Landkreis mit den Städten und Gemeinden vereinbart, dass sie die Kita-Plätze vergeben. Für Tagesmütter und Tagesväter (Kindertagespflege) ist der Landkreis Heidekreis selbst zuständig. In Fintel entscheidet die Samtgemeinde über die Aufnahme in ihre Kitas. Anmeldezeiträume laut Ortsseiten: Soltau online 6. bis 20. Januar, Bispingen online 6. Januar bis 3. Februar 2027, Fintel online bis 31. Januar.",
+      "quellen": ["https://www.heidekreis.de/familie-bildung/kindertagesbetreuung/kindertagesstaetten.html", "https://www.lk-row.de/buergerservice/dienstleistungen/anspruch-auf-einen-platz-in-einer-kindertageseinrichtung-900000300-0.html?myMedium=1&auswahl=1"]
+    },
+    {
+      "id": "elterngeld", "kategorie": "familie", "titel": "Elterngeld",
+      "zustaendig": {
+        "soltau": { "stelle": "Landkreis Heidekreis, Elterngeldstelle (Fachgruppe Wirtschaftliche Jugendhilfe)", "url": "https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "ebene": "kreis" },
+        "munster": { "stelle": "Landkreis Heidekreis, Elterngeldstelle (Fachgruppe Wirtschaftliche Jugendhilfe)", "url": "https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "ebene": "kreis" },
+        "schneverdingen": { "stelle": "Landkreis Heidekreis, Elterngeldstelle (Fachgruppe Wirtschaftliche Jugendhilfe)", "url": "https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "ebene": "kreis" },
+        "bispingen": { "stelle": "Landkreis Heidekreis, Elterngeldstelle (Fachgruppe Wirtschaftliche Jugendhilfe)", "url": "https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "ebene": "kreis" },
+        "neuenkirchen": { "stelle": "Landkreis Heidekreis, Elterngeldstelle (Fachgruppe Wirtschaftliche Jugendhilfe)", "url": "https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "ebene": "kreis" },
+        "wietzendorf": { "stelle": "Landkreis Heidekreis, Elterngeldstelle (Fachgruppe Wirtschaftliche Jugendhilfe)", "url": "https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "ebene": "kreis" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme), Sozialamt – Elterngeldstelle", "url": "https://www.lk-row.de/buergerservice/dienstleistungen/elterngeld-beantragen-1074-0.html?myMedium=1&auswahl=0", "ebene": "kreis" }
+      },
+      "schritt": "Nach der Geburt den Antrag bei der Elterngeldstelle des Landkreises stellen, am besten in den ersten drei Lebensmonaten.",
+      "unterlagen": [
+        { "text": "Antragsformular", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664535" },
+        { "text": "Geburtsurkunde des Kindes", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664535" },
+        { "text": "ggf. Personalausweis oder Aufenthaltstitel", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/elterngeld-beantragen-1074-0.html?myMedium=1&auswahl=0" },
+        { "text": "ggf. Nachweis über Anerkennung oder Feststellung der Vaterschaft", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/elterngeld-beantragen-1074-0.html?myMedium=1&auswahl=0" },
+        { "text": "ggf. Nachweise über das Einkommen vor der Geburt und Erklärung zum Einkommen nach der Geburt", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664535" },
+        { "text": "ggf. Bescheinigung der Krankenkasse über Mutterschaftsgeld und des Arbeitgebers über den Zuschuss", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664535" }
+      ],
+      "hinweis": "Elterngeld wird höchstens für drei Lebensmonate rückwirkend gezahlt. Die nötigen Unterlagen können je nach Lage abweichen.",
+      "quellen": ["https://www.heidekreis.de/familie-bildung/was-macht-das-jugendamt/elterngeld.html", "https://www.lk-row.de/buergerservice/dienstleistungen/elterngeld-beantragen-1074-0.html?myMedium=1&auswahl=0"]
+    },
+    {
+      "id": "kindergeld", "kategorie": "familie", "titel": "Kindergeld",
+      "zustaendig": {
+        "soltau": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" },
+        "munster": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" },
+        "schneverdingen": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" },
+        "bispingen": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" },
+        "neuenkirchen": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" },
+        "wietzendorf": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" },
+        "fintel": { "stelle": "Familienkasse der Bundesagentur für Arbeit", "url": "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld", "ebene": "bund" }
+      },
+      "schritt": "Antrag auf Kindergeld bei der Familienkasse stellen.",
+      "unterlagen": [
+        { "text": "Steuer-Identifikationsnummer der antragstellenden Person und des Kindes", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-12533829/anliegenid-8665033/" }
+      ],
+      "hinweis": "Weitere Unterlagen hängen vom Einzelfall ab. Bei Beschäftigten im öffentlichen Dienst kann die Bezügestelle des Dienstherrn zuständig sein. Stadt und Gemeinde sind nicht zuständig.",
+      "quellen": ["https://www.arbeitsagentur.de/familie-und-kinder/kindergeld"]
+    },
+    {
+      "id": "grundschul-anmeldung", "kategorie": "schule", "titel": "Anmeldung an der Grundschule",
+      "zustaendig": {
+        "soltau": { "stelle": "Zuständige Grundschule im Schulbezirk (Freudenthalschule, Hermann-Billung-Schule oder Wilhelm-Busch-Schule); Schulträger ist die Stadt Soltau", "url": "https://www.soltau.de/home/familie-gesundheit-bildung-soziales/bildung.aspx", "ebene": "gemeinde" },
+        "munster": { "stelle": "Zuständige Grundschule (Grundschule Breloh oder Grundschule Im Örtzetal)", "url": "https://www.munster.de/home/familie-soziales-bildung-gesundheit/schulen.aspx", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Zuständige Grundschule (Am Osterwald, Am Pietzmoor, Hansahlen oder Lünzen)", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7256/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Grund- und Oberschule Bispingen", "url": "https://gemeinde.bispingen.de/bispingen-im-ueberblick/kinder-jugend-familie-senioren/bildung", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Grund- und Oberschule Neuenkirchen; Schulträger der Grundschule ist die Gemeinde Neuenkirchen", "url": "https://www.dasneuenkirchen.de/de/familie/schulen-bildung/", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Grundschule Wietzendorf; Schulträger ist die Gemeinde Wietzendorf", "url": "https://www.wietzendorf.de/bildung-schule", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Friedrich-Freudenthal-Schule Fintel (für Fintel und Vahlde) oder Grundschule an der Wümme Lauenbrück (für Helvesiek, Lauenbrück und Stemmen); Online-Anmeldung über die Samtgemeinde Fintel", "url": "https://www.sgfintel.de/familie-soziales/schulen/dienstleistungen/anmeldung-der-schulanfaenger/", "ebene": "gemeinde" }
+      },
+      "schritt": "Kind bei der für den Wohnort zuständigen Grundschule anmelden; den Termin teilen Schule oder Schulträger mit.",
+      "unterlagen": [
+        { "text": "Anmeldeformular der zuständigen Grundschule", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-m1023/anliegenid-8664877/" },
+        { "text": "Impfpass oder ärztliche Bescheinigung zum Masernschutz", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-m1023/anliegenid-8664877/" },
+        { "text": "Geburtsurkunde des Kindes", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-m1023/anliegenid-8664877/" },
+        { "text": "nach Rücksprache mit der Schule ggf. Passfoto, Meldebescheinigung, Sorgerechtsnachweis oder Vollmacht", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-m1023/anliegenid-8664877/" }
+      ],
+      "hinweis": "Die Anmeldung ist etwa 15 Monate vor der Einschulung; der Wohnort bestimmt die Schule. Dazu kommt eine Schuleingangsuntersuchung beim Gesundheitsamt, die Einladung kommt per Post. Die Unterlagenliste stammt von der Stadt Soltau; andere Schulen können abweichen.",
+      "quellen": ["https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-m1023/anliegenid-8664877/"]
+    },
+    {
+      "id": "schuelerbefoerderung", "kategorie": "schule", "titel": "Schülerbeförderung",
+      "zustaendig": {
+        "soltau": { "stelle": "Landkreis Heidekreis, Stab Schulverwaltung und Bildung, ÖPNV", "url": "https://www.heidekreis.de/bus/detail.html?id=8665496", "ebene": "kreis" },
+        "munster": { "stelle": "Landkreis Heidekreis, Stab Schulverwaltung und Bildung, ÖPNV", "url": "https://www.heidekreis.de/bus/detail.html?id=8665496", "ebene": "kreis" },
+        "schneverdingen": { "stelle": "Landkreis Heidekreis, Stab Schulverwaltung und Bildung, ÖPNV", "url": "https://www.heidekreis.de/bus/detail.html?id=8665496", "ebene": "kreis" },
+        "bispingen": { "stelle": "Landkreis Heidekreis, Stab Schulverwaltung und Bildung, ÖPNV", "url": "https://www.heidekreis.de/bus/detail.html?id=8665496", "ebene": "kreis" },
+        "neuenkirchen": { "stelle": "Landkreis Heidekreis, Stab Schulverwaltung und Bildung, ÖPNV", "url": "https://www.heidekreis.de/bus/detail.html?id=8665496", "ebene": "kreis" },
+        "wietzendorf": { "stelle": "Landkreis Heidekreis, Stab Schulverwaltung und Bildung, ÖPNV", "url": "https://www.heidekreis.de/bus/detail.html?id=8665496", "ebene": "kreis" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme), Schul- und Kulturamt (Schülerbeförderung)", "url": "https://www.lk-row.de/buergerservice/dienstleistungen/schuelerfahrtkosten-schuelerbefoerderung-900000241-0.html?myMedium=1&auswahl=0", "ebene": "kreis" }
+      },
+      "schritt": "Bei Fragen zu Schülerfahrkarte oder Fahrtkosten an die Schülerbeförderung des Landkreises wenden.",
+      "unterlagen": [],
+      "hinweis": "Anträge, etwa für Fahrtkostenerstattung oder eine Ersatzfahrkarte, und die Satzung stehen auf der Seite des Landkreises. Konkrete Nachweise nennen die Seiten nicht.",
+      "quellen": ["https://www.heidekreis.de/bus/detail.html?id=8665496"]
+    },
+    {
+      "id": "ummeldung", "kategorie": "wohnen", "titel": "Umzug und Ummeldung",
+      "zustaendig": {
+        "soltau": { "stelle": "Stadt Soltau, Bürgerbüro", "url": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664121/", "ebene": "gemeinde" },
+        "munster": { "stelle": "Stadt Munster, Bürgerbüro", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8665711/", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Stadt Schneverdingen, Bürgerbüro", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7202/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Gemeinde Bispingen, Bürgerservice", "url": "https://serviceportal.bispingen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/22768/show", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Gemeinde Neuenkirchen", "url": "https://www.dasneuenkirchen.de/de/", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Gemeinde Wietzendorf, Einwohnermeldeamt", "url": "https://www.wietzendorf.de/leistungen", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Samtgemeinde Fintel, Meldewesen (Rathaus Lauenbrück)", "url": "https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/meldewesen/", "ebene": "gemeinde" }
+      },
+      "schritt": "Innerhalb von zwei Wochen nach dem Einzug bei der neuen Wohnortgemeinde anmelden – im Bürgerbüro oder online.",
+      "unterlagen": [
+        { "text": "Personalausweis und/oder Reisepass", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664121/" },
+        { "text": "Wohnungsgeberbestätigung (vom Vermieter)", "quelle": "https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/meldewesen/" },
+        { "text": "bei Vertretung: schriftliche Vollmacht und Ausweis der anzumeldenden Person", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8665711/" }
+      ],
+      "hinweis": "Die Anmeldung ist gebührenfrei. Online geht es mit dem Online-Ausweis, laut den Seiten von Soltau, Bispingen und Fintel. In Soltau braucht man einen Termin, in Fintel geht es im Rathaus Lauenbrück auch ohne.",
+      "quellen": ["https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664121/"]
+    },
+    {
+      "id": "wohngeld", "kategorie": "wohnen", "titel": "Wohngeld",
+      "zustaendig": {
+        "soltau": { "stelle": "Stadt Soltau, Fachgruppe Soziale Hilfen", "url": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417115829/anliegenid-8665924/", "ebene": "gemeinde" },
+        "munster": { "stelle": "Stadt Munster, Fachgruppe Soziales", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-364716636/anliegenid-8665924/", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Stadt Schneverdingen, Fachbereich II – Soziales", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7202/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Gemeinde Bispingen, Bürgerservice (Wohngeld)", "url": "https://gemeinde.bispingen.de/politik-verwaltung-und-service/ansprechpersonen", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Gemeinde Neuenkirchen", "url": "https://www.dasneuenkirchen.de/de/", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Gemeinde Wietzendorf, Sozialamt (Wohngeld)", "url": "https://www.wietzendorf.de/besch%C3%A4ftigte", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme), Sozialamt – Wohngeldstelle", "url": "https://www.lk-row.de/buergerservice/dienstleistungen/wohngeld-erstmalig-oder-neu-beantragen-1072-0.html?myMedium=1&auswahl=0", "ebene": "kreis" }
+      },
+      "schritt": "Antrag bei der Wohngeldstelle stellen und vorher die nötigen Unterlagen erfragen.",
+      "unterlagen": [
+        { "text": "Ausweisdokumente aller Haushaltsmitglieder", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/wohngeld-erstmalig-oder-neu-beantragen-1072-0.html?myMedium=1&auswahl=0" },
+        { "text": "Einkommensnachweise aller Haushaltsmitglieder, z. B. Verdienstbescheinigung, Rentenbescheid, Bescheide über Arbeitslosen- oder Krankengeld", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417115829/anliegenid-8665924/" },
+        { "text": "bei Selbstständigen: letzter Steuerbescheid", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417115829/anliegenid-8665924/" },
+        { "text": "bei Mietzuschuss: Vermieterbescheinigung", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/wohngeld-erstmalig-oder-neu-beantragen-1072-0.html?myMedium=1&auswahl=0" },
+        { "text": "bei Lastenzuschuss: Nachweise zur Belastung, z. B. Fremdmittelbescheinigung, Kaufvertrag, Grundbuchauszug", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/wohngeld-erstmalig-oder-neu-beantragen-1072-0.html?myMedium=1&auswahl=0" },
+        { "text": "bei Staatsangehörigen außerhalb der EU: Nachweis über das Aufenthaltsrecht", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/wohngeld-erstmalig-oder-neu-beantragen-1072-0.html?myMedium=1&auswahl=0" }
+      ],
+      "hinweis": "Im Heidekreis bearbeiten die Städte und Gemeinden das Wohngeld selbst. Im Landkreis Rotenburg (Wümme) macht das der Landkreis; Antragsvordrucke gibt es dort laut Landkreis auch bei der Gemeinde. Für Neuenkirchen ist die Zuständigkeit nur über den Zuständigkeitsfinder des Landes belegt.",
+      "quellen": ["https://www.heidekreis.de/bus/detail.html?id=8665924", "https://www.lk-row.de/buergerservice/dienstleistungen/wohngeld-erstmalig-oder-neu-beantragen-1072-0.html?myMedium=1&auswahl=0"]
+    },
+    {
+      "id": "bauantrag", "kategorie": "wohnen", "titel": "Bauantrag",
+      "zustaendig": {
+        "soltau": { "stelle": "Landkreis Heidekreis, Fachgruppe Bauen (untere Bauaufsicht)", "url": "https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "ebene": "kreis" },
+        "munster": { "stelle": "Landkreis Heidekreis, Fachgruppe Bauen (untere Bauaufsicht)", "url": "https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "ebene": "kreis" },
+        "schneverdingen": { "stelle": "Landkreis Heidekreis, Fachgruppe Bauen (untere Bauaufsicht)", "url": "https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "ebene": "kreis" },
+        "bispingen": { "stelle": "Landkreis Heidekreis, Fachgruppe Bauen (untere Bauaufsicht)", "url": "https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "ebene": "kreis" },
+        "neuenkirchen": { "stelle": "Landkreis Heidekreis, Fachgruppe Bauen (untere Bauaufsicht)", "url": "https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "ebene": "kreis" },
+        "wietzendorf": { "stelle": "Landkreis Heidekreis, Fachgruppe Bauen (untere Bauaufsicht)", "url": "https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "ebene": "kreis" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme), Bauamt (untere Bauaufsichtsbehörde)", "url": "https://www.lk-row.de/buergerservice/bauen-und-planen/bauamt/", "ebene": "kreis" }
+      },
+      "schritt": "Bauantrag mit einer bauvorlageberechtigten Entwurfsverfasserin oder einem Entwurfsverfasser vorbereiten und bei der Bauaufsicht des Landkreises einreichen, meist digital.",
+      "unterlagen": [
+        { "text": "ausgefülltes amtliches Antragsformular", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-566262209/anliegenid-8664283/", "kreis": "heidekreis" },
+        { "text": "alle für die Prüfung nötigen Bauvorlagen, unterschrieben von einer bauvorlageberechtigten Entwurfsverfasserin oder einem Entwurfsverfasser", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664283", "kreis": "heidekreis" },
+        { "text": "Unterschrift von Bauherrin oder Bauherr und Entwurfsverfasserin oder Entwurfsverfasser auf dem Bauantrag", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664283", "kreis": "heidekreis" }
+      ],
+      "hinweis": "Keine der sechs Heidekreis-Kommunen hat eine eigene Bauaufsicht. Im Heidekreis laufen Bauverfahren elektronisch. Die Stadt Soltau bietet eine kostenlose, nicht verbindliche Bauberatung an. Fintel: Die Samtgemeinde verweist bei Bauanträgen auf den Landkreis Rotenburg (Wümme).",
+      "quellen": ["https://www.heidekreis.de/bauen-planen/bauen-im-heidekreis/ansprechpersonen.html", "https://www.lk-row.de/buergerservice/bauen-und-planen/bauamt/"]
+    },
+    {
+      "id": "kfz-zulassung", "kategorie": "mobilitaet", "titel": "Auto anmelden (Kfz-Zulassung)",
+      "zustaendig": {
+        "soltau": { "stelle": "Landkreis Heidekreis, Zulassungsstelle im Dienstleistungsbüro Soltau (Harburger Straße 2)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "ebene": "kreis" },
+        "munster": { "stelle": "Landkreis Heidekreis (Zulassungsbehörde); in bestimmten Fällen auch im Bürgerbüro der Stadt Munster", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8665951/", "ebene": "kreis" },
+        "schneverdingen": { "stelle": "Landkreis Heidekreis (Zulassungsbehörde); in bestimmten Fällen auch im Bürgerbüro der Stadt Schneverdingen (nur mit Termin)", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7202/", "ebene": "kreis" },
+        "bispingen": { "stelle": "Landkreis Heidekreis, Zulassungsstelle (Dienstleistungsbüros Bad Fallingbostel und Soltau)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "ebene": "kreis" },
+        "neuenkirchen": { "stelle": "Landkreis Heidekreis, Zulassungsstelle (Dienstleistungsbüros Bad Fallingbostel und Soltau)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "ebene": "kreis" },
+        "wietzendorf": { "stelle": "Landkreis Heidekreis, Zulassungsstelle (Dienstleistungsbüros Bad Fallingbostel und Soltau)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "ebene": "kreis" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme), Kfz-Zulassungsstellen in Rotenburg (Wümme), Bremervörde und Zeven", "url": "https://www.lk-row.de/buergerservice/dienstleistungen/kfz-zulassung-1120-0.html?myMedium=1&auswahl=0", "ebene": "kreis" }
+      },
+      "schritt": "Unterlagen bereitlegen und zur Zulassungsstelle gehen (Termin online buchbar) oder die Zulassung online erledigen.",
+      "unterlagen": [
+        { "text": "Personalausweis oder Reisepass mit Meldebescheinigung (im Original)", "quelle": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "kreis": "heidekreis" },
+        { "text": "Zulassungsbescheinigung Teil II (Fahrzeugbrief)", "quelle": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "kreis": "heidekreis" },
+        { "text": "Versicherungsbestätigung (eVB-Nummer)", "quelle": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "kreis": "heidekreis" },
+        { "text": "SEPA-Lastschriftmandat für die Kfz-Steuer", "quelle": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "kreis": "heidekreis" },
+        { "text": "bei Firmen: Gewerbeanmeldung oder Handelsregisterauszug", "quelle": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "kreis": "heidekreis" },
+        { "text": "bei Vertretung: Vollmacht", "quelle": "https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "kreis": "heidekreis" }
+      ],
+      "hinweis": "Die Unterlagenliste des Heidekreises gilt für die Zulassung eines neuen Fahrzeugs; für andere Fälle gibt es eigene Listen. Im Heidekreis geht es vormittags ohne Termin. In den Bürgerbüros Munster und Schneverdingen geht die Erstzulassung nur, wenn schon ein Fahrzeugbrief vorliegt. Für Fintel stehen die Unterlagen auf der Seite des Landkreises Rotenburg (Wümme).",
+      "quellen": ["https://www.heidekreis.de/umwelt-verkehr/verkehr/kfz-zulassung.html", "https://www.lk-row.de/buergerservice/dienstleistungen/kfz-zulassung-1120-0.html?myMedium=1&auswahl=0"]
+    },
+    {
+      "id": "fuehrerschein", "kategorie": "mobilitaet", "titel": "Erster Führerschein",
+      "zustaendig": {
+        "soltau": { "stelle": "Landkreis Heidekreis, Fahrerlaubnisbehörde im Dienstleistungsbüro Soltau", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "ebene": "kreis" },
+        "munster": { "stelle": "Landkreis Heidekreis, Fahrerlaubnisbehörde (Dienstleistungsbüros Soltau und Bad Fallingbostel)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "ebene": "kreis" },
+        "schneverdingen": { "stelle": "Landkreis Heidekreis, Fahrerlaubnisbehörde (Dienstleistungsbüros Soltau und Bad Fallingbostel)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "ebene": "kreis" },
+        "bispingen": { "stelle": "Landkreis Heidekreis, Fahrerlaubnisbehörde (Dienstleistungsbüros Soltau und Bad Fallingbostel)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "ebene": "kreis" },
+        "neuenkirchen": { "stelle": "Landkreis Heidekreis, Fahrerlaubnisbehörde (Dienstleistungsbüros Soltau und Bad Fallingbostel)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "ebene": "kreis" },
+        "wietzendorf": { "stelle": "Landkreis Heidekreis, Fahrerlaubnisbehörde (Dienstleistungsbüros Soltau und Bad Fallingbostel)", "url": "https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "ebene": "kreis" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme), Straßenverkehrsamt (Fahrerlaubnisbehörde)", "url": "https://www.lk-row.de/buergerservice/dienstleistungen/fahrerlaubnis-erstmalig-fuer-die-klasse-b-beantragen-900001207-0.html?myMedium=1&auswahl=0", "ebene": "kreis" }
+      },
+      "schritt": "Antrag bei der Fahrerlaubnisbehörde des Landkreises stellen; vorher einen Termin buchen.",
+      "unterlagen": [
+        { "text": "gültiger Personalausweis oder Pass (ggf. mit Meldebescheinigung)", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/fahrerlaubnis-erstmalig-fuer-die-klasse-b-beantragen-900001207-0.html?myMedium=1&auswahl=0" },
+        { "text": "aktuelles biometrisches Foto (45 × 35 mm, Hochformat)", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664622" },
+        { "text": "Sehtestbescheinigung", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/fahrerlaubnis-erstmalig-fuer-die-klasse-b-beantragen-900001207-0.html?myMedium=1&auswahl=0" },
+        { "text": "Nachweis über einen Erste-Hilfe-Kurs", "quelle": "https://www.heidekreis.de/bus/detail.html?id=8664622" },
+        { "text": "Angaben zur Fahrschule", "quelle": "https://www.lk-row.de/buergerservice/dienstleistungen/fahrerlaubnis-erstmalig-fuer-die-klasse-b-beantragen-900001207-0.html?myMedium=1&auswahl=0" }
+      ],
+      "hinweis": "Die Unterlagen gelten für die erste Fahrerlaubnis; für Umtausch, Ersatz oder andere Klassen gibt es eigene Listen. Lkw- und Busklassen brauchen zusätzlich ärztliche Gutachten. In Rotenburg darf die Sehtestbescheinigung nicht älter als zwei Jahre sein.",
+      "quellen": ["https://www.heidekreis.de/umwelt-verkehr/verkehr/fuhrerschein-fahrerlaubnis.html", "https://www.lk-row.de/buergerservice/dienstleistungen/fahrerlaubnis-erstmalig-fuer-die-klasse-b-beantragen-900001207-0.html?myMedium=1&auswahl=0"]
+    },
+    {
+      "id": "strassenschaden", "kategorie": "mobilitaet", "titel": "Schaden an einer Straße melden",
+      "zustaendig": {
+        "soltau": { "stelle": "Je nach Straße: Gemeindestraßen die Stadt Soltau; Kreisstraßen der Landkreis Heidekreis; Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (Geschäftsbereich Verden); Autobahnen die Autobahn GmbH des Bundes", "url": "https://serviceportal.soltau.de/dienstleistungen/-/egov-bis-detail/dienstleistung/8931/show", "ebene": "unklar" },
+        "munster": { "stelle": "Je nach Straße: Gemeindestraßen die Stadt Munster (Planung und Bau); Kreisstraßen der Landkreis Heidekreis; Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (Geschäftsbereich Verden); Autobahnen die Autobahn GmbH des Bundes", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-364750804/anliegenid-306359679/", "ebene": "unklar" },
+        "schneverdingen": { "stelle": "Je nach Straße: Gemeindestraßen die Stadt Schneverdingen (Straßen- und Tiefbau); Kreisstraßen der Landkreis Heidekreis; Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (Geschäftsbereich Verden); Autobahnen die Autobahn GmbH des Bundes", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-8189/", "ebene": "unklar" },
+        "bispingen": { "stelle": "Je nach Straße: Gemeindestraßen die Gemeinde Bispingen (Planen und Bauen); Kreisstraßen der Landkreis Heidekreis; Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (Geschäftsbereich Verden); Autobahnen die Autobahn GmbH des Bundes", "url": "https://gemeinde.bispingen.de/politik-verwaltung-und-service/ansprechpersonen", "ebene": "unklar" },
+        "neuenkirchen": { "stelle": "Je nach Straße: Gemeindestraßen und -wege die Gemeinde Neuenkirchen (Mängelmelder); Kreisstraßen der Landkreis Heidekreis; Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (Geschäftsbereich Verden)", "url": "https://www.dasneuenkirchen.de/de/buergerservice/maengelmelder/", "ebene": "unklar" },
+        "wietzendorf": { "stelle": "Je nach Straße: Gemeindestraßen die Gemeinde Wietzendorf (Mängelmeldung); Kreisstraßen der Landkreis Heidekreis; Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (Geschäftsbereich Verden)", "url": "https://www.wietzendorf.de/m%C3%A4ngelmeldung", "ebene": "unklar" },
+        "fintel": { "stelle": "Je nach Straße: Gemeindestraßen die Gemeinden bzw. die Samtgemeinde Fintel (Mängelmelder); Kreisstraßen der Landkreis Rotenburg (Wümme); Bundes- und Landesstraßen die Landesbehörde für Straßenbau und Verkehr (welcher Geschäftsbereich, ist nicht ausdrücklich belegt); die A1 die Autobahn GmbH des Bundes", "url": "https://www.sgfintel.de/bauen-umwelt/bauen/", "ebene": "unklar" }
+      },
+      "schritt": "Schaden mit genauer Ortsangabe der zuständigen Stelle melden. Bei Straßen im Ort meist zuerst der Stadt oder Gemeinde – sie leitet weiter, wenn sie nicht zuständig ist.",
+      "unterlagen": [
+        { "text": "Keine Unterlagen nötig: genaue Ortsangabe, Beschreibung des Schadens und Kontaktdaten für Rückfragen", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-364750804/anliegenid-306359679/" }
+      ],
+      "hinweis": "Wer zuständig ist, hängt von der Art der Straße ab und ist von außen oft nicht zu erkennen.",
+      "quellen": ["https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-364750804/anliegenid-306359679/", "https://www.heidekreis.de/bauen-planen/strassenbau.html", "https://www.lk-row.de/buergerservice/auto-und-verkehr/kreisstrassen/"]
+    },
+    {
+      "id": "bus-und-bahn", "kategorie": "mobilitaet", "titel": "Bus und Bahn: Auskunft und Beschwerde",
+      "zustaendig": {
+        "soltau": { "stelle": "Landkreis Heidekreis (Aufgabenträger Busverkehr); Fahrpläne sowie Lob und Kritik bei der Verkehrsgemeinschaft Heidekreis", "url": "https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "ebene": "kreis" },
+        "munster": { "stelle": "Landkreis Heidekreis (Aufgabenträger Busverkehr); Fahrpläne sowie Lob und Kritik bei der Verkehrsgemeinschaft Heidekreis", "url": "https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "ebene": "kreis" },
+        "schneverdingen": { "stelle": "Landkreis Heidekreis (Aufgabenträger Busverkehr); Fahrpläne sowie Lob und Kritik bei der Verkehrsgemeinschaft Heidekreis", "url": "https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "ebene": "kreis" },
+        "bispingen": { "stelle": "Landkreis Heidekreis (Aufgabenträger Busverkehr); Fahrpläne sowie Lob und Kritik bei der Verkehrsgemeinschaft Heidekreis", "url": "https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "ebene": "kreis" },
+        "neuenkirchen": { "stelle": "Landkreis Heidekreis (Aufgabenträger Busverkehr); Fahrpläne sowie Lob und Kritik bei der Verkehrsgemeinschaft Heidekreis", "url": "https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "ebene": "kreis" },
+        "wietzendorf": { "stelle": "Landkreis Heidekreis (Aufgabenträger Busverkehr); Fahrpläne sowie Lob und Kritik bei der Verkehrsgemeinschaft Heidekreis", "url": "https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "ebene": "kreis" },
+        "fintel": { "stelle": "Landkreis Rotenburg (Wümme) (Aufgabenträger Busverkehr); Fahrpläne und Kontakt bei der Verkehrsgemeinschaft Nordost-Niedersachsen (VNN)", "url": "https://www.lk-row.de/buergerservice/auto-und-verkehr/oepnv/", "ebene": "kreis" }
+      },
+      "schritt": "Fahrplan bei der Verkehrsgemeinschaft abrufen; Lob oder Beschwerde über deren Kontaktformular melden. Fragen zum Busangebot an den Landkreis.",
+      "unterlagen": [],
+      "hinweis": "Die Landkreise sind Aufgabenträger für den Bus-Nahverkehr. Die Verkehrsgemeinschaften sind Zusammenschlüsse von Busunternehmen, keine Behörden. Lob und Kritik im Heidekreis: verkehrsgemeinschaft-heidekreis.de/service/lob-kritik/. Für Lauenbrück verweist die Samtgemeinde beim Zug auf die Deutsche Bahn.",
+      "quellen": ["https://www.heidekreis.de/umwelt-verkehr/auto-bus-bahn.html", "https://www.verkehrsgemeinschaft-heidekreis.de/service/lob-kritik/", "https://vnn.de/die-vnn/kontakt/"]
+    },
+    {
+      "id": "personalausweis", "kategorie": "verwaltung", "titel": "Personalausweis",
+      "zustaendig": {
+        "soltau": { "stelle": "Stadt Soltau, Bürgerbüro", "url": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8665348/", "ebene": "gemeinde" },
+        "munster": { "stelle": "Stadt Munster, Bürgerbüro", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8665348/", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Stadt Schneverdingen, Bürgerbüro", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7202/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Gemeinde Bispingen, Bürgerservice (Bürgerbüro)", "url": "https://serviceportal.bispingen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/116282/show", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Gemeinde Neuenkirchen", "url": "https://www.dasneuenkirchen.de/de/", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Gemeinde Wietzendorf, Einwohnermeldeamt", "url": "https://www.wietzendorf.de/leistungen", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Samtgemeinde Fintel, Einwohnermeldeamt (Rathaus Lauenbrück)", "url": "https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/paesse-und-personalausweise/", "ebene": "gemeinde" }
+      },
+      "schritt": "Termin im Bürgerbüro vereinbaren und den Ausweis persönlich beantragen.",
+      "unterlagen": [
+        { "text": "bisheriger Personalausweis oder Reisepass (falls vorhanden)", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8665348/" },
+        { "text": "aktuelles biometrisches Passbild in digitaler Form (vom Fotografen per Code oder vor Ort im Amt aufgenommen)", "quelle": "https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/paesse-und-personalausweise/" },
+        { "text": "ggf. Geburts- oder Heiratsurkunde bzw. Urkunde zur Namensführung", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8665348/" },
+        { "text": "bei Kindern unter 16: Einverständnis aller Sorgeberechtigten; das Kind muss mitkommen", "quelle": "https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/paesse-und-personalausweise/" },
+        { "text": "bei nur einer sorgeberechtigten Person: Sorgerechtsnachweis", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8665348/" }
+      ],
+      "hinweis": "Papierfotos sind seit 1. Mai 2025 nicht mehr zugelassen. Zuständig ist die Behörde am Hauptwohnsitz. Für Neuenkirchen und Wietzendorf ist die Zuständigkeit über den Zuständigkeitsfinder des Landes belegt.",
+      "quellen": ["https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/paesse-und-personalausweise/"]
+    },
+    {
+      "id": "fuehrungszeugnis", "kategorie": "verwaltung", "titel": "Führungszeugnis",
+      "zustaendig": {
+        "soltau": { "stelle": "Stadt Soltau, Bürgerbüro – oder online beim Bundesamt für Justiz", "url": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664760/", "ebene": "gemeinde" },
+        "munster": { "stelle": "Stadt Munster, Bürgerbüro – oder online beim Bundesamt für Justiz", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8664760/", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Stadt Schneverdingen, Bürgerbüro – oder online beim Bundesamt für Justiz", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7202/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Gemeinde Bispingen, Bürgerservice – oder online beim Bundesamt für Justiz", "url": "https://serviceportal.bispingen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/22762/show", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Gemeinde Neuenkirchen – oder online beim Bundesamt für Justiz", "url": "https://serviceportal.dasneuenkirchen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/12191/show", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Gemeinde Wietzendorf, Einwohnermeldeamt – oder online beim Bundesamt für Justiz", "url": "https://www.wietzendorf.de/leistungen", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Online beim Bundesamt für Justiz; ob es auch im Rathaus Lauenbrück geht, steht auf der Seite der Samtgemeinde nicht ausdrücklich", "url": "https://www.bundesjustizamt.de/DE/Themen/ZentraleRegister/Fuehrungszeugnis/Fuehrungszeugnis_node.html", "ebene": "unklar" }
+      },
+      "schritt": "Im Bürgerbüro beantragen oder online beim Bundesamt für Justiz mit dem Online-Ausweis.",
+      "unterlagen": [
+        { "text": "Personalausweis oder Reisepass", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664760/" },
+        { "text": "für Behörden: Anschrift der Behörde und Verwendungszweck bzw. Aktenzeichen", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365886835/anliegenid-8664760/" },
+        { "text": "online: Online-Ausweis, NFC-fähiges Smartphone und AusweisApp", "quelle": "https://www.bundesjustizamt.de/DE/Themen/ZentraleRegister/Fuehrungszeugnis/Fuehrungszeugnis_node.html" }
+      ],
+      "hinweis": "Beantragen kann man ab 14 Jahren und nur persönlich. Ausgestellt wird das Führungszeugnis vom Bundesamt für Justiz.",
+      "quellen": ["https://www.bundesjustizamt.de/DE/Themen/ZentraleRegister/Fuehrungszeugnis/Fuehrungszeugnis_node.html"]
+    },
+    {
+      "id": "gewerbeanmeldung", "kategorie": "verwaltung", "titel": "Gewerbe anmelden",
+      "zustaendig": {
+        "soltau": { "stelle": "Stadt Soltau, Bürgerbüro", "url": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664844/", "ebene": "gemeinde" },
+        "munster": { "stelle": "Stadt Munster, Gewerbe", "url": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365623904/anliegenid-8664844/", "ebene": "gemeinde" },
+        "schneverdingen": { "stelle": "Stadt Schneverdingen, Bürgerbüro", "url": "https://www.schneverdingen.de/desktopdefault.aspx/tabid-7202/", "ebene": "gemeinde" },
+        "bispingen": { "stelle": "Gemeinde Bispingen, Bürgerservice", "url": "https://serviceportal.bispingen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/181/show", "ebene": "gemeinde" },
+        "neuenkirchen": { "stelle": "Gemeinde Neuenkirchen", "url": "https://serviceportal.dasneuenkirchen.de/dienstleistungen/-/egov-bis-detail/dienstleistung/191/show", "ebene": "gemeinde" },
+        "wietzendorf": { "stelle": "Gemeinde Wietzendorf, Ordnungsamt", "url": "https://www.wietzendorf.de/leistungen", "ebene": "gemeinde" },
+        "fintel": { "stelle": "Samtgemeinde Fintel, Gewerbeamt", "url": "https://www.sgfintel.de/verwaltung-politik/verwaltung/buergerservice-ordnung/gewerbean-abmeldung/", "ebene": "gemeinde" }
+      },
+      "schritt": "Gewerbe zum Start bei der Stadt oder Gemeinde des Betriebssitzes anmelden, vor Ort oder online.",
+      "unterlagen": [
+        { "text": "Personalausweis oder Reisepass", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664844/" },
+        { "text": "ggf. Handelsregisterauszug", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365623904/anliegenid-8664844/" },
+        { "text": "ggf. Nachweis der Eintragung bei der Handwerkskammer bzw. Handwerkskarte", "quelle": "https://www.munster.de/home/stadt-politik-verwaltung/buergerservice/was-erledige-ich-wo-a-z.aspx/oeid-365623904/anliegenid-8664844/" },
+        { "text": "ggf. Erlaubnisurkunde", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664844/" },
+        { "text": "bei Vertretung: Vollmacht", "quelle": "https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664844/" }
+      ],
+      "hinweis": "Die Anmeldung muss gleichzeitig mit dem Beginn des Gewerbes erfolgen. Bei überwachungsbedürftigen Gewerben sind zusätzlich Führungszeugnis und Auszug aus dem Gewerbezentralregister nötig. Freie Berufe sowie Land- und Forstwirtschaft brauchen keine Gewerbeanmeldung.",
+      "quellen": ["https://www.soltau.de/home/buergerservice/leistungen-a-z.aspx/oeid-417118203/anliegenid-8664844/"]
+    }
+  ]
+}

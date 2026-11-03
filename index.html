@@ -2,22 +2,35 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <title>Birhat Kaçar – Für den Landtag</title>
 <meta name="description" content="Birhat Kaçar bewirbt sich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau: Soltau, Munster, Schneverdingen, Bispingen, Neuenkirchen, Wietzendorf und Samtgemeinde Fintel.">
 <meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="preload" href="assets/fonts/thesans-spd-versal-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/birhat-wand.jpg" as="image">
 <link rel="stylesheet" href="assets/styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+  // Eingangsanimation: einmal pro Sitzung ganz, danach nur dezent; bei „Bewegung reduzieren“ gar nicht
+  (function () {
+    var d = document.documentElement, ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches, schon = null;
+    d.classList.add('js');
+    try { schon = sessionStorage.getItem('birhat-intro'); sessionStorage.setItem('birhat-intro', '1'); } catch (e) {}
+    d.classList.add(ruhig ? 'intro-ruhig' : schon ? 'intro-kurz' : 'intro-voll');
+  })();
+</script>
 </head>
 <body>
-
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
 <div class="fortschritt" aria-hidden="true"><i></i></div>
 
 <header class="kopf">
-  <a class="marke" href="#start" aria-label="Birhat Kaçar – nach oben"><span class="marke-name">Birhat Kaçar</span><span class="marke-spd">SPD</span></a>
-  <a class="kopf-cta magnet" href="#kontakt">Lad mich ein</a>
+  <a class="marke" href="#start" aria-label="Birhat. Frischer Wind. Neue Chancen. – zum Seitenanfang">
+    <span class="marke-name">Birhat<span class="marke-punkt">.</span></span>
+    <span class="marke-slogan">Frischer Wind. Neue Chancen.</span>
+  </a>
+  <a class="kopf-cta" href="#kontakt">Kontakt</a>
   <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="menue"><span class="striche" aria-hidden="true"></span><span>Menü</span></button>
 </header>
 
@@ -25,34 +38,47 @@
   <ol>
     <li><a href="#warum" style="--i:0"><small>01</small>Warum ich</a></li>
     <li><a href="#themen" style="--i:1"><small>02</small>Themen</a></li>
-    <li><a href="#weg" style="--i:2"><small>03</small>Mein Weg</a></li>
-    <li><a href="#ueber" style="--i:3"><small>04</small>Über mich</a></li>
-    <li><a href="#wahlkreis" style="--i:4"><small>05</small>Wahlkreis</a></li>
-    <li><a href="#kontakt" style="--i:5"><small>06</small>Kontakt</a></li>
+    <li><a href="#ueber" style="--i:2"><small>03</small>Über mich</a></li>
+    <li><a href="#wahlkreis" style="--i:3"><small>04</small>Wahlkreis</a></li>
+    <li><a href="#wegweiser" style="--i:4"><small>05</small>Wegweiser</a></li>
+    <li><a href="#instagram" style="--i:5"><small>06</small>Instagram</a></li>
+    <li><a href="#kontakt" style="--i:6"><small>07</small>Kontakt</a></li>
+    <li><a href="#fragen" style="--i:7"><small>08</small>Fragen</a></li>
   </ol>
   <div class="menue-fuss"><a href="https://www.instagram.com/birhat.kacar/" target="_blank" rel="noopener">Instagram</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
 </nav>
 
 <main id="start">
-  <section class="hero" aria-label="Birhat Kaçar">
-    <figure class="hero-foto" data-parallax="0.22">
+  <section class="hero" aria-labelledby="hero-name">
+    <figure class="hero-foto" data-parallax="0.18">
       <img src="assets/img/birhat-wand.jpg" alt="Birhat Kaçar im braunen Anzug, an eine graue Hauswand gelehnt" width="1536" height="1024" fetchpriority="high">
+      <span class="vorhang" aria-hidden="true"></span>
     </figure>
-    <div class="hero-text">
-      <span class="kicker hero-kicker">Bewerbung · Landtagswahl 2027</span>
-      <h1 class="hero-name"><span class="maske"><span>Birhat</span></span><span class="maske"><span>Kaçar</span></span></h1>
+    <div class="hero-text" id="inhalt">
+      <span class="kicker hero-kicker" data-status-kicker>Bewerbung · Landtagswahl 2027</span>
+      <h1 class="hero-name" id="hero-name"><span class="maske"><span>Birhat Kaçar</span></span></h1>
       <p class="hero-sub">Ich bewerbe mich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau.</p>
       <div class="hero-aktionen">
-        <a class="knopf knopf-rot magnet" href="#warum">Warum ich kandidiere <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knopf knopf-hell magnet" href="#kontakt">Lad mich ein</a>
+        <a class="knopf knopf-haupt" href="#warum">Warum ich kandidiere</a>
+        <a class="knopf" href="#ueber">Über mich</a>
       </div>
     </div>
-    <a class="runter" href="#claim"><i></i>Scrollen</a>
   </section>
 
-  <div class="baender" aria-hidden="true">
-    <div class="band band-rot"><div class="spur"><span>Soltau</span><span class="leer">Munster</span><span>Schneverdingen</span><span class="leer">Bispingen</span><span>Neuenkirchen</span><span class="leer">Wietzendorf</span><span>Fintel</span><span class="leer">Lauenbrück</span><span>Helvesiek</span><span class="leer">Stemmen</span><span>Vahlde</span></div><div class="spur"><span>Soltau</span><span class="leer">Munster</span><span>Schneverdingen</span><span class="leer">Bispingen</span><span>Neuenkirchen</span><span class="leer">Wietzendorf</span><span>Fintel</span><span class="leer">Lauenbrück</span><span>Helvesiek</span><span class="leer">Stemmen</span><span>Vahlde</span></div></div>
-    <div class="band band-schwarz"><div class="spur"><span>Zuhören</span><span class="leer">Ernst nehmen</span><span>Anpacken</span><span class="leer">Landtag 2027</span><span>Zuhören</span><span class="leer">Ernst nehmen</span><span>Anpacken</span><span class="leer">Landtag 2027</span></div><div class="spur"><span>Zuhören</span><span class="leer">Ernst nehmen</span><span>Anpacken</span><span class="leer">Landtag 2027</span><span>Zuhören</span><span class="leer">Ernst nehmen</span><span>Anpacken</span><span class="leer">Landtag 2027</span></div></div>
+  <div class="baender">
+    <div class="band band-a">
+      <ul class="spur" aria-label="Orte im Wahlkreis 43">
+        <li>Soltau</li><li class="leer">Munster</li><li>Schneverdingen</li><li class="leer">Bispingen</li><li>Neuenkirchen</li><li class="leer">Wietzendorf</li><li>Samtgemeinde Fintel</li>
+        <li class="dopp" aria-hidden="true">Soltau</li><li class="leer dopp" aria-hidden="true">Munster</li><li class="dopp" aria-hidden="true">Schneverdingen</li><li class="leer dopp" aria-hidden="true">Bispingen</li><li class="dopp" aria-hidden="true">Neuenkirchen</li><li class="leer dopp" aria-hidden="true">Wietzendorf</li><li class="dopp" aria-hidden="true">Samtgemeinde Fintel</li>
+      </ul>
+    </div>
+    <div class="band band-b" aria-hidden="true">
+      <ul class="spur">
+        <li>Wietzendorf</li><li class="leer">Samtgemeinde Fintel</li><li>Bispingen</li><li class="leer">Soltau</li><li>Munster</li><li class="leer">Neuenkirchen</li><li>Schneverdingen</li>
+        <li class="dopp">Wietzendorf</li><li class="leer dopp">Samtgemeinde Fintel</li><li class="dopp">Bispingen</li><li class="leer dopp">Soltau</li><li class="dopp">Munster</li><li class="leer dopp">Neuenkirchen</li><li class="dopp">Schneverdingen</li>
+      </ul>
+    </div>
+    <button class="band-pause" type="button" aria-pressed="false" hidden><span class="sr">Ortsbänder</span> <span data-text>anhalten</span></button>
   </div>
 
   <section class="claim" id="claim">
@@ -62,55 +88,74 @@
 
   <section class="zahlen" aria-label="In Zahlen">
     <div class="zahl rv" style="--i:0"><b data-zahl="1998" data-ab="1950">1998</b><span>in Soltau geboren</span></div>
-    <div class="zahl rv" style="--i:1"><b data-zahl="3875">3.875</b><span>Stimmen bei der Stadtratswahl 2026</span></div>
-    <div class="zahl rv" style="--i:2"><b data-zahl="10">10</b><span>Jahre im Soltauer Stadtrat</span></div>
-    <div class="zahl rv" style="--i:3"><b data-zahl="3">3</b><span>Jahre Arbeit im Niedersächsischen Landtag</span></div>
+    <div class="zahl rv" style="--i:1"><b data-zahl="4116">4.116</b><span>persönliche Stimmen bei der Kreistagswahl 2026</span></div>
+    <div class="zahl rv" style="--i:2"><small>seit</small><b data-zahl="2016" data-ab="1990">2016</b><span>im Soltauer Stadtrat</span></div>
+    <div class="zahl rv" style="--i:3"><small>seit</small><b data-zahl="2021" data-ab="1990">2021</b><span>im Kreistag Heidekreis</span></div>
   </section>
 
   <section class="warum" id="warum">
     <div class="warum-kopf">
       <span class="kicker rv">Bewerbung</span>
       <h2 class="gross zeilen"><span class="maske"><span>Warum ich</span></span><span class="maske" style="--i:1"><span>kandidiere</span></span></h2>
-      <span class="entwurf rv" style="justify-self:start">Entwurf – Birhat bitte in eigenen Worten</span>
     </div>
     <div class="warum-brief">
       <p class="anrede rv">Liebe Genossinnen und Genossen,</p>
       <p class="rv">ich bin in Soltau geboren und aufgewachsen. Kita St. Johannis, Wilhelm-Busch-Grundschule, Oberschule Soltau, Ausbildung in Walsrode: <strong>Diese Region hat mich geprägt.</strong> Heute arbeite ich als Sozialarbeiter im Heidekreis und sehe jeden Tag, was Menschen hier brauchen und wo es hakt.</p>
-      <p class="rv">Seit 2016 bin ich im Soltauer Stadtrat, seit 2023 Vorsitzender unserer Fraktion. Im Kreistag sitze ich seit 2021. <strong>Den Landtag kenne ich von innen:</strong> Drei Jahre habe ich dort als wissenschaftlicher Mitarbeiter gearbeitet.</p>
-      <p class="rv">2022 ist unser Wahlkreis knapp an die CDU gegangen: 32,8 zu 34,3 Prozent bei den Erststimmen. Ich will, dass unsere Region ab 2027 wieder eine starke sozialdemokratische Stimme in Hannover hat. <strong>Deshalb bewerbe ich mich um eure Nominierung.</strong></p>
+      <p class="rv">Seit 2016 bin ich im Soltauer Stadtrat, seit 2023 Vorsitzender unserer Fraktion. Im Kreistag sitze ich seit 2021. <strong>Den Landtag kenne ich von innen:</strong> Von 2020 bis 2023 habe ich dort als wissenschaftlicher Mitarbeiter gearbeitet.</p>
+      <p class="rv">2022 ist unser Wahlkreis an die CDU gegangen. Ich will, dass unsere Region ab 2027 wieder eine starke sozialdemokratische Stimme in Hannover hat. <strong>Deshalb bewerbe ich mich um eure Nominierung.</strong></p>
       <p class="rv">Dabei bleibe ich bei dem, was mich im Rat und im Beruf trägt: zuhören, Anliegen ernst nehmen und dann anpacken. Ich freue mich auf die Gespräche in euren Ortsvereinen.</p>
-      <p class="gruss rv">Euer Birhat</p>
+      <p class="gruss">
+        <span class="sr">Euer Birhat</span>
+        <svg class="unterschrift" viewBox="0 0 470 150" aria-hidden="true" focusable="false">
+          <g transform="skewX(-7) translate(12 0)">
+            <path d="M58 44 C50 30, 24 34, 28 52 C31 64, 44 66, 47 66 C36 64, 18 72, 20 92 C22 110, 46 114, 60 100"/>
+            <path d="M60 100 C63 94, 64 86, 66 80 C66 92, 65 108, 77 109 C86 110, 88 96, 89 80 C89 92, 88 107, 98 106"/>
+            <path d="M98 106 C108 100, 118 92, 114 84 C110 78, 98 84, 100 96 C102 108, 116 110, 126 102"/>
+            <path d="M126 102 C128 94, 128 87, 130 80 C134 86, 140 84, 147 82 C142 90, 142 100, 152 104"/>
+            <path d="M200 30 C198 58, 196 88, 193 112"/>
+            <path d="M186 42 C206 24, 244 30, 228 56 C221 66, 207 68, 200 68 C224 66, 248 80, 234 100 C223 115, 199 113, 188 106"/>
+            <path d="M246 104 C250 96, 252 88, 254 80 C254 92, 252 104, 258 108 C264 110, 268 104, 270 100"/>
+            <path d="M270 100 C272 92, 272 86, 274 80 C278 86, 284 84, 291 82 C287 90, 287 100, 295 104"/>
+            <path d="M295 104 C303 94, 314 70, 313 46 C312 30, 300 32, 300 50 C300 72, 298 92, 298 110 C302 92, 310 82, 318 82 C326 82, 326 96, 326 104 C326 110, 334 110, 338 104"/>
+            <path d="M338 104 C346 92, 357 82, 351 80 C341 78, 334 94, 340 104 C346 112, 357 100, 361 84 C359 96, 359 108, 367 108 C373 108, 377 102, 380 97"/>
+            <path d="M394 54 C392 74, 390 94, 394 106 C398 112, 406 108, 412 101"/>
+            <path d="M381 75 C392 73, 402 72, 413 70"/>
+            <path d="M252 63 C254 61, 257 62, 256 65"/>
+            <path d="M172 130 C250 140, 360 136, 438 120"/>
+          </g>
+        </svg>
+      </p>
     </div>
   </section>
 
   <section class="themen" id="themen">
     <div class="themen-kopf">
       <h2 class="gross zeilen"><span class="maske"><span>Wofür</span></span><span class="maske" style="--i:1"><span>ich stehe</span></span></h2>
-      <p class="rv"><span class="entwurf">Vorschlag</span> Abgeleitet aus Birhats bisheriger Arbeit. Er entscheidet, welche Themen es werden.</p>
+      <p class="rv">Vier Schwerpunkte aus meiner Arbeit in Beruf, Rat und Kreistag. Tippe auf ein Feld, um es zu öffnen.</p>
     </div>
     <div class="bahnen">
-      <button class="bahn aktiv" type="button" aria-expanded="true">
+      <button class="bahn rv aktiv" type="button" aria-expanded="true" style="--farbe:#C8000D;--i:0">
         <span class="nr">01</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M6 24 32 12l26 12-26 12z"/><path pathLength="1" d="M16 29v13c0 4 7 8 16 8s16-4 16-8V29"/><path pathLength="1" d="M58 24v16"/></svg>
         <span class="kurz" aria-hidden="true">Bildung</span>
         <h3>Bildung, die nicht vom Geldbeutel abhängt</h3>
         <p>Seit meiner Zeit im Landesschülerrat setze ich mich dafür ein, dass Bildung für alle zugänglich und fair ist, unabhängig vom Einkommen der Eltern.</p>
       </button>
-      <button class="bahn" type="button" aria-expanded="false">
+      <button class="bahn rv" type="button" aria-expanded="false" style="--farbe:#B9450F;--i:1">
         <span class="nr">02</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><circle pathLength="1" cx="22" cy="18" r="7"/><circle pathLength="1" cx="44" cy="22" r="5"/><path pathLength="1" d="M8 52c0-9 6-16 14-16s14 7 14 16"/><path pathLength="1" d="M34 52c0-7 4-12 10-12s10 5 10 12"/></svg>
         <span class="kurz" aria-hidden="true">Familien</span>
         <h3>Starke Hilfe für Kinder, Jugend und Familien</h3>
         <p>Als Sozialarbeiter und im Jugendhilfeausschuss des Kreistags erlebe ich, wie wichtig verlässliche Hilfe ist, wenn es zu Hause schwierig wird.</p>
       </button>
-      <button class="bahn" type="button" aria-expanded="false">
+      <button class="bahn rv" type="button" aria-expanded="false" style="--farbe:#0E6B70;--i:2">
         <span class="nr">03</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 6c4 8 14 13 14 26a14 14 0 0 1-28 0c0-6 3-10 6-13 0 5 3 8 6 8 0-9-2-15 2-21z"/><path pathLength="1" d="M26 44a6 6 0 0 0 12 0c0-4-3-6-6-10-3 4-6 6-6 10z"/></svg>
         <span class="kurz" aria-hidden="true">Ehrenamt</span>
         <h3>Rückendeckung für Feuerwehr und Ehrenamt</h3>
         <p>Feuerwehren, Rettungsdienste und Vereine halten unsere Orte zusammen. Sie brauchen gute Ausstattung und Unterstützung aus Hannover.</p>
       </button>
-      <button class="bahn" type="button" aria-expanded="false">
+      <button class="bahn rv" type="button" aria-expanded="false" style="--farbe:#6A2BD0;--i:3">
         <span class="nr">04</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect pathLength="1" x="10" y="14" width="44" height="30" rx="6"/><path pathLength="1" d="M10 32h44M18 44l-4 8M46 44l4 8"/><circle pathLength="1" cx="20" cy="38" r="2"/><circle pathLength="1" cx="44" cy="38" r="2"/></svg>
         <span class="kurz" aria-hidden="true">Land &amp; Arbeit</span>
@@ -120,62 +165,52 @@
     </div>
   </section>
 
-  <section class="weg" id="weg">
-    <div class="weg-pin">
-      <div class="weg-kopf">
-        <h2 class="gross zeilen"><span class="maske"><span>Mein Weg</span></span></h2>
-        <p class="rv">Von der Schülervertretung über Rat und Kreistag bis in den Landtag: als Mitarbeiter und, wenn ihr wollt, als Abgeordneter.</p>
-      </div>
-      <div class="weg-spur">
-        <article class="station"><time>2013</time><h3>Eintritt in die SPD</h3><p>Parallel engagiert in der Schülervertretung, später Schülersprecher an der Oberschule Soltau und der BBS Walsrode.</p><span class="ort">Soltau</span></article>
-        <article class="station"><time>2016</time><h3>Mit 18 in den Stadtrat</h3><p>Gewählt in den Soltauer Stadtrat. Im selben Jahr Sprecher des Landesschülerrats Niedersachsen, bis 2018.</p><span class="ort">Soltau · Hannover</span></article>
-        <article class="station"><time>2020</time><h3>Arbeit im Landtag</h3><p>Wissenschaftlicher Mitarbeiter für den Abgeordneten Stefan Politze, bis 2023. Daneben Erzieher in Wohngruppen und Studium der Sozialen Arbeit.</p><span class="ort">Hannover</span></article>
-        <article class="station"><time>2021</time><h3>Kreistag Heidekreis</h3><p>Abgeordneter im Kreistag, im Jugendhilfeausschuss und im Ausschuss für Wirtschaft, Verkehr, Feuerwehr und Tourismus. Bis 2024 stellvertretender Landesvorsitzender der Jusos.</p><span class="ort">Bad Fallingbostel</span></article>
-        <article class="station"><time>2023</time><h3>Fraktions&shy;vorsitzender</h3><p>Vorsitzender der SPD-Fraktion im Soltauer Stadtrat. Seitdem auch Sozialarbeiter bei Venito (Diakonie) und stellvertretender Vorsitzender der SPD Heidekreis <mark class="offen">noch aktuell?</mark>.</p><span class="ort">Soltau · Heidekreis</span></article>
-        <article class="station"><time>2024</time><h3>Ehrenamtlicher Richter</h3><p>Am Amtsgericht Soltau.</p><span class="ort">Soltau</span></article>
-        <article class="station"><time>2026</time><h3>3.875 Stimmen</h3><p>Wiedergewählt in den Stadtrat und erneut zum Fraktionsvorsitzenden gewählt. Kreistag: <mark class="offen">2026 wiedergewählt?</mark></p><span class="ort">Soltau</span></article>
-        <article class="station zukunft"><time>2027</time><h3>Landtag</h3><p>Mit eurer Stimme bei der Wahlkreiskonferenz und euren Stimmen bei der Landtagswahl am 26. September 2027.</p><span class="ort">Wahlkreis 43 Soltau</span></article>
-      </div>
-      <div class="weg-linie" aria-hidden="true"><i></i></div>
-    </div>
-  </section>
-
   <section class="ueber" id="ueber" data-reveal>
     <figure class="ueber-bild">
-      <img src="assets/img/birhat-bank.jpg" alt="Birhat Kaçar sitzt im Herbst auf einer Bank vor einem Backsteingebäude" width="1536" height="1024" loading="lazy" data-innen-parallax>
+      <img src="assets/img/birhat-bank.jpg" alt="Birhat Kaçar sitzt im Herbst auf einer Bank vor einem Backsteingebäude" width="1536" height="1024" loading="lazy">
     </figure>
     <div class="ueber-text">
       <span class="kicker rv">Über mich</span>
       <h2 class="gross zeilen"><span class="maske"><span>Aus dem Heidekreis.</span></span><span class="maske" style="--i:1"><span>Für den Heidekreis.</span></span></h2>
-      <p class="lead rv">Ich wurde am 14. August 1998 in Soltau geboren und bin hier aufgewachsen. Heute arbeite ich als Sozialarbeiter im Heidekreis und mache in meiner Freizeit leidenschaftlich gern Sport und Musik.</p>
-      <p class="rv">Meine Eltern stammen aus dem kurdischen Teil der Türkei. Sie wurden dort wegen ihres jesidischen Glaubens verfolgt und flohen in den 1980er-Jahren nach Deutschland. Soltau wurde ihr Zuhause und meine Heimat.</p>
-      <p class="rv">Nach der Schule habe ich mich zum Erzieher ausbilden lassen und danach Soziale Arbeit studiert. Ich begleite junge Menschen und ihre Familien durch schwierige Lebenslagen. Dabei habe ich gelernt, wie entscheidend es ist, zuzuhören und Alltagsprobleme gezielt anzupacken.</p>
-      <div class="heute rv">
-        <span class="rot">Sozialarbeiter</span>
-        <span>Fraktionsvorsitzender im Stadtrat</span>
-        <span>Vorsitzender SPD Soltau, mit Laura Elbers Gutiérrez <mark class="offen">seit ?</mark></span>
-        <span>Kreistag Heidekreis <mark class="offen">?</mark></span>
-        <span>Ehrenamtlicher Richter</span>
+      <p class="lead rv">Ich bin 1998 in Soltau geboren und hier aufgewachsen. Meine Eltern flohen in den 1980er-Jahren aus dem kurdischen Teil der Türkei, weil sie dort wegen ihres jesidischen Glaubens verfolgt wurden. Soltau wurde ihr Zuhause und meine Heimat.</p>
+      <p class="rv">Ich bin Erzieher und staatlich anerkannter Sozialarbeiter. Heute begleite ich bei Venito in Bad Fallingbostel junge Menschen und ihre Familien durch schwierige Lebenslagen. In meiner Freizeit mache ich gern Sport und Musik.</p>
+      <div class="akkordeon rv">
+        <div class="akk">
+          <h3 class="akk-titel"><button class="akk-knopf" type="button" aria-expanded="true" aria-controls="akk-politik" id="akk-politik-k"><span>Mein politischer Weg</span><i aria-hidden="true"></i></button></h3>
+          <div class="akk-inhalt" id="akk-politik" role="region" aria-labelledby="akk-politik-k"><div class="akk-innen">
+            <ol class="weg-liste">
+              <li><time>2013</time><span>Eintritt in die SPD</span></li>
+              <li><time>2015 – 2016</time><span>Schülersprecher der Oberschule Soltau</span></li>
+              <li><time>2016</time><span>Mit 18 Jahren in den Soltauer Stadtrat gewählt</span></li>
+              <li><time>2016 – 2018</time><span>Sprecher des Kreisschülerrats Heidekreis und des Landesschülerrats Niedersachsen</span></li>
+              <li><time>2019 – 2020</time><span>Schülersprecher der BBS Walsrode</span></li>
+              <li><time>2021</time><span>In den Kreistag Heidekreis gewählt<small>Jugendhilfeausschuss sowie Ausschuss für Wirtschaft, Verkehr, Feuerwehr und Tourismus</small></span></li>
+              <li><time>2021 – 2024</time><span>Stellvertretender Landesvorsitzender der Jusos Niedersachsen</span></li>
+              <li><time>2023</time><span>Vorsitzender der SPD-Fraktion im Soltauer Stadtrat</span></li>
+              <li><time>2023</time><span>Stellvertretender Vorsitzender der SPD Heidekreis</span></li>
+              <li><time>2024</time><span>Ehrenamtlicher Richter am Amtsgericht Soltau</span></li>
+              <li><time>2026</time><span>Wiedergewählt in Stadtrat und Kreistag<small>3.875 Stimmen bei der Stadtratswahl, 4.116 Stimmen bei der Kreistagswahl; erneut Vorsitzender der SPD-Fraktion im Stadtrat</small></span></li>
+              <li class="heute"><time>Heute</time><span>Vorsitzender des SPD-Ortsvereins Soltau, gemeinsam mit Laura Elbers Gutiérrez</span></li>
+            </ol>
+          </div></div>
+        </div>
+        <div class="akk">
+          <h3 class="akk-titel"><button class="akk-knopf" type="button" aria-expanded="true" aria-controls="akk-beruf" id="akk-beruf-k"><span>Mein beruflicher Weg</span><i aria-hidden="true"></i></button></h3>
+          <div class="akk-inhalt" id="akk-beruf" role="region" aria-labelledby="akk-beruf-k"><div class="akk-innen">
+            <ol class="weg-liste">
+              <li><time>2002 – 2009</time><span>Kita St. Johannis und Wilhelm-Busch-Grundschule in Soltau</span></li>
+              <li><time>2009 – 2016</time><span>Oberschule Soltau, Realschulabschluss</span></li>
+              <li><time>2014 – 2020</time><span>Aushilfe im Heide-Park, Einzelhandel</span></li>
+              <li><time>2016 – 2018</time><span>Ausbildung zum Sozialpädagogischen Assistenten, BBS Walsrode</span></li>
+              <li><time>2018 – 2020</time><span>Ausbildung zum Erzieher mit Fachabitur, BBS Walsrode</span></li>
+              <li><time>2020 – 2023</time><span>Duales Studium Soziale Arbeit, VWA Göttingen<small>Abschluss: staatlich anerkannter Sozialarbeiter</small></span></li>
+              <li><time>2020 – 2023</time><span>Erzieher in Wohngruppen<small>sozialpädagogisch, therapeutisch und heilpädagogisch</small></span></li>
+              <li><time>2020 – 2023</time><span>Wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag<small>für den Abgeordneten Stefan Politze</small></span></li>
+              <li class="heute"><time>seit 2023</time><span>Sozialarbeiter bei Venito (Dachstiftung Diakonie) in Bad Fallingbostel</span></li>
+            </ol>
+          </div></div>
+        </div>
       </div>
-      <details class="akk rv">
-        <summary>Beruf</summary>
-        <ol>
-          <li><time>seit 2023</time><span>Sozialarbeiter bei Venito (Dachstiftung Diakonie)<small>Bad Fallingbostel</small></span></li>
-          <li><time>2020 – 2023</time><span>Wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag<small>für den Abgeordneten Stefan Politze</small></span></li>
-          <li><time>2020 – 2023</time><span>Erzieher in Wohngruppen<small>sozialpädagogisch, therapeutisch und heilpädagogisch</small></span></li>
-          <li><time>2014 – 2020</time><span>Aushilfe im Heide-Park<small>Einzelhandel</small></span></li>
-        </ol>
-      </details>
-      <details class="akk rv">
-        <summary>Ausbildung</summary>
-        <ol>
-          <li><time>2020 – 2023</time><span>Duales Studium Soziale Arbeit<small>staatlich anerkannter Sozialarbeiter, VWA Göttingen</small></span></li>
-          <li><time>2018 – 2020</time><span>Ausbildung zum Erzieher, Fachabitur<small>BBS Walsrode</small></span></li>
-          <li><time>2016 – 2018</time><span>Sozialpädagogischer Assistent<small>BBS Walsrode</small></span></li>
-          <li><time>2009 – 2016</time><span>Realschulabschluss<small>Oberschule Soltau</small></span></li>
-          <li><time>2002 – 2009</time><span>Kita St. Johannis und Wilhelm-Busch-Grundschule<small>Soltau</small></span></li>
-        </ol>
-      </details>
     </div>
   </section>
 
@@ -183,59 +218,83 @@
     <div class="wahlkreis-bg" aria-hidden="true"></div>
     <div class="wahlkreis-text">
       <span class="kicker rv">Wahlkreis 43 · Wahl am 26. September 2027</span>
-      <h2 class="gross zeilen"><span class="maske"><span>Unser</span></span><span class="maske" style="--i:1"><span>Wahlkreis</span></span><span class="maske" style="--i:2"><span>Soltau</span></span></h2>
-      <p class="rv">Drei Städte und drei Gemeinden im Heidekreis, dazu die Samtgemeinde Fintel mit ihren fünf Gemeinden im Landkreis Rotenburg (Wümme). Wietzendorf und Fintel gehören ab 2027 neu dazu.</p>
-      <ul class="orte-liste rv">
-        <li><b>Soltau</b><small>Stadt</small></li>
-        <li><b>Munster</b><small>Stadt</small></li>
-        <li><b>Schneverdingen</b><small>Stadt</small></li>
-        <li><b>Bispingen</b><small>Gemeinde</small></li>
-        <li><b>Neuenkirchen</b><small>Gemeinde</small></li>
-        <li><b>Wietzendorf</b><small>Gemeinde · neu</small></li>
-        <li class="breit"><b>Samtgemeinde Fintel</b><small>Fintel, Helvesiek, Lauenbrück, Stemmen, Vahlde · Landkreis Rotenburg (Wümme) · neu</small></li>
+      <h2 class="gross zeilen"><span class="maske"><span>Unser</span></span><span class="maske" style="--i:1"><span>Wahlkreis</span></span></h2>
+      <p class="rv">Drei Städte und drei Gemeinden im Heidekreis, dazu die Samtgemeinde Fintel mit ihren fünf Gemeinden im Landkreis Rotenburg (Wümme). Wähle einen Ort für mehr Informationen.</p>
+      <ul class="orte-liste rv" aria-label="Orte im Wahlkreis 43">
+        <li><button type="button" data-ort="soltau"><b>Soltau</b><small>Stadt</small></button></li>
+        <li><button type="button" data-ort="munster"><b>Munster</b><small>Stadt</small></button></li>
+        <li><button type="button" data-ort="schneverdingen"><b>Schneverdingen</b><small>Stadt</small></button></li>
+        <li><button type="button" data-ort="bispingen"><b>Bispingen</b><small>Gemeinde</small></button></li>
+        <li><button type="button" data-ort="neuenkirchen"><b>Neuenkirchen</b><small>Gemeinde</small></button></li>
+        <li><button type="button" data-ort="wietzendorf"><b>Wietzendorf</b><small>Gemeinde</small></button></li>
+        <li class="breit"><button type="button" data-ort="fintel"><b>Samtgemeinde Fintel</b><small>Fintel, Helvesiek, Lauenbrück, Stemmen, Vahlde</small></button></li>
       </ul>
-      <div class="wk-2022 rv"><b>32,8 %</b><span>SPD-Erststimmen 2022 im alten Zuschnitt, nur 1,4 Punkte hinter der CDU</span></div>
     </div>
-    <svg class="karte" viewBox="0 0 640 560" role="img" aria-label="Schematische Karte: Soltau in der Mitte, dazu Munster, Schneverdingen, Bispingen, Neuenkirchen, Wietzendorf und Samtgemeinde Fintel">
-      <g aria-hidden="true">
-        <circle cx="367" cy="415" r="90" fill="none" stroke="rgba(255,255,255,.08)"/>
-        <circle cx="367" cy="415" r="190" fill="none" stroke="rgba(255,255,255,.06)"/>
-        <circle cx="367" cy="415" r="300" fill="none" stroke="rgba(255,255,255,.04)"/>
-        <path class="speiche" style="--i:0" pathLength="1" d="M367 415L587 418"/>
-        <path class="speiche" style="--i:1" pathLength="1" d="M367 415L324 224"/>
-        <path class="speiche" style="--i:2" pathLength="1" d="M367 415L506 275"/>
-        <path class="speiche" style="--i:3" pathLength="1" d="M367 415L238 349"/>
-        <path class="speiche" style="--i:4" pathLength="1" d="M367 415L490 503"/>
-        <path class="speiche" style="--i:5" pathLength="1" d="M367 415L208 145"/>
-        <circle class="welle" cx="367" cy="415" r="12"/>
-        <circle class="punkt soltau" style="--i:0" cx="367" cy="415" r="11"/>
-        <circle class="punkt" style="--i:0" cx="587" cy="418" r="6"/>
-        <circle class="punkt" style="--i:1" cx="324" cy="224" r="6"/>
-        <circle class="punkt" style="--i:2" cx="506" cy="275" r="6"/>
-        <circle class="punkt" style="--i:3" cx="238" cy="349" r="6"/>
-        <circle class="punkt" style="--i:4" cx="490" cy="503" r="6"/>
-        <circle class="punkt" style="--i:5" cx="208" cy="145" r="6"/>
-        <text style="--i:0;font-size:22px" x="384" y="440">Soltau</text>
-        <text style="--i:0" x="575" y="446" text-anchor="end">Munster</text>
-        <text style="--i:1" x="338" y="219">Schneverdingen</text>
-        <text style="--i:2" x="520" y="270">Bispingen</text>
-        <text style="--i:3" x="224" y="344" text-anchor="end">Neuenkirchen</text>
-        <text style="--i:4" x="504" y="508">Wietzendorf</text>
-        <text style="--i:5" x="194" y="140" text-anchor="end">SG Fintel</text>
-        <text class="hinweis" style="--i:5" x="20" y="548">Lage schematisch</text>
-      </g>
-    </svg>
+    <div class="karte-block">
+      <svg class="karte" viewBox="0 0 600 600" role="group" aria-label="Karte der Orte im Wahlkreis 43, Lage nach Koordinaten">
+        <g class="raster" aria-hidden="true">
+          <path d="M0 150H600M0 300H600M0 450H600M150 0V600M300 0V600M450 0V600"/>
+        </g>
+        <g class="orte-punkte">
+          <g class="ort" data-ort="fintel" tabindex="0" role="button" aria-label="Samtgemeinde Fintel" style="--i:0"><circle cx="70" cy="70" r="9"/><text x="86" y="66">Samtgemeinde Fintel</text></g>
+          <g class="ort" data-ort="schneverdingen" tabindex="0" role="button" aria-label="Schneverdingen" style="--i:1"><circle cx="199" cy="165" r="9"/><text x="215" y="161">Schneverdingen</text></g>
+          <g class="ort" data-ort="bispingen" tabindex="0" role="button" aria-label="Bispingen" style="--i:2"><circle cx="428" cy="231" r="9"/><text x="444" y="227">Bispingen</text></g>
+          <g class="ort" data-ort="neuenkirchen" tabindex="0" role="button" aria-label="Neuenkirchen" style="--i:3"><circle cx="110" cy="321" r="9"/><text x="126" y="317">Neuenkirchen</text></g>
+          <g class="ort" data-ort="soltau" tabindex="0" role="button" aria-label="Soltau" style="--i:4"><circle cx="257" cy="410" r="9"/><text x="273" y="406">Soltau</text></g>
+          <g class="ort" data-ort="munster" tabindex="0" role="button" aria-label="Munster" style="--i:5"><circle cx="526" cy="403" r="9"/><text x="510" y="383" text-anchor="end">Munster</text></g>
+          <g class="ort" data-ort="wietzendorf" tabindex="0" role="button" aria-label="Wietzendorf" style="--i:6"><circle cx="408" cy="530" r="9"/><text x="424" y="526">Wietzendorf</text></g>
+        </g>
+        <g class="massstab" aria-hidden="true">
+          <path d="M380 580H544M380 573V587M544 573V587"/>
+          <text x="462" y="566" text-anchor="middle">10 km</text>
+          <path d="M572 40 582 18 592 40 582 34Z" class="nord"/>
+          <text x="582" y="58" text-anchor="middle">N</text>
+        </g>
+      </svg>
+      <div class="ort-karte" aria-live="polite">
+        <p class="ort-leer">Tippe auf einen Ort auf der Karte oder in der Liste.</p>
+      </div>
+      <p class="karte-hinweis">Vereinfachte Karte: Ortsmittelpunkte maßstäblich nach Koordinaten, ohne Gemeindegrenzen. Koordinaten: © OpenStreetMap-Mitwirkende.</p>
+    </div>
     <p class="bildnachweis">Foto: Blühende Schwindebecker Heide, Pirx3000, CC BY-SA 4.0</p>
   </section>
 
-  <section class="termine" id="termine">
-    <span class="kicker rv">Vor Ort</span>
-    <h2 class="gross zeilen"><span class="maske"><span>Ich stelle</span></span><span class="maske" style="--i:1"><span>mich vor</span></span></h2>
-    <ol class="termine-liste">
-      <li class="rv"><time><mark class="offen">TT.MM.</mark></time><div><b><mark class="offen">Ortsverein …</mark></b><span><mark class="offen">Ort, Uhrzeit</mark></span></div><span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></li>
-      <li class="rv" style="--i:1"><time><mark class="offen">TT.MM.</mark></time><div><b><mark class="offen">Ortsverein …</mark></b><span><mark class="offen">Ort, Uhrzeit</mark></span></div><span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></li>
-      <li class="rv" style="--i:2"><time>2027</time><div><b>Wahlkreiskonferenz der SPD</b><span><mark class="offen">Datum und Ort folgen</mark></span></div><span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></li>
-    </ol>
+  <section class="wegweiser" id="wegweiser">
+    <div class="ww-kopf">
+      <span class="kicker rv">Praktisch</span>
+      <h2 class="gross zeilen"><span class="maske"><span>Wer hilft mir</span></span><span class="maske" style="--i:1"><span>bei meinem Anliegen?</span></span></h2>
+      <p class="rv">In drei Schritten zur zuständigen Stelle. Deine Auswahl wird nicht gespeichert und nicht übertragen.</p>
+    </div>
+    <div class="ww" data-wegweiser>
+      <ol class="ww-schritte" aria-label="Fortschritt">
+        <li data-schritt-anzeige="1" class="an">Ort</li><li data-schritt-anzeige="2">Thema</li><li data-schritt-anzeige="3">Anliegen</li>
+      </ol>
+      <div class="ww-buehne">
+        <noscript><p>Der Wegweiser braucht JavaScript. Die zuständigen Stellen findest du auf den Websites deiner Gemeinde und deines Landkreises: <a href="https://www.heidekreis.de/">Landkreis Heidekreis</a>, <a href="https://www.lk-row.de/">Landkreis Rotenburg (Wümme)</a>.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="insta" id="instagram">
+    <div class="insta-kopf">
+      <div>
+        <span class="kicker rv">Instagram</span>
+        <h2 class="gross zeilen"><span class="maske"><span>@birhat.kacar</span></span></h2>
+      </div>
+      <a class="knopf knopf-haupt rv" href="https://www.instagram.com/birhat.kacar/" target="_blank" rel="noopener">Auf Instagram folgen</a>
+    </div>
+    <div class="insta-hinweis rv">
+      <p>Hier siehst du eine von Hand gepflegte Auswahl meiner letzten Beiträge (Stand: 3. November 2026). Bilder und Texte lädt erst Instagram selbst, wenn du das möchtest. Dabei werden Daten an Meta übertragen.</p>
+      <button class="knopf" type="button" data-insta-laden>Beiträge von Instagram laden</button>
+    </div>
+    <ul class="insta-reihe" data-insta-reihe>
+      <li class="insta-kachel rv" style="--i:0" data-permalink="https://www.instagram.com/p/DejPYRcjHKs/"><a href="https://www.instagram.com/p/DejPYRcjHKs/" target="_blank" rel="noopener"><span class="insta-glyphe" aria-hidden="true"></span><time datetime="2026-10-16">16. Oktober 2026</time><span>Beitrag auf Instagram ansehen</span></a></li>
+      <li class="insta-kachel rv" style="--i:1" data-permalink="https://www.instagram.com/p/DefXXZDDDZZ/"><a href="https://www.instagram.com/p/DefXXZDDDZZ/" target="_blank" rel="noopener"><span class="insta-glyphe" aria-hidden="true"></span><time datetime="2026-10-14">14. Oktober 2026</time><span>Beitrag auf Instagram ansehen</span></a></li>
+      <li class="insta-kachel rv" style="--i:2" data-permalink="https://www.instagram.com/p/DdQw-q5jG--/"><a href="https://www.instagram.com/p/DdQw-q5jG--/" target="_blank" rel="noopener"><span class="insta-glyphe" aria-hidden="true"></span><time datetime="2026-09-14">14. September 2026</time><span>Beitrag auf Instagram ansehen</span></a></li>
+      <li class="insta-kachel rv" style="--i:3" data-permalink="https://www.instagram.com/p/DdJwps1DB9Y/"><a href="https://www.instagram.com/p/DdJwps1DB9Y/" target="_blank" rel="noopener"><span class="insta-glyphe" aria-hidden="true"></span><time datetime="2026-09-11">11. September 2026</time><span>Beitrag auf Instagram ansehen</span></a></li>
+      <li class="insta-kachel rv" style="--i:4" data-permalink="https://www.instagram.com/p/DbOA1yyDB4m/"><a href="https://www.instagram.com/p/DbOA1yyDB4m/" target="_blank" rel="noopener"><span class="insta-glyphe" aria-hidden="true"></span><time datetime="2026-07-25">25. Juli 2026</time><span>Beitrag auf Instagram ansehen</span></a></li>
+      <li class="insta-kachel rv" style="--i:5" data-permalink="https://www.instagram.com/p/DXhVSU6DOAQ/"><a href="https://www.instagram.com/p/DXhVSU6DOAQ/" target="_blank" rel="noopener"><span class="insta-glyphe" aria-hidden="true"></span><time datetime="2026-04-24">24. April 2026</time><span>Beitrag auf Instagram ansehen</span></a></li>
+    </ul>
   </section>
 
   <section class="kontakt" id="kontakt">
@@ -243,22 +302,44 @@
     <div class="kontakt-unten">
       <p class="rv">Fragen, Ideen, Kritik oder eine Einladung in euren Ortsverein? Ich komme gern vorbei und freue mich über jede Nachricht.</p>
       <div class="wege">
-        <a class="weg-karte rv magnet" href="https://www.instagram.com/birhat.kacar/" target="_blank" rel="noopener"><span><small>Instagram</small><b>@birhat.kacar</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        <div class="weg-karte rv" style="--i:1"><span><small>E-Mail</small><b><mark class="offen">Adresse fehlt</mark></b></span></div>
+        <a class="weg-karte rv" href="https://www.instagram.com/birhat.kacar/" target="_blank" rel="noopener"><span><small>Instagram</small><b>@birhat.kacar</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="weg-karte rv" style="--i:1" href="https://www.birhatkacar.de/kontakt/" target="_blank" rel="noopener"><span><small>Kontaktformular</small><b>birhatkacar.de</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
     </div>
+  </section>
+
+  <section class="fragen" id="fragen">
+    <div class="fragen-kopf">
+      <span class="kicker rv">Frag Heidi · KI-Assistentin</span>
+      <h2 class="gross zeilen"><span class="maske"><span>Deine Fragen.</span></span><span class="maske" style="--i:1"><span>Verständlich beantwortet.</span></span></h2>
+      <p class="rv">Heidi ist eine KI, kein Mensch und nicht Birhat. Sie beantwortet Fragen zu Birhat, zur Bewerbung und zur Landtagswahl – nur mit geprüften Angaben aus dieser Website und offiziellen Quellen.</p>
+    </div>
+    <div class="chat rv" data-chat>
+      <div class="chat-status" data-chat-status>Heidi wird geladen …</div>
+      <ol class="chat-verlauf" data-chat-verlauf aria-live="polite"></ol>
+      <div class="chat-vorschlaege" data-chat-vorschlaege aria-label="Vorgeschlagene Fragen"></div>
+      <form class="chat-eingabe" data-chat-form>
+        <label class="sr" for="chat-frage">Deine Frage an Heidi</label>
+        <textarea id="chat-frage" rows="1" maxlength="400" placeholder="Deine Frage …" autocomplete="off" enterkeyhint="send"></textarea>
+        <button class="knopf knopf-haupt" type="submit">Fragen</button>
+      </form>
+      <p class="chat-recht" data-chat-recht></p>
+    </div>
+    <noscript><p class="chat-ohne-js">Ohne JavaScript ist Heidi nicht verfügbar.</p></noscript>
   </section>
 </main>
 
 <footer class="fuss">
-  <div class="fuss-band" aria-hidden="true"><div class="spur"><span>Birhat Kaçar</span><span>Landtag 2027</span></div><div class="spur"><span>Birhat Kaçar</span><span>Landtag 2027</span></div></div>
+  <div class="fuss-band" aria-hidden="true"><div class="spur-fuss"><span>Birhat Kaçar</span><span>Landtag 2027</span><span>Birhat Kaçar</span><span>Landtag 2027</span></div></div>
   <div class="fuss-zeile">
     <span class="marke-spd">SPD</span>
     <span>Birhat Kaçar · Bewerbung für den Landtagswahlkreis 43 Soltau</span>
-    <nav><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>
 
 <script src="assets/site.js" defer></script>
+<script src="assets/wegweiser.js" defer></script>
+<script src="assets/heidi.js" defer></script>
 </body>
 </html>

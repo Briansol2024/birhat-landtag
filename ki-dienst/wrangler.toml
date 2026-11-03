@@ -1,0 +1,21 @@
+# Heidi – KI-Dienst (Cloudflare Worker). Einrichtung: siehe LIESMICH.md
+name = "heidi"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Nur diese Website-Adressen dürfen Fragen schicken
+ERLAUBTE_URSPRUENGE = "https://birhat2027.de,https://www.birhat2027.de,https://briansol2024.github.io"
+# Wissensbasis, die die Website selbst veröffentlicht – Status und Angaben werden nur dort gepflegt
+WISSEN_URL = "https://briansol2024.github.io/birhat-landtag/assets/data/wissen.json"
+MODELL = "claude-opus-5-5"
+AUFWAND = "low"
+LIMIT_PRO_MINUTE = "6"
+LIMIT_PRO_PERSON_TAG = "40"
+LIMIT_PRO_TAG = "500"
+
+# Zähler für die Grenzen. Die id kommt aus: npx wrangler kv namespace create ZAEHLER
+[[kv_namespaces]]
+binding = "ZAEHLER"
+id = "HIER_DIE_ID_EINTRAGEN"

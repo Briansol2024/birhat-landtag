@@ -1,0 +1,107 @@
+{
+  "stand": "2026-11-03",
+  "hinweis": "Zentrale Wissensbasis für Website und KI-Assistent. Nur bestätigte Angaben eintragen. Den Status unter status.aktuell ändern: bewerbung, nominiert oder gewaehlt.",
+  "status": {
+    "aktuell": "bewerbung",
+    "seit": "2026-11-03",
+    "texte": {
+      "bewerbung": "Birhat Kaçar bewirbt sich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau. Er ist noch nicht nominiert. Darüber entscheidet eine Versammlung der SPD im Wahlkreis. Ein Termin dafür ist auf dieser Website noch nicht veröffentlicht.",
+      "nominiert": "Birhat Kaçar ist als Kandidat der SPD für den Landtagswahlkreis 43 Soltau nominiert. Gewählt wird bei der Landtagswahl am 26. September 2027.",
+      "gewaehlt": "Birhat Kaçar wurde bei der Landtagswahl als Abgeordneter für den Wahlkreis 43 Soltau gewählt."
+    }
+  },
+  "person": [
+    { "text": "Birhat Kaçar wurde am 14. August 1998 in Soltau geboren und ist dort aufgewachsen.", "quelle": "birhat-ueber" },
+    { "text": "Seine Eltern stammen aus dem kurdischen Teil der Türkei. Sie wurden dort wegen ihres jesidischen Glaubens verfolgt und flohen in den 1980er-Jahren nach Deutschland.", "quelle": "birhat-ueber" },
+    { "text": "Beruf: seit 09/2023 Sozialarbeiter bei Venito (Dachstiftung Diakonie) in Bad Fallingbostel.", "quelle": "birhat-ueber" },
+    { "text": "Ausbildung: 2016–2018 Sozialpädagogischer Assistent (BBS Walsrode), 2018–2020 Erzieher mit Fachabitur (BBS Walsrode), 2020–2023 duales Studium Soziale Arbeit an der VWA Göttingen, staatlich anerkannter Sozialarbeiter.", "quelle": "birhat-ueber" },
+    { "text": "Schule: Kita St. Johannis, Wilhelm-Busch-Grundschule und Oberschule Soltau (Realschulabschluss).", "quelle": "birhat-ueber" },
+    { "text": "2020–2023 wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag für den Abgeordneten Stefan Politze; im selben Zeitraum Erzieher in sozialpädagogischen, therapeutischen und heilpädagogischen Wohngruppen.", "quelle": "birhat-ueber" },
+    { "text": "Seit 2013 Mitglied der SPD. Schülersprecher an der Oberschule Soltau (2015–2016) und der BBS Walsrode (2019–2020), 2016–2018 Sprecher des Kreisschülerrats Heidekreis und des Landesschülerrats Niedersachsen.", "quelle": "birhat-arbeit" },
+    { "text": "Seit 2016 Mitglied im Soltauer Stadtrat, seit 2023 Vorsitzender der SPD-Fraktion im Stadtrat. 2026 wiedergewählt, mit 3.875 persönlichen Stimmen; die Fraktion hat ihn erneut zum Vorsitzenden gewählt.", "quelle": "birhat-arbeit" },
+    { "text": "Seit 2021 Abgeordneter im Kreistag Heidekreis. Bei der Kreistagswahl 2026 erhielt er 4.116 persönliche Stimmen.", "quelle": "angabe-birhat" },
+    { "text": "2021–2024 stellvertretender Landesvorsitzender der Jusos Niedersachsen. Seit 2023 stellvertretender Vorsitzender der SPD Heidekreis (Stand seiner Website).", "quelle": "birhat-arbeit" },
+    { "text": "Seit 2024 ehrenamtlicher Richter am Amtsgericht Soltau.", "quelle": "birhat-arbeit" },
+    { "text": "Vorsitzender des SPD-Ortsvereins Soltau, gemeinsam mit Laura Elbers Gutiérrez.", "quelle": "spd-soltau" },
+    { "text": "In seiner Freizeit macht er gern Sport und Musik.", "quelle": "birhat-ueber" }
+  ],
+  "positionen": [
+    { "titel": "Bildung, die nicht vom Geldbeutel abhängt", "text": "Seit seiner Zeit im Landesschülerrat setzt er sich dafür ein, dass Bildung für alle zugänglich und fair ist, unabhängig vom Einkommen der Eltern." },
+    { "titel": "Starke Hilfe für Kinder, Jugend und Familien", "text": "Als Sozialarbeiter und im Jugendhilfeausschuss des Kreistags erlebt er, wie wichtig verlässliche Hilfe ist, wenn es zu Hause schwierig wird." },
+    { "titel": "Rückendeckung für Feuerwehr und Ehrenamt", "text": "Feuerwehren, Rettungsdienste und Vereine halten die Orte zusammen. Sie brauchen gute Ausstattung und Unterstützung aus Hannover." },
+    { "titel": "Gute Arbeit und Mobilität auf dem Land", "text": "Der Wahlkreis lebt von Tourismus, Mittelstand und starken Dörfern. Dafür braucht es Bus und Bahn, schnelles Internet und gute Arbeitsplätze vor Ort." }
+  ],
+  "wahlkreis": {
+    "nummer": 43,
+    "name": "Soltau",
+    "orte": [
+      { "id": "soltau", "name": "Soltau", "art": "Stadt", "kreis": "Landkreis Heidekreis" },
+      { "id": "munster", "name": "Munster", "art": "Stadt", "kreis": "Landkreis Heidekreis" },
+      { "id": "schneverdingen", "name": "Schneverdingen", "art": "Stadt", "kreis": "Landkreis Heidekreis" },
+      { "id": "bispingen", "name": "Bispingen", "art": "Gemeinde", "kreis": "Landkreis Heidekreis" },
+      { "id": "neuenkirchen", "name": "Neuenkirchen", "art": "Gemeinde", "kreis": "Landkreis Heidekreis" },
+      { "id": "wietzendorf", "name": "Wietzendorf", "art": "Gemeinde", "kreis": "Landkreis Heidekreis" },
+      { "id": "fintel", "name": "Samtgemeinde Fintel", "art": "Samtgemeinde", "kreis": "Landkreis Rotenburg (Wümme)", "mitglieder": ["Fintel", "Helvesiek", "Lauenbrück", "Stemmen", "Vahlde"] }
+    ],
+    "quelle": "wahlkreise-2027"
+  },
+  "wahl": {
+    "termin": "2027-09-26",
+    "termin_text": "26. September 2027",
+    "quelle": "landtag-wahlsystem"
+  },
+  "quellen": {
+    "birhat-ueber": { "titel": "birhatkacar.de – Über mich", "url": "https://www.birhatkacar.de/ueber-mich/" },
+    "birhat-arbeit": { "titel": "birhatkacar.de – Meine Arbeit", "url": "https://www.birhatkacar.de/meine-arbeit/" },
+    "angabe-birhat": { "titel": "Angabe von Birhat Kaçar, 03.11.2026", "url": null },
+    "spd-soltau": { "titel": "SPD Soltau – Vorstand", "url": "https://spd-soltau.de/ortsverein/" },
+    "landtag-wahlsystem": { "titel": "Niedersächsischer Landtag – Wahlverfahren, Wahlsystem", "url": "https://www.landtag-niedersachsen.de/landtagswahlen/wahlverfahren-wahlsystem/" },
+    "wahlkreise-2027": { "titel": "Niedersächsisches Innenministerium – neue Wahlkreise für die Landtagswahl 2027", "url": "https://www.mi.niedersachsen.de/startseite/aktuelles/presseinformationen/abstimmung-im-landtag-niedersachsen-stellt-wahlkreise-fur-die-landtagswahl-2027-verfassungskonform-neu-auf-249144.html" },
+    "nlwg-18": { "titel": "Niedersächsisches Landeswahlgesetz, § 18 (VORIS)", "url": "https://voris.wolterskluwer-online.de/browse/document/87cb5211-c8b4-3431-b8a1-852468852aa5" },
+    "briefwahl": { "titel": "Landeswahlleitung: Landtagswahl 2027", "url": "https://landeswahlleiter.niedersachsen.de/startseite/wahlen/landtagswahl/landtagswahl_2027/wahl-zum-20-niedersachsischen-landtag-am-26-09-2027-249534.html" }
+  },
+  "faq": [
+    {
+      "id": "wer",
+      "frage": "Wer ist Birhat Kaçar?",
+      "antwort": "Birhat Kaçar ist 1998 in Soltau geboren und dort aufgewachsen. Er ist Sozialarbeiter, sitzt seit 2016 im Soltauer Stadtrat und führt dort seit 2023 die SPD-Fraktion. Seit 2021 ist er außerdem Abgeordneter im Kreistag Heidekreis. Er bewirbt sich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau.",
+      "quellen": ["birhat-ueber", "birhat-arbeit"]
+    },
+    {
+      "id": "beruf",
+      "frage": "Was macht Birhat beruflich?",
+      "antwort": "Birhat arbeitet seit September 2023 als Sozialarbeiter bei Venito, einer Einrichtung der Dachstiftung Diakonie, in Bad Fallingbostel. Er ist ausgebildeter Erzieher und staatlich anerkannter Sozialarbeiter. Von 2020 bis 2023 war er außerdem wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag.",
+      "quellen": ["birhat-ueber"]
+    },
+    {
+      "id": "nominierung",
+      "frage": "Wie läuft die Nominierung ab?",
+      "antwort": "Wer für eine Partei in einem Wahlkreis antritt, wird von den Parteimitgliedern im Wahlkreis gewählt – entweder direkt in einer Mitgliederversammlung oder durch gewählte Vertreterinnen und Vertreter. Die Abstimmung ist geheim. Die Einzelheiten regelt die Satzung der Partei. Danach reicht die Partei den Wahlvorschlag bei der Kreiswahlleitung ein, zusammen mit einer Niederschrift über die Versammlung. Wann die SPD im Wahlkreis 43 entscheidet, ist hier noch nicht veröffentlicht.",
+      "quellen": ["nlwg-18"]
+    },
+    {
+      "id": "status",
+      "frage": "Ist Birhat bereits als Kandidat nominiert?",
+      "antwort": "@status",
+      "quellen": []
+    },
+    {
+      "id": "orte",
+      "frage": "Welche Orte gehören zum Wahlkreis?",
+      "antwort": "Zum Landtagswahlkreis 43 Soltau gehören ab der Landtagswahl 2027 die Städte Soltau, Munster und Schneverdingen, die Gemeinden Bispingen, Neuenkirchen und Wietzendorf aus dem Landkreis Heidekreis sowie die Samtgemeinde Fintel aus dem Landkreis Rotenburg (Wümme) mit Fintel, Helvesiek, Lauenbrück, Stemmen und Vahlde.",
+      "quellen": ["wahlkreise-2027"]
+    },
+    {
+      "id": "stimmen",
+      "frage": "Was ist der Unterschied zwischen Erststimme und Zweitstimme?",
+      "antwort": "Bei der Landtagswahl in Niedersachsen hat man zwei Stimmen. Mit der Erststimme wählt man eine Person aus dem eigenen Wahlkreis, die Direktkandidatin oder den Direktkandidaten. Mit der Zweitstimme wählt man die Landesliste einer Partei. Die Zweitstimme bestimmt maßgeblich, wie stark eine Partei im Landtag vertreten ist. Parteien brauchen dafür mindestens fünf Prozent.",
+      "quellen": ["landtag-wahlsystem"]
+    },
+    {
+      "id": "briefwahl",
+      "frage": "Wo finde ich offizielle Informationen zur Briefwahl?",
+      "antwort": "Offizielle Informationen zur Landtagswahl gibt die Niedersächsische Landeswahlleitung. Die Briefwahlunterlagen beantragst du bei deiner Stadt oder Gemeinde, in der Regel mit der Wahlbenachrichtigung, die du vor der Wahl per Post bekommst. Fristen und Termine stehen dort und bei deiner Gemeinde.",
+      "quellen": ["briefwahl"]
+    }
+  ]
+}

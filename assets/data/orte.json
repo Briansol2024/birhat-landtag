@@ -1,0 +1,17 @@
+{
+  "geprueft_am": "2026-11-03",
+  "hinweis": "Kurzinfos zu den Orten im Landtagswahlkreis 43 Soltau ab 2027. Websites geprüft am 03.11.2026.",
+  "kreise": {
+    "heidekreis": { "name": "Landkreis Heidekreis", "website": "https://www.heidekreis.de/" },
+    "rotenburg": { "name": "Landkreis Rotenburg (Wümme)", "website": "https://www.lk-row.de/" }
+  },
+  "orte": {
+    "soltau": { "name": "Soltau", "kreis": "heidekreis", "beschreibung": "Stadt im Landkreis Heidekreis.", "website": "https://www.soltau.de/home.aspx" },
+    "munster": { "name": "Munster", "kreis": "heidekreis", "beschreibung": "Stadt im Landkreis Heidekreis.", "website": "https://www.munster.de/home.aspx" },
+    "schneverdingen": { "name": "Schneverdingen", "kreis": "heidekreis", "beschreibung": "Stadt im Landkreis Heidekreis.", "website": "https://www.schneverdingen.de/desktopdefault.aspx" },
+    "bispingen": { "name": "Bispingen", "kreis": "heidekreis", "beschreibung": "Gemeinde im Landkreis Heidekreis.", "website": "https://gemeinde.bispingen.de/" },
+    "neuenkirchen": { "name": "Neuenkirchen", "kreis": "heidekreis", "beschreibung": "Gemeinde im Landkreis Heidekreis.", "website": "https://www.dasneuenkirchen.de/de/" },
+    "wietzendorf": { "name": "Wietzendorf", "kreis": "heidekreis", "beschreibung": "Gemeinde im Landkreis Heidekreis.", "website": "https://www.wietzendorf.de/" },
+    "fintel": { "name": "Samtgemeinde Fintel", "kreis": "rotenburg", "beschreibung": "Samtgemeinde im Landkreis Rotenburg (Wümme) mit den Gemeinden Fintel, Helvesiek, Lauenbrück, Stemmen und Vahlde. Verwaltungssitz ist Lauenbrück.", "website": "https://www.sgfintel.de/" }
+  }
+}
