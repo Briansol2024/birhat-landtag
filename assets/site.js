@@ -108,14 +108,8 @@ addEventListener('load', () => { wegMessen(); scrollen(); });
 document.fonts?.ready.then(() => { wegMessen(); scrollen(); });
 wegMessen(); scrollen();
 
-// ---------- Maus: Porträt kippt leicht, Knöpfe werden angezogen ----------
+// ---------- Maus: Knöpfe werden leicht angezogen ----------
 if (FEIN && !RUHIG) {
-  const hero = $('.hero'), kippen = $('.kippen');
-  hero.addEventListener('pointermove', e => {
-    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
-    kippen.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${y * -6}deg)`;
-  });
-  hero.addEventListener('pointerleave', () => { kippen.style.transform = ''; });
   $$('.magnet').forEach(m => {
     m.addEventListener('pointermove', e => {
       const r = m.getBoundingClientRect();
