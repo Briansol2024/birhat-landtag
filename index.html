@@ -107,7 +107,15 @@
       <p class="gruss">
         <span class="sr">Euer Birhat</span>
         <svg class="unterschrift" viewBox="0 0 470 150" aria-hidden="true" focusable="false">
-          <g transform="skewX(-7) translate(12 0)">
+          <defs>
+            <!-- leicht unruhiger Rand wie Kugelschreiber-Tinte auf Papier -->
+            <filter id="tinte" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="4" result="rauschen"/>
+              <feDisplacementMap in="SourceGraphic" in2="rauschen" scale="1.3" xChannelSelector="R" yChannelSelector="G" result="rand"/>
+              <feGaussianBlur in="rand" stdDeviation="0.2"/>
+            </filter>
+          </defs>
+          <g transform="skewX(-7) translate(12 0)" filter="url(#tinte)">
             <path d="M58 44 C50 30, 24 34, 28 52 C31 64, 44 66, 47 66 C36 64, 18 72, 20 92 C22 110, 46 114, 60 100"/>
             <path d="M60 100 C63 94, 64 86, 66 80 C66 92, 65 108, 77 109 C86 110, 88 96, 89 80 C89 92, 88 107, 98 106"/>
             <path d="M98 106 C108 100, 118 92, 114 84 C110 78, 98 84, 100 96 C102 108, 116 110, 126 102"/>

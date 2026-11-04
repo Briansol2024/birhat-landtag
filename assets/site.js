@@ -35,45 +35,37 @@ if (satz) {
 }
 const woerter = satz ? $$('.w', satz) : [];
 
-// ---------- Unterschrift: Striche nacheinander schreiben ----------
-// Sie schreibt sich jedes Mal neu, wenn ihre Mitte die Bildschirmmitte erreicht (45 bis 55 % der Höhe), egal aus
-// welcher Richtung. Ist sie ganz aus dem Bild, wird sie unsichtbar zurückgesetzt. Wird die Mitte beim schnellen
-// Scrollen übersprungen, zählt das wie ein Treffer. Landet sie nach einem Sprung schon über der Mitte, startet sie sofort.
+// ---------- Unterschrift: wie mit dem Stift geschrieben ----------
+// Sie schreibt sich einmal, sobald sie ganz im Bild ist. Zusammenhängende Striche laufen ineinander. Vor jedem neu
+// angesetzten Strich (B, t-Strich, i-Punkt, Unterstrich) gibt es eine kurze Pause wie beim Absetzen des Stifts.
 const unterschrift = $('.unterschrift');
 if (unterschrift && !RUHIG) {
-  let t = 0;
-  const striche = $$('path', unterschrift).map(p => {
-    const len = p.getTotalLength();
-    const dauer = Math.max(0.05, len / 1400);   // gleichmäßige, zügige Schreibgeschwindigkeit
-    const uebergang = `stroke-dashoffset ${dauer}s cubic-bezier(.4,0,.6,1) ${t}s`;
+  let t = 0, ende = null;
+  const plan = $$('path', unterschrift).map(p => {
+    const len = p.getTotalLength(), start = p.getPointAtLength(0);
+    if (ende && Math.hypot(start.x - ende.x, start.y - ende.y) > 2) t += 0.13;   // Stift absetzen, neu ansetzen
+    const dauer = Math.max(0.08, len / 1300);
     p.style.strokeDasharray = `${len} ${len}`;
     p.style.strokeDashoffset = len;
-    p.style.transition = uebergang;
-    t += dauer + 0.015;
-    return { p, len, uebergang };
+    const uebergang = `stroke-dashoffset ${dauer}s cubic-bezier(.45,.05,.55,.95) ${t}s`;
+    t += dauer;
+    ende = p.getPointAtLength(len);
+    return { p, uebergang };
   });
+  // Erst den leeren Zustand festschreiben, dann den Übergang setzen. Sonst würde schon das Leeren animiert.
+  plan.forEach(({ p }) => getComputedStyle(p).strokeDashoffset);
+  plan.forEach(({ p, uebergang }) => { p.style.transition = uebergang; });
+  const striche = plan.map(({ p }) => p);
   const gruss = unterschrift.closest('.gruss') || unterschrift;
-  let geschrieben = false, warSichtbar = false, seite = 'unten', geplant = false;
-  const schreiben = () => {
-    geschrieben = true;
-    gruss.classList.add('sichtbar');
-    striche.forEach(s => { s.p.style.strokeDashoffset = 0; });
-  };
-  const zuruecksetzen = () => {
-    geschrieben = false;
-    gruss.classList.remove('sichtbar');
-    striche.forEach(s => { s.p.style.transition = 'none'; s.p.style.strokeDashoffset = s.len; });
-    unterschrift.getBoundingClientRect();   // erst ohne Übergang zurück, dann den Übergang wieder einschalten
-    striche.forEach(s => { s.p.style.transition = s.uebergang; });
-  };
+  let geplant = false;
   const pruefen = () => {
     geplant = false;
-    const r = unterschrift.getBoundingClientRect(), h = innerHeight;
-    const lage = (r.top + r.height / 2) / h, jetzt = lage < 0.5 ? 'oben' : 'unten';
-    const sichtbar = r.bottom > 0 && r.top < h;
-    if (!sichtbar) { if (geschrieben) zuruecksetzen(); }
-    else if (!geschrieben && (Math.abs(lage - 0.5) <= 0.05 || (jetzt !== seite && (warSichtbar || jetzt === 'oben')))) schreiben();
-    seite = jetzt; warSichtbar = sichtbar;
+    const r = unterschrift.getBoundingClientRect();
+    // erst, wenn sie ganz zu sehen ist, mit etwas Abstand zum unteren Rand (Browserleisten am Handy)
+    if (r.top < 0 || r.bottom > innerHeight * 0.96) return;
+    gruss.classList.add('sichtbar');
+    striche.forEach(p => { p.style.strokeDashoffset = 0; });
+    removeEventListener('scroll', planen); removeEventListener('resize', planen); removeEventListener('load', planen);
   };
   const planen = () => { if (!geplant) { geplant = true; requestAnimationFrame(pruefen); } };
   addEventListener('scroll', planen, { passive: true });

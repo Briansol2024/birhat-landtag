@@ -174,8 +174,9 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .warum-brief .anrede{font:800 clamp(22px,2.2vw,30px)/1.1 var(--display);text-transform:uppercase;color:var(--tinte)}
 .warum-brief strong{color:var(--tinte)}
 .gruss{margin-top:4px}
-.unterschrift{width:min(100%,420px);height:auto;display:block;overflow:visible}
-.unterschrift path{fill:none;stroke:var(--rot-tief);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+/* Blaue Kugelschreiber-Tinte: leicht lasierend, wo sich Striche kreuzen, wird sie dunkler */
+.unterschrift{width:min(100%,420px);height:auto;display:block;overflow:visible;mix-blend-mode:multiply}
+.unterschrift path{fill:none;stroke:#1B3C8C;stroke-opacity:.9;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.warum{grid-template-columns:minmax(0,1fr);gap:28px}.warum-kopf{position:static}}
 
 /* Themen: farbige Bahnen */
