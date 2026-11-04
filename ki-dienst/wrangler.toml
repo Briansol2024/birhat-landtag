@@ -13,7 +13,7 @@ MODELL = "claude-opus-5-5"
 AUFWAND = "low"
 LIMIT_PRO_MINUTE = "6"
 LIMIT_PRO_PERSON_TAG = "40"
-LIMIT_PRO_TAG = "500"
+LIMIT_PRO_TAG = "150"
 
 # Zähler für die Grenzen. Die id kommt aus: npx wrangler kv namespace create ZAEHLER
 [[kv_namespaces]]

@@ -49,15 +49,18 @@ Danach die Website neu hochladen. Heidi zeigt dann „KI“ statt „Fest“.
 
 ## Kosten und Grenzen
 
-- **Modell:** `claude-opus-5-5` mit niedrigem Aufwand (`AUFWAND = "low"`). Eine Antwort braucht grob 4.000 bis 6.000 Eingabe-Token, davon ist der größte Teil zwischengespeichert, und etwa 300 Ausgabe-Token. Das sind meist ein bis zwei Cent pro Antwort.
+Preise laut Anthropic, Stand 04.11.2026, in US-Dollar. Je Frage gehen etwa 3.000 Token Wissensbasis mit. Die genaue Zahl zeigt die Console nach den ersten Fragen.
+
+- **Modell:** `claude-opus-5-5` mit niedrigem Aufwand (`AUFWAND = "low"`). Preis: 4 $ je Million Eingabe-Token, 20 $ je Million Ausgabe-Token. Die Wissensbasis wird 5 Minuten zwischengespeichert. Die erste Frage zahlt 5 $ je Million dafür, jede weitere in dieser Zeit nur 0,20 $. Das macht etwa 1 bis 3 Cent pro Antwort.
+- **Günstiger:** Mit `MODELL = "claude-haiku-5-5"` kostet eine Antwort etwa 0,1 Cent, also rund zwanzigmal weniger. Das Modell ist einfacher, deshalb vorher mit den Startfragen ausprobieren.
 - **Grenzen** in `wrangler.toml`:
   - 6 Fragen pro Minute und Person
   - 40 pro Person und Tag
-  - 500 pro Tag insgesamt
+  - 150 pro Tag insgesamt
 
-  Danach antwortet der Dienst mit „Heidi macht für heute Pause“, und die Website zeigt feste Antworten. Bei 500 Fragen am Tag sind die Kosten damit auf wenige Euro begrenzt.
-- **Günstiger:** Mit `MODELL = "claude-haiku-5-5"` wird es noch einmal deutlich billiger. Ob ihr das wollt, entscheidet ihr. Probiert es vorher mit den Startfragen aus.
-- Zusätzlich gilt das Ausgabenlimit in der Anthropic-Console.
+  Danach antwortet der Dienst mit „Heidi macht für heute Pause“, und die Website zeigt feste Antworten. Mit Opus kostet ein Tag damit höchstens etwa 4 $, mit Haiku etwa 0,15 $.
+- **Ausgabenlimit:** In der Anthropic-Console unter „Limits“ ein Monatslimit setzen, z. B. 20 $. Ist es erreicht, zeigt Heidi nur noch feste Antworten.
+- **Cloudflare:** Der kostenlose Tarif reicht. Er erlaubt 100.000 Anfragen und 1.000 Schreibvorgänge im Zähler pro Tag. Heidi braucht drei Schreibvorgänge je Frage, bei 150 Fragen also 450. Das Tageslimit deshalb nicht über 300 setzen, sonst ist der kostenlose Tarif zu klein.
 
 ## Datenschutz
 

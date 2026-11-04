@@ -85,15 +85,22 @@ async function grenzenPruefen(request, env) {
   const daten = new TextEncoder().encode(`${ip}|${env.SALZ || "heidi"}|${tag}`);
   const hash = [...new Uint8Array(await crypto.subtle.digest("SHA-256", daten))].slice(0, 12).map(b => b.toString(16).padStart(2, "0")).join("");
   const schluessel = { minute: `m:${hash}:${minute}`, person: `p:${hash}:${tag}`, alle: `a:${tag}` };
-  const [m, p, a] = await Promise.all(Object.values(schluessel).map(k => env.ZAEHLER.get(k)));
+  // Lesen klappt nicht: lieber Pause als ungezählt weiterfragen.
+  let m, p, a;
+  try { [m, p, a] = await Promise.all(Object.values(schluessel).map(k => env.ZAEHLER.get(k))); }
+  catch (fehler) { console.log("Zähler nicht lesbar", fehler?.message); return "Heidi macht gerade Pause"; }
   if (+m >= +(env.LIMIT_PRO_MINUTE || 6)) return "Zu viele Fragen in kurzer Zeit";
   if (+p >= +(env.LIMIT_PRO_PERSON_TAG || 40)) return "Tageslimit erreicht";
-  if (+a >= +(env.LIMIT_PRO_TAG || 500)) return "Heidi macht für heute Pause";
-  await Promise.all([
+  if (+a >= +(env.LIMIT_PRO_TAG || 150)) return "Heidi macht für heute Pause";
+  // Schreiben darf scheitern, ohne die Antwort zu verhindern. Im kostenlosen Tarif gibt es 1.000 Schreibvorgänge
+  // am Tag und höchstens einen pro Sekunde je Schlüssel. Drei je Frage, bei 150 Fragen also 450.
+  const ergebnisse = await Promise.allSettled([
     env.ZAEHLER.put(schluessel.minute, String(+m + 1), { expirationTtl: 120 }),
     env.ZAEHLER.put(schluessel.person, String(+p + 1), { expirationTtl: 90000 }),
     env.ZAEHLER.put(schluessel.alle, String(+a + 1), { expirationTtl: 172800 }),
   ]);
+  const fehlgeschlagen = ergebnisse.filter(e => e.status === "rejected").length;
+  if (fehlgeschlagen) console.log("Zähler nicht geschrieben:", fehlgeschlagen);
   return null;
 }
 
