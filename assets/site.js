@@ -102,13 +102,163 @@ if (baender && pause && !RUHIG) {
   });
 }
 
-// ---------- Themen-Bahnen: eine ist offen ----------
+// ---------- Themen: Kacheln öffnen eine eigene Seite ----------
+// Am PC klappt eine Kachel beim Darüberfahren auf. Ein Klick oder Tipp lässt sie über den ganzen Bildschirm wachsen,
+// dann fächern sich die Inhalte auf. „Zur Übersicht“, Escape oder die Zurück-Geste am Handy lassen sie in die Kachel
+// zurückschrumpfen. Die Texte stehen in index.html unter .thema-texte (ohne JavaScript dort sichtbar).
 const bahnen = $$('.bahn');
-const oeffne = b => bahnen.forEach(x => { const an = x === b; x.classList.toggle('aktiv', an); x.setAttribute('aria-expanded', String(an)); });
-bahnen.forEach(b => {
-  b.addEventListener('click', () => oeffne(b));
-  b.addEventListener('focus', () => oeffne(b));
+const aktivSetzen = b => bahnen.forEach(x => x.classList.toggle('aktiv', x === b));
+const themen = bahnen.map(b => ({ b, id: b.dataset.thema, nr: $('.nr', b)?.textContent || '', kurz: $('.kurz', b)?.textContent || '',
+  farbe: b.style.getPropertyValue('--farbe').trim(), text: document.getElementById('thema-' + b.dataset.thema) })).filter(t => t.text);
+let themaSeite = null, themaNr = -1, themaOffen = false, themaGepusht = false, themaDanach = null;
+const pfeil = d => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
+
+const themaSeiteBauen = () => {
+  themaSeite = document.createElement('div');
+  themaSeite.className = 'thema-seite';
+  themaSeite.hidden = true;
+  themaSeite.setAttribute('role', 'dialog');
+  themaSeite.setAttribute('aria-modal', 'true');
+  themaSeite.setAttribute('aria-labelledby', 'thema-seite-titel');
+  themaSeite.innerHTML = `
+    <div class="thema-leiste fach"><button type="button" class="thema-zurueck" data-zurueck>${pfeil('M15 5l-7 7 7 7')}Zur Übersicht</button><span class="thema-zaehler" data-zaehler></span></div>
+    <div class="thema-buehne">
+      <header class="thema-kopf"><span class="thema-nr fach" data-nr aria-hidden="true"></span><span class="thema-symbol fach" data-symbol aria-hidden="true"></span><h2 class="fach" id="thema-seite-titel" data-titel></h2></header>
+      <div class="thema-inhalt" data-inhalt></div>
+      <div class="thema-fuss fach">
+        <p>Fragen oder Ideen zu diesem Thema?</p>
+        <div class="thema-aktionen"><a class="knopf thema-hell" href="#frage-stellen" data-ziel>Schreib mir</a><a class="knopf" href="#kontakt" data-ziel>Lad mich ein</a></div>
+        <button type="button" class="thema-weiter" data-weiter><span><small>Nächster Schwerpunkt</small><b data-weiter-name></b></span>${pfeil('M5 12h13M13 6l6 6-6 6')}</button>
+      </div>
+    </div>`;
+  document.body.append(themaSeite);
+  $('[data-zurueck]', themaSeite).addEventListener('click', () => themaZurueck());
+  $('[data-weiter]', themaSeite).addEventListener('click', () => themaWechseln((themaNr + 1) % themen.length));
+  $$('[data-ziel]', themaSeite).forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const ziel = $(a.getAttribute('href'));
+    // Ziel ohne Einblende-Bewegung berechnen (offsetTop statt Bildschirmlage), Abstand für die Kopfleiste abziehen
+    themaZurueck(() => {
+      if (!ziel) return;
+      let y = 0;
+      for (let el = ziel; el; el = el.offsetParent) y += el.offsetTop;
+      const abstand = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      scrollTo({ top: y - abstand, behavior: RUHIG ? 'auto' : 'smooth' });
+    });
+  }));
+  themaSeite.addEventListener('keydown', e => { if (e.key === 'Escape') themaZurueck(); });
+};
+
+const themaFuellen = i => {
+  const t = themen[i], naechstes = themen[(i + 1) % themen.length];
+  themaSeite.style.setProperty('--farbe', t.farbe);
+  $('[data-nr]', themaSeite).textContent = t.nr;
+  $('[data-zaehler]', themaSeite).textContent = `${t.nr} / ${String(themen.length).padStart(2, '0')}`;
+  $('[data-symbol]', themaSeite).replaceChildren($('svg', t.b).cloneNode(true));
+  $('[data-titel]', themaSeite).textContent = $('h3', t.text).textContent;
+  const inhalt = $('.thema-text-inhalt', t.text).cloneNode(true);
+  [...inhalt.children].forEach(el => { if (!el.classList.contains('stationen')) el.classList.add('fach'); });
+  $('[data-inhalt]', themaSeite).replaceChildren(...inhalt.children);
+  $('[data-weiter-name]', themaSeite).textContent = `${naechstes.nr} ${naechstes.kurz}`;
+  // Reihenfolge des Auftritts = Leserichtung, die Stationen-Karten mitgezählt
+  $$('.fach, .stationen li', themaSeite).forEach((el, j) => el.style.setProperty('--j', j));
+};
+
+// Alles außer der Themenseite ruht, solange sie offen ist (kein Scrollen, kein Tabben dahinter)
+const themaSperren = an => {
+  // Breite der Scrollleiste ausgleichen, damit am PC nichts springt und die Seite bis zum rechten Rand reicht
+  const leiste = an ? innerWidth - document.documentElement.clientWidth : 0;
+  [...document.body.children].forEach(el => { if (el !== themaSeite && el.tagName !== 'SCRIPT') el.inert = an; });
+  document.body.style.overflow = an ? 'hidden' : '';
+  document.body.style.paddingRight = leiste > 0 ? leiste + 'px' : '';
+};
+const kachelAusschnitt = b => {
+  const r = b.getBoundingClientRect(), w = document.documentElement.clientWidth, h = innerHeight, n = v => Math.max(0, v);
+  return `inset(${n(r.top)}px ${n(w - r.right)}px ${n(h - r.bottom)}px ${n(r.left)}px round 22px)`;
+};
+
+const themaOeffnen = (i, { animiert = true, verlauf = true } = {}) => {
+  if (!themaSeite) themaSeiteBauen();
+  themaNr = i; themaFuellen(i);
+  themaSeite.classList.remove('da', 'zu');
+  themaSeite.hidden = false;
+  themaSeite.scrollTop = 0;
+  themaSperren(true);
+  if (animiert && !RUHIG) {
+    themaSeite.style.transition = 'none';
+    themaSeite.style.clipPath = kachelAusschnitt(themen[i].b);
+    themaSeite.getBoundingClientRect();
+    themaSeite.style.transition = '';
+    requestAnimationFrame(() => { themaSeite.style.clipPath = 'inset(0px 0px 0px 0px round 0px)'; themaSeite.classList.add('da'); });
+  } else {
+    themaSeite.style.clipPath = '';
+    themaSeite.classList.add('da');
+  }
+  if (verlauf) { history.pushState({ thema: themen[i].id }, '', '#thema-' + themen[i].id); themaGepusht = true; }
+  themaOffen = true;
+  $('[data-zurueck]', themaSeite).focus({ preventScroll: true });
+};
+
+const themaSchliessen = () => {
+  if (!themaOffen) return;
+  themaOffen = false;
+  const b = themen[themaNr].b, danach = themaDanach;
+  themaDanach = null;
+  const fertig = () => {
+    themaSeite.hidden = true;
+    themaSeite.classList.remove('zu');
+    themaSeite.style.clipPath = '';
+    themaSperren(false);
+    b.focus({ preventScroll: true });
+    if (danach) danach();
+  };
+  themaSeite.classList.remove('da');
+  themaSeite.classList.add('zu');
+  if (RUHIG) return fertig();
+  aktivSetzen(b);
+  setTimeout(() => { themaSeite.style.clipPath = kachelAusschnitt(b); }, 150);
+  setTimeout(fertig, 150 + 760);
+};
+
+// Zurück über den Browserverlauf, damit die Zurück-Geste am Handy dasselbe tut wie der Knopf
+const themaZurueck = danach => {
+  themaDanach = danach || null;
+  if (themaGepusht) { themaGepusht = false; history.back(); }
+  else { history.replaceState(null, '', location.pathname + location.search); themaSchliessen(); }
+};
+
+const themaWechseln = i => {
+  if (!themaOffen) return;
+  themaSeite.classList.remove('da');
+  themaSeite.classList.add('zu');
+  history.replaceState({ thema: themen[i].id }, '', '#thema-' + themen[i].id);
+  setTimeout(() => {
+    themaNr = i; themaFuellen(i);
+    themaSeite.scrollTop = 0;
+    themaSeite.classList.remove('zu');
+    themaSeite.getBoundingClientRect();
+    themaSeite.classList.add('da');
+    $('[data-zurueck]', themaSeite).focus({ preventScroll: true });
+  }, RUHIG ? 0 : 200);
+};
+
+addEventListener('popstate', e => {
+  const i = themen.findIndex(t => t.id === e.state?.thema);
+  if (themaOffen && i < 0) themaSchliessen();
+  else if (!themaOffen && i >= 0) { themaOeffnen(i, { verlauf: false }); themaGepusht = true; }
 });
+
+let hoverUhr = null;
+bahnen.forEach(b => {
+  if (FEIN) {
+    b.addEventListener('mouseenter', () => { clearTimeout(hoverUhr); hoverUhr = setTimeout(() => aktivSetzen(b), 90); });
+    b.addEventListener('mouseleave', () => clearTimeout(hoverUhr));
+  }
+  b.addEventListener('focus', () => aktivSetzen(b));
+  b.addEventListener('click', () => { const i = themen.findIndex(t => t.b === b); if (i >= 0) { aktivSetzen(b); themaOeffnen(i); } });
+});
+// Direkt über eine Adresse wie …/#thema-bildung aufgerufen: gleich die Themenseite zeigen
+{ const i = themen.findIndex(t => location.hash === '#thema-' + t.id); if (i >= 0) themaOeffnen(i, { animiert: false, verlauf: false }); }
 
 // ---------- Aufklappbereiche „Mein politischer Weg“ / „Mein beruflicher Weg“ (ohne JavaScript offen) ----------
 $$('.akk').forEach(akk => {

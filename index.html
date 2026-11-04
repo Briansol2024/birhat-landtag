@@ -139,37 +139,103 @@
   <section class="themen" id="themen">
     <div class="themen-kopf">
       <h2 class="gross zeilen"><span class="maske"><span>Wofür</span></span><span class="maske" style="--i:1"><span>ich stehe</span></span></h2>
-      <p class="rv">Vier Schwerpunkte aus meiner Arbeit in Beruf, Rat und Kreistag. Tippe auf ein Feld, um es zu öffnen.</p>
+      <p class="rv">Vier Schwerpunkte aus meiner Arbeit in Beruf, Rat und Kreistag. Wähl einen Schwerpunkt, um mehr zu lesen.</p>
     </div>
     <div class="bahnen">
-      <button class="bahn rv aktiv" type="button" aria-expanded="true" style="--farbe:#C8000D;--i:0">
+      <button class="bahn rv aktiv" type="button" aria-haspopup="dialog" data-thema="bildung" style="--farbe:#C8000D;--i:0">
         <span class="nr">01</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M6 24 32 12l26 12-26 12z"/><path pathLength="1" d="M16 29v13c0 4 7 8 16 8s16-4 16-8V29"/><path pathLength="1" d="M58 24v16"/></svg>
         <span class="kurz" aria-hidden="true">Bildung</span>
         <h3>Bildung, die nicht vom Geldbeutel abhängt</h3>
         <p>Seit meiner Zeit im Landesschülerrat setze ich mich dafür ein, dass Bildung für alle zugänglich und fair ist, unabhängig vom Einkommen der Eltern.</p>
+        <span class="mehr">Mehr lesen<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </button>
-      <button class="bahn rv" type="button" aria-expanded="false" style="--farbe:#B9450F;--i:1">
+      <button class="bahn rv" type="button" aria-haspopup="dialog" data-thema="familien" style="--farbe:#B9450F;--i:1">
         <span class="nr">02</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><circle pathLength="1" cx="22" cy="18" r="7"/><circle pathLength="1" cx="44" cy="22" r="5"/><path pathLength="1" d="M8 52c0-9 6-16 14-16s14 7 14 16"/><path pathLength="1" d="M34 52c0-7 4-12 10-12s10 5 10 12"/></svg>
         <span class="kurz" aria-hidden="true">Familien</span>
         <h3>Starke Hilfe für Kinder, Jugend und Familien</h3>
         <p>Als Sozialarbeiter und im Jugendhilfeausschuss des Kreistags erlebe ich, wie wichtig verlässliche Hilfe ist, wenn es zu Hause schwierig wird.</p>
+        <span class="mehr">Mehr lesen<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </button>
-      <button class="bahn rv" type="button" aria-expanded="false" style="--farbe:#0E6B70;--i:2">
+      <button class="bahn rv" type="button" aria-haspopup="dialog" data-thema="ehrenamt" style="--farbe:#0E6B70;--i:2">
         <span class="nr">03</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 6c4 8 14 13 14 26a14 14 0 0 1-28 0c0-6 3-10 6-13 0 5 3 8 6 8 0-9-2-15 2-21z"/><path pathLength="1" d="M26 44a6 6 0 0 0 12 0c0-4-3-6-6-10-3 4-6 6-6 10z"/></svg>
         <span class="kurz" aria-hidden="true">Ehrenamt</span>
         <h3>Rückendeckung für Feuerwehr und Ehrenamt</h3>
         <p>Feuerwehren, Rettungsdienste und Vereine halten unsere Orte zusammen. Sie brauchen gute Ausstattung und Unterstützung aus Hannover.</p>
+        <span class="mehr">Mehr lesen<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </button>
-      <button class="bahn rv" type="button" aria-expanded="false" style="--farbe:#6A2BD0;--i:3">
+      <button class="bahn rv" type="button" aria-haspopup="dialog" data-thema="arbeit" style="--farbe:#6A2BD0;--i:3">
         <span class="nr">04</span>
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect pathLength="1" x="10" y="14" width="44" height="30" rx="6"/><path pathLength="1" d="M10 32h44M18 44l-4 8M46 44l4 8"/><circle pathLength="1" cx="20" cy="38" r="2"/><circle pathLength="1" cx="44" cy="38" r="2"/></svg>
         <span class="kurz" aria-hidden="true">Land &amp; Arbeit</span>
         <h3>Gute Arbeit und Mobilität auf dem Land</h3>
         <p>Unser Wahlkreis lebt von Tourismus, Mittelstand und starken Dörfern. Dafür braucht es Bus und Bahn, schnelles Internet und gute Arbeitsplätze vor Ort.</p>
+        <span class="mehr">Mehr lesen<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </button>
+    </div>
+    <div class="thema-texte">
+      <article class="thema-text" id="thema-bildung">
+        <h3>Bildung, die nicht vom Geldbeutel abhängt</h3>
+        <div class="thema-text-inhalt">
+          <p class="thema-lead">Seit meiner Zeit im Landesschülerrat setze ich mich dafür ein, dass Bildung für alle zugänglich und fair ist, unabhängig vom Einkommen der Eltern.</p>
+          <p>Ich bin in Soltau zur Schule gegangen: Kita St. Johannis, Wilhelm-Busch-Grundschule, Oberschule Soltau. Meine Ausbildungen habe ich an der BBS Walsrode gemacht. Schon als Schüler habe ich mich für andere Schülerinnen und Schüler eingesetzt.</p>
+          <h4>Meine Stationen</h4>
+          <ol class="stationen">
+            <li><time>2015 – 2016</time><span>Schülersprecher der Oberschule Soltau</span></li>
+            <li><time>2016 – 2018</time><span>Sprecher des Kreisschülerrats Heidekreis</span></li>
+            <li><time>2016 – 2018</time><span>Sprecher des Landesschülerrats Niedersachsen</span></li>
+            <li><time>2019 – 2020</time><span>Schülersprecher der BBS Walsrode</span></li>
+            <li><time>2016 – 2023</time><span>Sozialpädagogischer Assistent und Erzieher an der BBS Walsrode, danach duales Studium Soziale Arbeit an der VWA Göttingen</span></li>
+          </ol>
+          <p class="thema-quelle">Quellen: <a href="https://www.birhatkacar.de/meine-arbeit/" target="_blank" rel="noopener">birhatkacar.de – Meine Arbeit</a>, <a href="https://www.birhatkacar.de/ueber-mich/" target="_blank" rel="noopener">birhatkacar.de – Über mich</a></p>
+        </div>
+      </article>
+      <article class="thema-text" id="thema-familien">
+        <h3>Starke Hilfe für Kinder, Jugend und Familien</h3>
+        <div class="thema-text-inhalt">
+          <p class="thema-lead">Als Sozialarbeiter und im Jugendhilfeausschuss des Kreistags erlebe ich, wie wichtig verlässliche Hilfe ist, wenn es zu Hause schwierig wird.</p>
+          <p>Heute begleite ich bei Venito in Bad Fallingbostel junge Menschen und ihre Familien durch schwierige Lebenslagen.</p>
+          <h4>Meine Stationen</h4>
+          <ol class="stationen">
+            <li><time>seit 2023</time><span>Sozialarbeiter bei Venito (Dachstiftung Diakonie) in Bad Fallingbostel</span></li>
+            <li><time>2020 – 2023</time><span>Erzieher in sozialpädagogischen, therapeutischen und heilpädagogischen Wohngruppen</span></li>
+            <li><time>2020 – 2023</time><span>Duales Studium Soziale Arbeit, staatlich anerkannter Sozialarbeiter</span></li>
+            <li><time>Kreistag</time><span>Mitglied im Jugendhilfeausschuss des Kreistags Heidekreis</span></li>
+          </ol>
+          <p class="thema-quelle">Quellen: <a href="https://www.birhatkacar.de/ueber-mich/" target="_blank" rel="noopener">birhatkacar.de – Über mich</a>, <a href="https://www.birhatkacar.de/meine-arbeit/" target="_blank" rel="noopener">birhatkacar.de – Meine Arbeit</a> (Ausschüsse: Stand 2024)</p>
+        </div>
+      </article>
+      <article class="thema-text" id="thema-ehrenamt">
+        <h3>Rückendeckung für Feuerwehr und Ehrenamt</h3>
+        <div class="thema-text-inhalt">
+          <p class="thema-lead">Feuerwehren, Rettungsdienste und Vereine halten unsere Orte zusammen. Sie brauchen gute Ausstattung und Unterstützung aus Hannover.</p>
+          <p>Im Kreistag arbeite ich im Ausschuss mit, der auch für die Feuerwehr zuständig ist.</p>
+          <h4>Meine Stationen</h4>
+          <ol class="stationen">
+            <li><time>Kreistag</time><span>Mitglied im Ausschuss für Wirtschaft, Verkehr, Feuerwehr und Tourismus</span></li>
+            <li><time>seit 2024</time><span>Ehrenamtlicher Richter am Amtsgericht Soltau</span></li>
+            <li><time>seit 2016</time><span>Mitglied im Soltauer Stadtrat, seit 2023 Vorsitzender der SPD-Fraktion</span></li>
+          </ol>
+          <p class="thema-quelle">Quelle: <a href="https://www.birhatkacar.de/meine-arbeit/" target="_blank" rel="noopener">birhatkacar.de – Meine Arbeit</a> (Ausschüsse: Stand 2024)</p>
+        </div>
+      </article>
+      <article class="thema-text" id="thema-arbeit">
+        <h3>Gute Arbeit und Mobilität auf dem Land</h3>
+        <div class="thema-text-inhalt">
+          <p class="thema-lead">Unser Wahlkreis lebt von Tourismus, Mittelstand und starken Dörfern. Dafür braucht es Bus und Bahn, schnelles Internet und gute Arbeitsplätze vor Ort.</p>
+          <p>Zum Wahlkreis 43 gehören die Städte Soltau, Munster und Schneverdingen, die Gemeinden Bispingen, Neuenkirchen und Wietzendorf sowie die Samtgemeinde Fintel.</p>
+          <h4>Meine Stationen</h4>
+          <ol class="stationen">
+            <li><time>Kreistag</time><span>Mitglied im Ausschuss für Wirtschaft, Verkehr, Feuerwehr und Tourismus</span></li>
+            <li><time>seit 2021</time><span>Abgeordneter im Kreistag Heidekreis</span></li>
+            <li><time>seit 2016</time><span>Mitglied im Soltauer Stadtrat, seit 2023 Vorsitzender der SPD-Fraktion</span></li>
+            <li><time>2020 – 2023</time><span>Wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag</span></li>
+          </ol>
+          <p class="thema-quelle">Quellen: <a href="https://www.birhatkacar.de/meine-arbeit/" target="_blank" rel="noopener">birhatkacar.de – Meine Arbeit</a> (Ausschüsse: Stand 2024), <a href="https://www.mi.niedersachsen.de/startseite/aktuelles/presseinformationen/abstimmung-im-landtag-niedersachsen-stellt-wahlkreise-fur-die-landtagswahl-2027-verfassungskonform-neu-auf-249144.html" target="_blank" rel="noopener">Niedersächsisches Innenministerium – Wahlkreise 2027</a></p>
+        </div>
+      </article>
     </div>
   </section>
 

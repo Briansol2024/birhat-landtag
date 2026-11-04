@@ -204,16 +204,74 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .bahn:not(.aktiv) h3,.bahn:not(.aktiv) p{display:none}
 .bahn h3{font-size:clamp(24px,2.5vw,40px);line-height:.95;max-width:15ch;animation:auf .6s var(--ease) both}
 .bahn p{font-size:17px;line-height:1.55;max-width:44ch;animation:auf .7s var(--ease) .12s both}
+.bahn .mehr{display:inline-flex;align-items:center;gap:10px;font:800 12.5px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;animation:auf .7s var(--ease) .2s both}
+.bahn .mehr svg{position:static;width:18px;height:18px;opacity:1;stroke-width:2.4;animation:none;transition:transform .35s var(--ease)}
+.bahn .mehr svg *{stroke-dasharray:none}
+.bahn:hover .mehr svg,.bahn:focus-visible .mehr svg{transform:translateX(5px)}
+.bahn:not(.aktiv) .mehr{display:none}
 @media (max-width:900px){
   .bahnen{flex-direction:column;height:auto}
   .bahn,.bahn.aktiv{flex:none;padding:92px 22px 24px;background:var(--farbe)}
   .bahn::after{display:none}
   .bahn:not(.aktiv) h3,.bahn:not(.aktiv) p{display:block}
   .bahn:not(.aktiv) .kurz{display:none}
+  .bahn:not(.aktiv) .mehr{display:inline-flex}
+  .bahn .mehr{animation:none}
   .bahn h3,.bahn p{animation:none}
   .bahn svg{opacity:1;width:50px;height:50px;top:22px;right:22px}
   .bahn .nr{top:18px;left:22px;font-size:52px;-webkit-text-stroke-color:#fff}
 }
+
+/* Themenseite: wächst aus der Kachel über den ganzen Bildschirm, Inhalte fächern sich auf */
+.thema-texte{padding-top:clamp(28px,5vh,56px);display:grid;gap:40px;max-width:900px}
+.js .thema-texte{display:none}
+.thema-text h3{font-size:clamp(26px,3vw,40px);line-height:1}
+.thema-seite{--farbe:var(--rot);position:fixed;inset:0;z-index:80;background:var(--farbe);color:#fff;overflow-y:auto;overscroll-behavior:contain;isolation:isolate;transition:clip-path .75s var(--ease),background-color .6s}
+.thema-seite[hidden]{display:none}
+.thema-seite::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(70% 55% at 90% 0%,rgba(255,255,255,.22),transparent 65%),radial-gradient(60% 50% at 0% 100%,rgba(0,0,0,.22),transparent 70%)}
+.thema-leiste{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(12px + env(safe-area-inset-top,0px)) var(--rand) 12px;background:var(--farbe);box-shadow:0 1px 0 rgba(255,255,255,.18);transition:background-color .6s}
+.thema-zurueck{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:10px 20px 9px 14px;border-radius:99px;border:1.5px solid rgba(255,255,255,.75);background:rgba(0,0,0,.14);color:#fff;font:800 12.5px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,transform .35s var(--ease)}
+.thema-zurueck svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.thema-zurueck:hover{background:#fff;color:var(--farbe)}
+.thema-zurueck:hover svg{transform:translateX(-4px)}
+.thema-zaehler{font:800 13px/1 var(--display);letter-spacing:.16em;opacity:.8}
+.thema-buehne{max-width:1000px;margin:0 auto;padding:clamp(28px,6vh,72px) var(--rand) calc(clamp(40px,8vh,96px) + env(safe-area-inset-bottom,0px))}
+.thema-kopf{position:relative;display:grid;gap:18px;padding-bottom:clamp(24px,4vh,40px);margin-bottom:clamp(24px,4vh,40px);border-bottom:1.5px solid rgba(255,255,255,.35)}
+.thema-nr{font:800 clamp(84px,13vw,190px)/.8 var(--display);color:transparent;-webkit-text-stroke:2px #fff;letter-spacing:-.02em}
+.thema-symbol{position:absolute;top:0;right:0;width:clamp(64px,10vw,120px)}
+.thema-symbol svg{display:block;width:100%;height:auto;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.thema-symbol svg *{stroke-dasharray:1;stroke-dashoffset:1}
+.thema-seite.da .thema-symbol svg *{animation:zeichnen 1.4s var(--ease) .45s both}
+.thema-kopf h2{font-size:clamp(34px,5.6vw,78px);line-height:.92;max-width:16ch}
+.thema-inhalt{display:grid;gap:18px}
+.thema-inhalt>p{margin:0;max-width:62ch;font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:rgba(255,255,255,.92)}
+.thema-inhalt .thema-lead{font-size:clamp(21px,2.2vw,28px);line-height:1.4;color:#fff;max-width:38ch}
+.thema-inhalt h4{margin:22px 0 2px;font:800 13px/1.2 var(--display);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.thema-inhalt h4::before{content:"";width:26px;height:2px;background:currentColor}
+.stationen{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.stationen li{display:grid;gap:8px;align-content:start;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.13);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 14px 30px -22px rgba(0,0,0,.6);font-size:16.5px;line-height:1.45}
+.stationen time{font:800 14px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.thema-inhalt .thema-quelle{font-size:14px;color:rgba(255,255,255,.78);margin-top:8px}
+.thema-quelle a{color:#fff}
+.thema-fuss{margin-top:clamp(36px,6vh,64px);display:grid;gap:16px}
+.thema-fuss>p{margin:0;font:800 clamp(22px,2.4vw,32px)/1.05 var(--display);text-transform:uppercase}
+.thema-aktionen{display:flex;gap:10px;flex-wrap:wrap}
+.thema-aktionen .knopf{color:#fff;border-color:rgba(255,255,255,.75)}
+.thema-aktionen .knopf.thema-hell{background:#fff;color:var(--farbe);border-color:#fff}
+.thema-weiter{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:22px 24px;border-radius:22px;border:0;background:rgba(0,0,0,.2);color:#fff;text-align:left;cursor:pointer;transition:background .3s,transform .35s var(--ease)}
+.thema-weiter small{display:block;font:800 12px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
+.thema-weiter b{font:800 clamp(22px,2.4vw,32px)/1 var(--display);text-transform:uppercase}
+.thema-weiter svg{width:28px;height:28px;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.thema-weiter:hover{background:rgba(0,0,0,.32)}
+.thema-weiter:hover svg{transform:translateX(6px)}
+/* Auftritt: Blöcke gleiten nacheinander herein, die Stationen fächern sich wie Karten auf */
+.thema-seite .fach{opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease),transform .75s var(--ease);transition-delay:calc(.28s + var(--j,0) * 65ms)}
+.thema-seite .thema-leiste.fach{transform:translateY(-100%)}
+.thema-seite.da .fach{opacity:1;transform:none}
+.thema-seite .stationen li{opacity:0;transform:translate(-26px,-46px) rotate(-8deg) scale(.94);transform-origin:0 0;transition:opacity .45s var(--ease),transform .85s cubic-bezier(.2,1.3,.35,1);transition-delay:calc(.28s + var(--j,0) * 65ms)}
+.thema-seite.da .stationen li{opacity:1;transform:none}
+.thema-seite.zu .fach,.thema-seite.zu .stationen li{transition-duration:.16s;transition-delay:0s}
+.thema-seite.zu .thema-leiste.fach{transform:none}
 
 /* Über mich: Foto, kurzer Text, zwei aufklappbare Wege */
 .ueber{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:6vw;padding:var(--abstand) var(--rand);max-width:1500px;margin:0 auto;align-items:start}
@@ -465,4 +523,6 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
   .js .claim-text .w{opacity:1}
   .js .ueber-bild{clip-path:none}
   .js .karte .ort circle{transform:none}.js .karte .ort text{opacity:1}
+  .thema-seite .fach,.thema-seite .stationen li{opacity:1!important;transform:none!important}
+  .thema-symbol svg *{stroke-dashoffset:0}
 }
