@@ -66,13 +66,14 @@ const beobachter = new IntersectionObserver(es => es.forEach(e => {
   beobachter.unobserve(e.target);
 }), { rootMargin: '0px 0px -12% 0px' });
 $$('.rv, .zeilen, .zahl, .karte, [data-reveal]').forEach(el => beobachter.observe(el));
-// Die Unterschrift startet, sobald sie ins Bild kommt.
+// Die Unterschrift startet erst, wenn sie etwa in der Mitte des Bildschirms ist (Oberkante bei 45 % der Höhe,
+// ihre Mitte dann bei gut 50 %). Liegt sie schon darüber, z. B. nach einem Sprung über das Menü, startet sie sofort.
 const grussBeobachter = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting) return;
+  if (!e.isIntersecting && e.boundingClientRect.top > innerHeight * 0.4) return;
   e.target.classList.add('sichtbar');
   $$('path', e.target).forEach(p => { p.style.strokeDashoffset = 0; });
   grussBeobachter.unobserve(e.target);
-}), { threshold: 0.2 });
+}), { rootMargin: '-40% 0px -55% 0px' });
 $$('.gruss').forEach(el => grussBeobachter.observe(el));
 
 // ---------- Ortsbänder: anhalten und weiterlaufen ----------
