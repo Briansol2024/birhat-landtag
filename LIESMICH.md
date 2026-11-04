@@ -10,12 +10,14 @@ Statische Seite ohne Baustufe, nicht auf Wix. Sie läuft auf GitHub Pages und sp
 - `assets/data/wissen.json`: Status der Bewerbung (Bewerbung / nominiert / gewählt) und bestätigte Angaben mit Quellen
 - `assets/data/wegweiser.json`: Zuständigkeiten je Ort und Anliegen mit Quellen und Prüfdatum
 - `assets/data/orte.json`: Ortskarten für die Wahlkreiskarte (Art, Kreis, offizielle Website)
-- `assets/img/birhat-wand-*.jpg`, `birhat-bank-*.jpg`: die beiden Porträts in mehreren Breiten. Der Browser lädt die passende Größe.
+- `assets/img/birhat-wand-*.jpg`, `birhat-bank-hoch-*.jpg`: die beiden Porträts in mehreren Breiten (Bank-Foto als engerer Ausschnitt im Format 4:5). Der Browser lädt die passende Größe.
+- `assets/img/logo/`: Kampagnenlogo. Freigestellt aus den gelieferten JPG-Fassungen (832 px breit): großes Logo weiß mit rotem Pfeilkreis, Wortmarke (rot und mit schwarzem Kreis fürs rote Menü), Pfeilkreis, Favicons. Mit den SVG-Originalen aus Canva würde es noch schärfer, dann einfach die PNGs gleichen Namens ersetzen.
+- Wahlkreiskarte: direkt als SVG in `index.html` (`.karte`), Grenzen aus BKG VG250 (Stand 01.01., abgerufen 04.11.2026), Namenslagen automatisch gegen Linien und fremde Flächen geprüft.
 - `ki-dienst/`: nicht in Benutzung. Die KI-Assistentin Heidi ist seit 04.11.2026 von der Website entfernt, der Code bleibt nur aufbewahrt.
 
 ## Pflege
 
-- **Status ändern:** in `assets/data/wissen.json` bei `status.aktuell`. Der passende Text erscheint automatisch bei der Frage „Ist Birhat bereits als Kandidat nominiert?“.
+- **Status ändern:** in `assets/data/wissen.json` bei `status.aktuell`. Der Kicker oben auf der Startseite passt sich automatisch an.
 - **Häufige Fragen:** stehen direkt in `index.html` im Abschnitt `#fragen`, jede mit Quelle. Nach Änderungen das Stand-Datum darunter anpassen.
 - **Fragen-Formular:** verschickt selbst nichts, sondern öffnet das Mailprogramm der Besucher mit fertiger Mail. Die Empfängeradresse steht geteilt im Formular bei `data-an` (vor dem @) und `data-bei` (nach dem @).
 - **Instagram-Auswahl:** Die sechs Beiträge stehen in `index.html` im Abschnitt `#instagram`, die Bilder in `assets/img/instagram/`. Die Seite lädt nichts von Instagram, deshalb bekommt Meta keine Besucherdaten. Die Auswahl wird von Hand gepflegt, nicht automatisch. So tauschst du einen Beitrag aus:
@@ -51,5 +53,6 @@ Diese Fälle zeigt der Wegweiser bewusst vorsichtig an:
 - **Wahlkreis 43 Soltau ab 2027:** Änderung des Landeswahlgesetzes, beschlossen am 03.03.2026.
 - **Wahltermin 26.09.2027 sowie Erst- und Zweitstimme:** Niedersächsischer Landtag, „Wahlverfahren, Wahlsystem“.
 - **Nominierung:** § 18 Niedersächsisches Landeswahlgesetz.
-- **Kartenkoordinaten:** OpenStreetMap (Nominatim).
+- **Wahlkreiskarte:** Gemeinde- und Samtgemeindegrenzen sowie Verwaltungssitze aus © GeoBasis-DE / BKG (2026), VG250, Datenlizenz Deutschland – Namensnennung 2.0.
+- **Häufige Fragen:** § 18 NLWG (VORIS), Niedersächsischer Landtag „Aufgaben des Landtages“; Termin der Mitgliederversammlung (Dezember 2026): Angabe von Brian Weber, 04.11.2026.
 - **Heidefoto:** Pirx3000, Wikimedia Commons, CC BY-SA 4.0.

@@ -35,6 +35,28 @@ if (satz) {
 }
 const woerter = satz ? $$('.w', satz) : [];
 
+// ---------- Marke oben links: Pfeilkreis oder Wortmarke ----------
+// Solange das große Logo im Startbereich zu sehen ist (nicht unter der Kopfleiste), steht oben nur der Pfeilkreis.
+// Hat es den sichtbaren Bereich nach oben verlassen, erscheint die Wortmarke. Unterseiten haben die Wortmarke fest.
+{
+  const kopf = $('.kopf'), heroLogo = $('.hero-logo');
+  if (kopf && heroLogo && 'IntersectionObserver' in window) {
+    let beobachter = null;
+    const starten = () => {
+      beobachter?.disconnect();
+      const h = Math.round(kopf.getBoundingClientRect().height);
+      beobachter = new IntersectionObserver(([e]) => {
+        const darueber = !e.isIntersecting && e.boundingClientRect.bottom <= h + 1;
+        kopf.classList.toggle('wort', darueber);
+      }, { rootMargin: `-${h}px 0px 0px 0px` });
+      beobachter.observe(heroLogo);
+    };
+    starten();
+    let uhr = null;
+    addEventListener('resize', () => { clearTimeout(uhr); uhr = setTimeout(starten, 200); });
+  }
+}
+
 // ---------- Unterschrift: wie mit dem Stift geschrieben ----------
 // Sie schreibt sich einmal, sobald sie ganz im Bild ist. Zusammenhängende Striche laufen ineinander. Vor jedem neu
 // angesetzten Strich (B, t-Strich, i-Punkt, Unterstrich) gibt es eine kurze Pause wie beim Absetzen des Stifts.
@@ -279,7 +301,7 @@ const zeigeOrt = id => {
   $$('[data-ort]').forEach(el => {
     const an = el.dataset.ort === id;
     el.classList.toggle('gewaehlt', an);
-    if (el.tagName === 'BUTTON') el.setAttribute('aria-pressed', String(an));
+    if (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button') el.setAttribute('aria-pressed', String(an));
   });
   const o = ORTE?.orte?.[id];
   ortKarte.classList.remove('neu'); void ortKarte.offsetWidth; ortKarte.classList.add('neu');

@@ -14,7 +14,8 @@
     ['verwaltung', 'Verwaltung', 'Ausweis, Zeugnis, Gewerbe'],
   ];
   let D = null;
-  const wahl = { ort: null, thema: null };
+  const wahl = { ort: null, thema: null, anliegen: null };
+  const RUHIG = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const datum = iso => { const [j, m, t] = String(iso).split('-'); return t ? `${t}.${m}.${j}` : iso; };
 
@@ -37,7 +38,7 @@
   const zurueck = ziel => { const b = el('button', 'ww-zurueck', 'Zurück'); b.type = 'button'; b.addEventListener('click', ziel); return b; };
 
   function schrittOrt() {
-    wahl.ort = wahl.thema = null;
+    wahl.ort = wahl.thema = wahl.anliegen = null;
     szene(1, el('p', 'ww-frage', 'Wo wohnst du?'),
       knopfReihe(Object.entries(D.orte).map(([id, o]) => [id, o.name, o.kreis === 'rotenburg' ? 'Landkreis Rotenburg (Wümme)' : 'Landkreis Heidekreis']), id => { wahl.ort = id; schrittThema(); }));
   }
@@ -49,7 +50,7 @@
   function schrittAnliegen() {
     const liste = D.anliegen.filter(a => a.kategorie === wahl.thema);
     szene(3, el('p', 'ww-frage', 'Was genau brauchst du?'),
-      knopfReihe(liste.map(a => [a.id, a.titel]), id => ergebnis(D.anliegen.find(a => a.id === id))),
+      knopfReihe(liste.map(a => [a.id, a.titel]), id => { wahl.anliegen = id; ergebnis(D.anliegen.find(a => a.id === id)); }),
       zurueck(schrittThema));
   }
 
@@ -106,9 +107,12 @@
     });
     const drucken = el('button', 'knopf', 'Drucken'); drucken.type = 'button';
     drucken.addEventListener('click', () => { document.body.classList.add('druck-ww'); print(); setTimeout(() => document.body.classList.remove('druck-ww'), 500); });
-    const neu = el('button', 'knopf knopf-haupt', 'Neue Frage'); neu.type = 'button'; neu.addEventListener('click', schrittOrt);
-    aktionen.append(kopieren, drucken, neu, info);
-    box.append(aktionen, zurueck(schrittAnliegen));
+    // Hauptaktion: zurück zur ersten Frage, ohne Neuladen. Auswahl und Ergebnis sind danach weg, der Fokus steht am Anfang.
+    const neu = el('button', 'knopf knopf-haupt ww-neu', 'Neue Frage stellen'); neu.type = 'button';
+    neu.addEventListener('click', () => { schrittOrt(); wurzel.scrollIntoView({ block: 'start', behavior: RUHIG ? 'auto' : 'smooth' }); });
+    aktionen.append(kopieren, drucken, info);
+    const ende = el('div', 'ww-ende'); ende.append(neu, aktionen);
+    box.append(ende, zurueck(schrittAnliegen));
     szene(3, box);
   }
 

@@ -37,10 +37,15 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .kopf::before{content:"";position:absolute;inset:0 0 -24px;z-index:-1;background:linear-gradient(rgba(11,11,12,.5),rgba(11,11,12,0));pointer-events:none;transition:opacity .4s}
 .kopf.voll{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-block:10px;box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .kopf.voll::before{opacity:0}
-.marke{display:grid;gap:3px;text-decoration:none;line-height:1;min-width:0}
-.marke-name{font:800 27px/.95 var(--body);text-transform:none;letter-spacing:-.02em}
-.marke-punkt{color:var(--rot)}
-.marke-slogan{font:700 12.5px/1.15 var(--body);letter-spacing:.02em;text-transform:none;color:rgba(255,255,255,.88);white-space:nowrap}
+/* Marke oben links: Pfeilkreis, solange das große Logo zu sehen ist, danach die kurze Wortmarke.
+   Der Platz ist für die breitere Wortmarke reserviert, damit Kontakt und Menü nicht springen. */
+.marke{position:relative;display:block;flex:none;width:88px;height:36px;text-decoration:none}
+.marke img{position:absolute;left:0;top:50%;width:auto;opacity:0;transform:translateY(-50%) scale(.9);transform-origin:left center;transition:opacity .35s ease,transform .45s var(--ease);pointer-events:none}
+.marke .marke-kreis{height:34px}
+.marke .marke-wort{height:36px}
+.kopf:not(.wort) .marke-kreis.f-rot,.kopf.wort .marke-wort.f-rot{opacity:1;transform:translateY(-50%)}
+.menue-offen .kopf .marke img.f-rot{opacity:0}
+.menue-offen .kopf:not(.wort) .marke-kreis.f-schwarz,.menue-offen .kopf.wort .marke-wort.f-schwarz{opacity:1;transform:translateY(-50%)}
 .kopf-cta{margin-left:auto;font:800 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(255,255,255,.5);padding:11px 16px 9px;border-radius:99px;transition:background .3s,border-color .3s}
 .kopf-cta:hover{background:var(--rot);border-color:var(--rot)}
 .menue-knopf{display:flex;align-items:center;gap:10px;min-height:44px;background:none;border:0;color:inherit;cursor:pointer;font:800 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:8px 0 8px 8px;position:relative;z-index:61}
@@ -53,10 +58,10 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
   .kopf{padding-inline:16px;gap:10px}
   .kopf-cta{display:none}
   .menue-knopf{margin-left:auto}
-  .marke-name{font-size:23px}
-  .marke-slogan{font-size:11px}
+  .marke{width:76px;height:31px}
+  .marke .marke-wort{height:31px}
+  .marke .marke-kreis{height:30px}
 }
-@media (max-width:340px){.marke-slogan{white-space:normal;max-width:16ch}}
 
 /* Menü über die ganze Fläche */
 .menue{position:fixed;inset:0;z-index:60;background:var(--rot);color:#fff;display:grid;align-content:center;padding:100px var(--rand) 40px;overflow-y:auto;clip-path:circle(0% at calc(100% - 40px) 36px);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s}
@@ -72,7 +77,6 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .menue-fuss a:hover{color:var(--nacht)}
 .menue-offen .kopf{z-index:65;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
 .menue-offen .kopf::before,.menue-offen .kopf-cta{opacity:0;pointer-events:none}
-.menue-offen .marke-punkt{color:#fff}
 
 /* Bausteine */
 .knopf{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px 9px;border-radius:99px;font:800 12.5px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
@@ -82,7 +86,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .kicker{display:inline-flex;align-items:center;gap:10px;font:800 12.5px/1.2 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--rot)}
 .kicker::before{content:"";width:26px;height:2px;background:currentColor;flex:none}
 .gross{font-size:clamp(42px,7vw,108px)}
-.maske{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.maske{display:block;overflow:hidden;padding-top:.16em;margin-top:-.16em;padding-bottom:.06em;margin-bottom:-.06em}
 .maske>span{display:block}
 .js .rv{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
 .js .rv.sichtbar{opacity:1;transform:none}
@@ -99,7 +103,8 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .hero-text{position:relative;display:grid;gap:16px;max-width:520px}
 .hero-kicker{color:#fff}
 .hero-kicker::before{background:var(--rot)}
-.hero-name{font-size:clamp(38px,5.4vw,88px);line-height:.88;letter-spacing:-.02em}
+.hero-logo{display:block;width:clamp(270px,21vw,300px);height:auto;margin:2px 0 4px}
+.hero-name{font-size:clamp(17px,1.35vw,21px);line-height:1.15;letter-spacing:.16em}
 .hero-sub{font-size:clamp(17px,1.4vw,20px);line-height:1.45;max-width:32ch;color:#F1EEEA}
 .hero-aktionen{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
 .hero .knopf:not(.knopf-haupt){border-color:rgba(255,255,255,.65);color:#fff;background:rgba(11,11,12,.18)}
@@ -111,7 +116,9 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
   .hero::after{display:none}
   .hero-foto::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(0deg,var(--nacht),rgba(11,11,12,0))}
   .hero-text{margin-top:-64px;padding:0 20px 36px;max-width:none;z-index:2}
-  .hero-name{font-size:clamp(36px,10.5vw,54px)}
+  .hero-logo{width:clamp(220px,62vw,250px)}
+  .hero-kicker{white-space:nowrap}
+  .hero-name{font-size:17px}
 }
 
 /* Eingangsanimation: rote Fläche zieht durchs Bild, Foto kommt mit leichtem Zoom zur Ruhe, danach Text versetzt */
@@ -125,7 +132,8 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .intro-voll .hero-foto img{animation:fotoFrei 1.75s var(--ease) .05s both}
 .intro-voll .marke{animation:markeAuf .7s var(--ease) .5s both}
 .intro-voll .hero-kicker{animation:auf .7s var(--ease) .7s both}
-.intro-voll .hero-name .maske>span{animation:hoch .9s var(--ease) .78s both}
+.intro-voll .hero-logo{animation:auf .85s var(--ease) .72s both}
+.intro-voll .hero-name{animation:auf .7s var(--ease) .86s both}
 .intro-voll .hero-sub{animation:auf .7s var(--ease) .95s both}
 .intro-voll .hero-aktionen{animation:auf .7s var(--ease) 1.1s both}
 .intro-kurz .hero-foto img,.intro-kurz .hero-text{animation:leise .5s ease both}
@@ -222,6 +230,12 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
   .bahn .nr{top:18px;left:22px;font-size:52px;-webkit-text-stroke-color:#fff}
 }
 
+/* Abschluss unter den vier Themen: eigener Baustein über die volle Breite */
+.themen-abschluss{position:relative;overflow:hidden;margin-top:clamp(28px,5vh,56px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(18px,4vw,64px);align-items:start;padding:clamp(24px,4vw,52px) clamp(24px,4vw,52px) clamp(24px,4vw,52px) calc(clamp(24px,4vw,52px) + 6px);border-radius:22px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.themen-abschluss::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--rot)}
+.themen-abschluss h3{font-size:clamp(28px,3.4vw,52px);line-height:.98;max-width:12ch}
+.themen-abschluss p{margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.6;color:#E8E3DF;max-width:62ch}
+@media (max-width:900px){.themen-abschluss{grid-template-columns:minmax(0,1fr);margin-top:12px;padding:26px 22px 26px 28px}.themen-abschluss h3{max-width:none}}
 /* Themenseite: wächst aus der Kachel über den ganzen Bildschirm, Inhalte fächern sich auf */
 .thema-texte{padding-top:clamp(28px,5vh,56px);display:grid;gap:40px;max-width:900px}
 .js .thema-texte{display:none}
@@ -278,7 +292,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .ueber-bild{position:sticky;top:110px;border-radius:26px;overflow:hidden;aspect-ratio:4/5;margin:0}
 .js .ueber-bild{clip-path:inset(0 0 100% 0 round 26px);transition:clip-path 1.4s var(--ease)}
 .js .ueber.sichtbar .ueber-bild{clip-path:inset(0 0 0 0 round 26px)}
-.ueber-bild img{width:100%;height:100%;object-fit:cover;object-position:46% 32%}
+.ueber-bild img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .ueber-text{display:grid;gap:20px;max-width:62ch}
 .ueber-text .gross{font-size:clamp(36px,4.4vw,70px)}
 .ueber-text .lead{font-size:clamp(20px,1.8vw,25px);line-height:1.42;color:var(--tinte)}
@@ -322,21 +336,32 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .orte-liste small{font-size:13px;line-height:1.3;color:#D7D1CC}
 .orte-liste button[aria-pressed="true"] small{color:#fff}
 .karte-block{display:grid;gap:14px}
-.karte{width:100%;height:auto;overflow:visible}
-.karte .raster path{stroke:rgba(255,255,255,.07);stroke-width:1}
-.karte .ort{cursor:pointer;outline:none}
-.karte .ort circle{fill:#fff;stroke:var(--rot);stroke-width:4;transform-box:fill-box;transform-origin:center;transition:transform .35s var(--ease),fill .3s}
-.js .karte .ort circle{transform:scale(0);transition-delay:calc(var(--i) * 90ms)}
-.js .karte.sichtbar .ort circle{transform:scale(1)}
-.karte .ort text{font:800 15px var(--display);letter-spacing:.06em;text-transform:uppercase;fill:#fff;paint-order:stroke;stroke:rgba(11,11,12,.75);stroke-width:4px;transition:fill .3s}
-.js .karte .ort text{opacity:0;transition:opacity .6s,fill .3s;transition-delay:calc(.3s + var(--i) * 90ms)}
-.js .karte.sichtbar .ort text{opacity:1}
-.karte .ort:hover circle,.karte .ort:focus-visible circle{transform:scale(1.35)}
-.karte .ort:focus-visible text{fill:var(--rot-hell)}
-.karte .ort.gewaehlt circle{fill:var(--rot);stroke:#fff;transform:scale(1.4)}
+.karte{width:100%;height:auto;overflow:visible;touch-action:manipulation}
+/* Flächen = amtliche Grenzen. Gewählt: rot. */
+.karte .flaechen .ort{fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.62);stroke-width:1.4;stroke-linejoin:round;cursor:pointer;outline:none;transition:fill .3s,opacity .7s var(--ease);transition-delay:0s,calc(var(--i,0) * 80ms)}
+.karte .flaechen .ort:hover{fill:rgba(255,255,255,.2)}
+.karte .flaechen .ort:focus-visible{stroke:#fff;stroke-width:3.2}
+.karte .flaechen .ort.gewaehlt{fill:rgba(227,0,15,.88);stroke:#fff}
+.js .karte .flaechen .ort{opacity:0}
+.js .karte.sichtbar .flaechen .ort{opacity:1}
+/* Verbindungen zwischen Nachbarorten: gepunktet und gebogen, damit sie nicht wie Grenzen aussehen */
+.karte .verbindungen path{fill:none;stroke:#FF8A92;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:.1 7.5;pointer-events:none}
+.js .karte .verbindungen{opacity:0;transition:opacity .8s .6s}
+.js .karte.sichtbar .verbindungen{opacity:.95}
+.karte .ortspunkte circle{fill:#fff;stroke:var(--rot);stroke-width:2.6;pointer-events:none;transition:fill .3s,stroke .3s}
+.karte .ortspunkte circle.gewaehlt{fill:var(--nacht);stroke:#fff}
+/* Namen: über allem, mit dunkler Kontur, damit keine Linie sie verdeckt */
+.karte .name{cursor:pointer}
+.karte .name text{font:800 15px var(--display);letter-spacing:.05em;text-transform:uppercase;fill:#fff;paint-order:stroke;stroke:rgba(11,11,12,.82);stroke-width:4.5px;stroke-linejoin:round}
+.karte .name .klein{font-size:.66em;letter-spacing:.12em}
+.karte .name .hinweislinie{fill:none;stroke:rgba(255,255,255,.8);stroke-width:1.4;stroke-linecap:round}
+.js .karte .name{opacity:0;transition:opacity .6s .5s}
+.js .karte.sichtbar .name{opacity:1}
 .karte .massstab path{stroke:rgba(255,255,255,.75);stroke-width:2;fill:none}
 .karte .massstab .nord{fill:rgba(255,255,255,.85);stroke:none}
 .karte .massstab text{font:700 13px var(--body);fill:rgba(255,255,255,.8)}
+@media (max-width:900px){.karte .name text{font-size:16px}}
+@media (max-width:520px){.karte .name text{font-size:24px;stroke-width:5.5px}.karte .massstab text{font-size:19px}}
 .ort-karte{min-height:120px;background:rgba(255,255,255,.08);border-radius:16px;padding:18px 20px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .ort-leer{color:#CFC9C4}
 .ort-karte h3{font-size:28px;margin-bottom:6px}
@@ -347,7 +372,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .karte-hinweis{font-size:12.5px;color:#A9A29D}
 .wahlkreis .bildnachweis{position:absolute;right:16px;bottom:10px;font-size:11px;color:rgba(255,255,255,.55)}
 @media (max-width:900px){.wahlkreis{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:520px){.orte-liste{grid-template-columns:repeat(2,minmax(0,1fr))}.karte .ort text{font-size:19px}}
+@media (max-width:520px){.orte-liste{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Wegweiser */
 .wegweiser{padding:var(--abstand) var(--rand);max-width:1200px;margin:0 auto}
@@ -380,8 +405,11 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .ww-quellen{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px}
 .ww-unklar{border-left:4px solid #E0B800}
 .ww-stand{font-size:13px;color:var(--leise)}
-.ww-aktionen{display:flex;flex-wrap:wrap;gap:8px}
-.ww-aktionen .knopf{color:var(--tinte)}
+.ww-ende{display:grid;gap:12px;margin-top:6px}
+.ww-neu{justify-self:start;min-height:52px;padding-inline:26px;font-size:13.5px}
+.ww-aktionen{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ww-aktionen .knopf{color:var(--tinte);min-height:40px;padding:8px 14px 7px;font-size:11.5px}
+@media (max-width:600px){.ww-neu{justify-self:stretch;width:100%}}
 .ww-kopiert{font-size:14px;color:var(--rot-tief);align-self:center}
 
 /* Instagram */
@@ -481,7 +509,7 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
 /* Fuß */
 .fuss{background:var(--nacht);color:#9C958F;overflow:hidden}
 .fuss-band{display:flex;white-space:nowrap;padding:4vh 0 1vh}
-.spur-fuss{display:flex;flex:none;animation:lauf 60s linear infinite}
+.spur-fuss{display:flex;flex:none;animation:lauf 30s linear infinite}
 .spur-fuss span{font:800 clamp(52px,9vw,150px)/1 var(--display);text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.25);padding-inline:.35em}
 .fuss-zeile{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;padding:22px var(--rand) calc(30px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(255,255,255,.1);font-size:15px}
 .fuss-zeile nav{margin-left:auto;display:flex;gap:22px}
@@ -500,7 +528,7 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
 
 /* Drucken: nur das Wegweiser-Ergebnis */
 @media print{
-  body.druck-ww>*:not(main),body.druck-ww main>*:not(#wegweiser),body.druck-ww .ww-kopf,body.druck-ww .ww-schritte,body.druck-ww .ww-aktionen,body.druck-ww .ww-zurueck{display:none!important}
+  body.druck-ww>*:not(main),body.druck-ww main>*:not(#wegweiser),body.druck-ww .ww-kopf,body.druck-ww .ww-schritte,body.druck-ww .ww-aktionen,body.druck-ww .ww-neu,body.druck-ww .ww-zurueck{display:none!important}
   body.druck-ww{background:#fff}
   body.druck-ww .wegweiser{padding:0;max-width:none}
   body.druck-ww .ww{box-shadow:none;padding:0;border-radius:0}
@@ -522,7 +550,8 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
   .js .rv,.js .zeilen .maske>span{opacity:1;transform:none}
   .js .claim-text .w{opacity:1}
   .js .ueber-bild{clip-path:none}
-  .js .karte .ort circle{transform:none}.js .karte .ort text{opacity:1}
+  .js .karte .flaechen .ort,.js .karte .verbindungen,.js .karte .name{opacity:1}
   .thema-seite .fach,.thema-seite .stationen li{opacity:1!important;transform:none!important}
   .thema-symbol svg *{stroke-dashoffset:0}
 }
+@media (max-width:360px){.hero-kicker{letter-spacing:.1em;font-size:11.5px;gap:8px}.hero-kicker::before{width:18px}}
