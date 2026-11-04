@@ -5,7 +5,7 @@ Statische Seite ohne Baustufe, nicht auf Wix. Sie läuft auf GitHub Pages und sp
 - Testadresse: https://briansol2024.github.io/birhat-landtag/ (für Suchmaschinen gesperrt)
 - `index.html`, `impressum.html`, `datenschutz.html`
 - `assets/styles.css`: Gestaltung
-- `assets/site.js`: Bewegung, Menü, Karte, Aufklappbereiche, Instagram-Einbindung
+- `assets/site.js`: Bewegung, Menü, Karte, Aufklappbereiche, Instagram-Karussell
 - `assets/wegweiser.js`: „Wer hilft mir bei meinem Anliegen?“
 - `assets/heidi.js`: KI-Assistentin mit festen Antworten als Rückfall
 - `assets/data/wissen.json`: **die zentrale Wissensbasis** – Status (Bewerbung / nominiert / gewählt), bestätigte Angaben, Quellen, feste Antworten. Website und KI lesen beide diese Datei.
