@@ -193,33 +193,32 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .warum-brief .anrede{font:800 clamp(22px,2.2vw,30px)/1.1 var(--display);text-transform:uppercase;color:var(--tinte)}
 .warum-brief strong{color:var(--tinte)}
 .gruss{margin-top:4px}
-/* Blaue Kugelschreiber-Tinte: leicht lasierend, wo sich Striche kreuzen, wird sie dunkler */
-.unterschrift{width:min(100%,420px);height:auto;display:block;overflow:visible;mix-blend-mode:multiply}
-.unterschrift path{fill:none;stroke:#1B3C8C;stroke-opacity:.9;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+/* Blaue Kugelschreiber-Tinte: klares, deckendes Blau mit scharfem Rand */
+.unterschrift{width:min(100%,420px);height:auto;display:block;overflow:visible}
+.unterschrift path{fill:none;stroke:#1446D2;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.warum{grid-template-columns:minmax(0,1fr);gap:28px}.warum-kopf{position:static}}
 
 /* Themen: farbige Bahnen */
 .themen{background:var(--nacht);color:#fff;padding:var(--abstand) var(--rand)}
 .themen-kopf{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,4vh,44px)}
 .themen-kopf p{max-width:40ch;color:#CFC9C4}
-/* Vier Schwerpunkte: feste Kacheln mit kurzem Text, nichts zum Anklicken */
-.bahnen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.bahn{--farbe:var(--rot);position:relative;overflow:hidden;border-radius:22px;background:var(--farbe);color:#fff;padding:120px 26px 28px;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;min-height:min(60vh,500px);isolation:isolate;margin:0}
-.bahn::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(80% 60% at 85% 0%,rgba(255,255,255,.2),transparent 60%)}
-.bahn .nr{position:absolute;top:22px;left:26px;font:800 clamp(52px,4.6vw,76px)/1 var(--display);color:transparent;-webkit-text-stroke:1.5px #fff}
-.bahn svg{position:absolute;top:26px;right:24px;width:54px;height:54px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* Vier Schwerpunkte: kompakte Kacheln, Symbol links, Nummer, Titel und kurzer Text rechts. Nichts zum Anklicken. */
+.bahnen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.bahn{--farbe:var(--rot);position:relative;overflow:hidden;border-radius:18px;background:var(--farbe);color:#fff;padding:24px 28px 26px 24px;display:grid;grid-template-columns:52px minmax(0,1fr);grid-template-rows:auto auto 1fr;grid-template-areas:"symbol nr" "symbol titel" "symbol text";column-gap:20px;row-gap:8px;align-content:start;isolation:isolate;margin:0}
+.bahn::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 90% at 100% 0%,rgba(255,255,255,.16),transparent 60%)}
+.bahn .nr{grid-area:nr;font:800 13px/1 var(--display);letter-spacing:.16em;color:rgba(255,255,255,.8)}
+.bahn svg{grid-area:symbol;width:52px;height:52px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .bahn svg *{stroke-dasharray:1;stroke-dashoffset:0}
 .js .bahn.rv svg *{stroke-dashoffset:1}
 .js .bahn.sichtbar svg *{animation:zeichnen 1.4s var(--ease) .3s both}
 @keyframes zeichnen{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-.bahn h3{font-size:clamp(22px,1.75vw,30px);line-height:.98}
-.bahn p{margin:0;font-size:16.5px;line-height:1.55}
-@media (max-width:1180px){.bahnen{grid-template-columns:repeat(2,minmax(0,1fr))}.bahn{min-height:360px}}
+.bahn h3{grid-area:titel;font-size:clamp(20px,1.55vw,25px);line-height:1.04}
+.bahn p{grid-area:text;margin:2px 0 0;font-size:16px;line-height:1.5}
 @media (max-width:900px){
-  .bahnen{grid-template-columns:minmax(0,1fr)}
-  .bahn{min-height:0;padding:92px 22px 24px}
-  .bahn svg{width:50px;height:50px;top:22px;right:22px}
-  .bahn .nr{top:18px;left:22px;font-size:52px}
+  .bahnen{grid-template-columns:minmax(0,1fr);gap:10px}
+  .bahn{grid-template-columns:42px minmax(0,1fr);grid-template-areas:"symbol nr" "symbol titel" "text text";column-gap:16px;padding:20px 20px 22px}
+  .bahn svg{width:42px;height:42px}
+  .bahn p{margin-top:6px;font-size:15.5px}
 }
 
 /* Abschluss unter den vier Themen: eigener Baustein über die volle Breite */
@@ -457,7 +456,6 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
 .fuss-zeile nav{margin-left:auto;display:flex;gap:22px}
 .fuss-zeile a{text-decoration:none;color:#fff}
 .fuss-zeile a:hover{color:var(--rot-hell)}
-.marke-spd{background:var(--rot);color:#fff;font:800 13px/1 var(--display);padding:6px 7px 5px;border-radius:4px;letter-spacing:.06em}
 
 /* Rechtstexte */
 .seite .kopf{background:var(--nacht);position:sticky}
