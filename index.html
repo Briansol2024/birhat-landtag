@@ -15,12 +15,11 @@
 <link rel="preload" as="image" href="assets/img/logo/logo-schrift.png">
 <link rel="stylesheet" href="assets/styles.css">
 <script>
-  // Eingangsanimation: einmal pro Sitzung ganz, danach nur dezent; bei „Bewegung reduzieren“ gar nicht
+  // Eingangsanimation bei jedem Laden der Seite; bei „Bewegung reduzieren“ gar nicht. Es wird nichts gespeichert.
   (function () {
-    var d = document.documentElement, ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches, schon = null;
+    var d = document.documentElement, ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
     d.classList.add('js');
-    try { schon = sessionStorage.getItem('birhat-intro'); sessionStorage.setItem('birhat-intro', '1'); } catch (e) {}
-    d.classList.add(ruhig ? 'intro-ruhig' : schon ? 'intro-kurz' : 'intro-voll');
+    d.classList.add(ruhig ? 'intro-ruhig' : 'intro-voll');
   })();
 </script>
 </head>
