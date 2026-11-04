@@ -179,11 +179,11 @@ const themaFuellen = i => {
   $('[data-symbol]', themaSeite).replaceChildren($('svg', t.b).cloneNode(true));
   $('[data-titel]', themaSeite).textContent = $('h3', t.text).textContent;
   const inhalt = $('.thema-text-inhalt', t.text).cloneNode(true);
-  [...inhalt.children].forEach(el => { if (!el.classList.contains('stationen')) el.classList.add('fach'); });
+  [...inhalt.children].forEach(el => { if (!el.classList.contains('schwerpunkte')) el.classList.add('fach'); });
   $('[data-inhalt]', themaSeite).replaceChildren(...inhalt.children);
   $('[data-weiter-name]', themaSeite).textContent = `${naechstes.nr} ${naechstes.kurz}`;
-  // Reihenfolge des Auftritts = Leserichtung, die Stationen-Karten mitgezählt
-  $$('.fach, .stationen li', themaSeite).forEach((el, j) => el.style.setProperty('--j', j));
+  // Reihenfolge des Auftritts = Leserichtung, die Karten mitgezählt
+  $$('.fach, .schwerpunkte li', themaSeite).forEach((el, j) => el.style.setProperty('--j', j));
 };
 
 // Alles außer der Themenseite ruht, solange sie offen ist (kein Scrollen, kein Tabben dahinter)

@@ -262,11 +262,10 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .thema-inhalt .thema-lead{font-size:clamp(21px,2.2vw,28px);line-height:1.4;color:#fff;max-width:38ch}
 .thema-inhalt h4{margin:22px 0 2px;font:800 13px/1.2 var(--display);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
 .thema-inhalt h4::before{content:"";width:26px;height:2px;background:currentColor}
-.stationen{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
-.stationen li{display:grid;gap:8px;align-content:start;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.13);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 14px 30px -22px rgba(0,0,0,.6);font-size:16.5px;line-height:1.45}
-.stationen time{font:800 14px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;opacity:.85}
-.thema-inhalt .thema-quelle{font-size:14px;color:rgba(255,255,255,.78);margin-top:8px}
-.thema-quelle a{color:#fff}
+.schwerpunkte{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.schwerpunkte li{display:grid;gap:8px;align-content:start;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.13);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 14px 30px -22px rgba(0,0,0,.6);font-size:16.5px;line-height:1.45}
+.schwerpunkte b{font:800 clamp(17px,1.5vw,20px)/1.15 var(--display);letter-spacing:.02em;text-transform:uppercase}
+.schwerpunkte span{color:rgba(255,255,255,.92)}
 .thema-fuss{margin-top:clamp(36px,6vh,64px);display:grid;gap:16px}
 .thema-fuss>p{margin:0;font:800 clamp(22px,2.4vw,32px)/1.05 var(--display);text-transform:uppercase}
 .thema-aktionen{display:flex;gap:10px;flex-wrap:wrap}
@@ -278,13 +277,13 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .thema-weiter svg{width:28px;height:28px;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
 .thema-weiter:hover{background:rgba(0,0,0,.32)}
 .thema-weiter:hover svg{transform:translateX(6px)}
-/* Auftritt: Blöcke gleiten nacheinander herein, die Stationen fächern sich wie Karten auf */
+/* Auftritt: Blöcke gleiten nacheinander herein, die Karten fächern sich auf */
 .thema-seite .fach{opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease),transform .75s var(--ease);transition-delay:calc(.28s + var(--j,0) * 65ms)}
 .thema-seite .thema-leiste.fach{transform:translateY(-100%)}
 .thema-seite.da .fach{opacity:1;transform:none}
-.thema-seite .stationen li{opacity:0;transform:translate(-26px,-46px) rotate(-8deg) scale(.94);transform-origin:0 0;transition:opacity .45s var(--ease),transform .85s cubic-bezier(.2,1.3,.35,1);transition-delay:calc(.28s + var(--j,0) * 65ms)}
-.thema-seite.da .stationen li{opacity:1;transform:none}
-.thema-seite.zu .fach,.thema-seite.zu .stationen li{transition-duration:.16s;transition-delay:0s}
+.thema-seite .schwerpunkte li{opacity:0;transform:translate(-26px,-46px) rotate(-8deg) scale(.94);transform-origin:0 0;transition:opacity .45s var(--ease),transform .85s cubic-bezier(.2,1.3,.35,1);transition-delay:calc(.28s + var(--j,0) * 65ms)}
+.thema-seite.da .schwerpunkte li{opacity:1;transform:none}
+.thema-seite.zu .fach,.thema-seite.zu .schwerpunkte li{transition-duration:.16s;transition-delay:0s}
 .thema-seite.zu .thema-leiste.fach{transform:none}
 
 /* Über mich: Foto, kurzer Text, zwei aufklappbare Wege */
@@ -551,7 +550,7 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
   .js .claim-text .w{opacity:1}
   .js .ueber-bild{clip-path:none}
   .js .karte .flaechen .ort,.js .karte .verbindungen,.js .karte .name{opacity:1}
-  .thema-seite .fach,.thema-seite .stationen li{opacity:1!important;transform:none!important}
+  .thema-seite .fach,.thema-seite .schwerpunkte li{opacity:1!important;transform:none!important}
   .thema-symbol svg *{stroke-dashoffset:0}
 }
 @media (max-width:360px){.hero-kicker{letter-spacing:.1em;font-size:11.5px;gap:8px}.hero-kicker::before{width:18px}}
