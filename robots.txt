@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Disallow: /ki-dienst/
+Disallow: /LIESMICH.md
+
+Sitemap: https://birhat2027.de/sitemap.xml
