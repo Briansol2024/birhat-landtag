@@ -382,41 +382,42 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
 .weg-karte svg{width:24px;height:24px;flex:none}
 @media (max-width:900px){.kontakt-unten{grid-template-columns:minmax(0,1fr)}}
 
-/* Fragen an Heidi (KI) */
+/* Häufige Fragen und Frage per Mail */
 .fragen{padding:var(--abstand) var(--rand);max-width:1100px;margin:0 auto}
 .fragen-kopf{display:grid;gap:22px;margin-bottom:5vh}
 .fragen-kopf>p{color:var(--leise);max-width:58ch}
-.chat{background:#fff;border-radius:26px;box-shadow:0 30px 70px -45px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden}
-.chat-status{display:flex;align-items:center;gap:10px;padding:14px 20px;background:var(--nacht);color:#fff;font-size:14px}
-.chat-status::before{content:"KI";font:800 11px/1 var(--display);letter-spacing:.1em;background:var(--rot);padding:5px 7px 4px;border-radius:5px}
-.chat-status.fest::before{content:"Fest";background:#5D5752}
-.chat-verlauf{list-style:none;margin:0;padding:20px;display:flex;flex-direction:column;gap:14px;min-height:120px;max-height:min(60vh,560px);overflow-y:auto}
-.chat-verlauf:empty{display:none}
-.msg{max-width:88%;display:grid;gap:6px;animation:auf .4s var(--ease)}
-.msg-du{align-self:flex-end;background:var(--tinte);color:#fff;border-radius:18px 18px 4px 18px;padding:12px 16px}
-.msg-heidi{align-self:flex-start;background:var(--papier);border-radius:18px 18px 18px 4px;padding:14px 16px}
-.msg-wer{font:800 11px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--rot)}
-.msg-du .msg-wer{color:rgba(255,255,255,.7)}
-.msg-text{display:grid;gap:8px;line-height:1.55;font-size:16.5px}
-.msg-quellen{font-size:13.5px;color:var(--leise);display:grid;gap:2px}
-.msg-quellen a{color:var(--rot-tief)}
-.msg-fehler{border-left:4px solid #E0B800}
-.denkt{display:inline-flex;gap:5px;align-items:center;color:var(--leise);font-size:15px}
-.denkt i{width:7px;height:7px;border-radius:50%;background:var(--rot);animation:punkt 1s ease-in-out infinite}
-.denkt i:nth-child(2){animation-delay:.15s}.denkt i:nth-child(3){animation-delay:.3s}
-@keyframes punkt{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
-.chat-vorschlaege{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 16px}
-.chat-vorschlaege button{min-height:40px;padding:8px 14px;border-radius:99px;border:1.5px solid #DCD5CC;background:var(--papier);color:var(--tinte);font:700 14.5px/1.2 var(--body);cursor:pointer;text-align:left;transition:border-color .25s,transform .3s var(--ease)}
-.chat-vorschlaege button:hover,.chat-vorschlaege button:focus-visible{border-color:var(--rot);transform:translateY(-2px)}
-.chat-eingabe{position:sticky;bottom:0;display:flex;gap:10px;align-items:flex-end;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid #EAE4DC;background:#fff}
-.chat-eingabe textarea{flex:1;min-width:0;min-height:48px;max-height:140px;resize:none;border:1.5px solid #DCD5CC;border-radius:14px;padding:12px 14px;font:400 16px/1.4 var(--body);color:var(--tinte);background:var(--papier)}
-.chat-eingabe textarea:focus{outline:none;border-color:var(--rot)}
-.chat-eingabe .knopf{min-height:48px}
-.chat-recht{padding:0 20px 18px;font-size:13px;color:var(--leise)}
-.chat-recht button{background:none;border:0;padding:0;color:var(--rot-tief);font:inherit;text-decoration:underline;cursor:pointer}
-.einwilligung{display:grid;gap:12px;padding:16px 18px;margin:0 20px 16px;border-radius:16px;background:#FFF6E0;border:1px solid #F0D58A;font-size:15px}
-.einwilligung .knopf{justify-self:start;color:var(--tinte)}
-.chat-ohne-js{color:var(--leise)}
+.faq{border-top:1.5px solid var(--tinte)}
+.faq-eintrag{border-bottom:1.5px solid var(--tinte)}
+.faq-eintrag summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:16px 0;cursor:pointer;font:700 clamp(18px,1.7vw,22px)/1.3 var(--body);color:var(--tinte);transition:color .25s}
+.faq-eintrag summary::-webkit-details-marker{display:none}
+.faq-eintrag summary:hover{color:var(--rot)}
+.faq-eintrag summary i{position:relative;width:34px;height:34px;flex:none;border-radius:50%;background:var(--rot);transition:transform .5s var(--ease)}
+.faq-eintrag summary i::before,.faq-eintrag summary i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;margin:-1px 0 0 -7px;background:#fff}
+.faq-eintrag summary i::after{transform:rotate(90deg)}
+.faq-eintrag[open] summary i{transform:rotate(135deg)}
+.faq-antwort{display:grid;gap:10px;max-width:68ch;padding:0 0 24px;animation:auf .45s var(--ease)}
+.faq-antwort p{margin:0}
+.faq-quelle{font-size:14px;color:var(--leise)}
+.faq-quelle a{color:var(--rot-tief)}
+.faq-stand{margin:14px 0 0;font-size:14px;color:var(--leise)}
+.mail-frage{margin-top:7vh;background:#fff;border-radius:26px;box-shadow:0 30px 70px -45px rgba(0,0,0,.45);padding:clamp(22px,3.5vw,40px);display:grid;gap:16px}
+.mail-frage h3{margin:0;font:800 clamp(24px,2.6vw,36px)/1 var(--display);text-transform:uppercase}
+.mail-frage>p{margin:0;max-width:62ch}
+.mail-form{display:grid;gap:14px;max-width:720px}
+.mail-form label{display:grid;gap:6px;font:700 15px/1.3 var(--body)}
+.mail-form small{font-weight:400;color:var(--leise)}
+.mail-form input,.mail-form textarea{width:100%;box-sizing:border-box;border:1.5px solid #DCD5CC;border-radius:14px;padding:12px 14px;font:400 16px/1.45 var(--body);color:var(--tinte);background:var(--papier)}
+.mail-form textarea{min-height:140px;resize:vertical}
+.mail-form input:focus,.mail-form textarea:focus{outline:none;border-color:var(--rot)}
+.mail-form .knopf{justify-self:start}
+.mail-hinweis{display:grid;gap:10px;max-width:720px;padding:16px 18px;border-radius:16px;background:var(--papier);font-size:16px}
+.mail-hinweis:empty{display:none}
+.mail-hinweis p{margin:0}
+.mail-hinweis a{color:var(--rot-tief);font-weight:700;overflow-wrap:anywhere}
+.mail-hinweis .knopf{justify-self:start;color:var(--tinte)}
+.mail-hinweis [role=status]{font-size:14px;color:var(--rot-tief)}
+.mail-recht{margin:0;font-size:13.5px;color:var(--leise)}
+.mail-recht a{color:var(--rot-tief)}
 
 /* Fuß */
 .fuss{background:var(--nacht);color:#9C958F;overflow:hidden}

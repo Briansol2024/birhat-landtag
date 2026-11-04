@@ -1,5 +1,7 @@
 # Heidi – KI-Dienst einrichten
 
+> **Nicht in Benutzung (Stand 04.11.2026).** Heidi ist von der Website entfernt. Zum Wiederbeleben müssten `assets/heidi.js`, `assets/data/ki.json` und die festen Antworten (`faq`) in `assets/data/wissen.json` zurück, siehe Git-Verlauf bis Commit `eec7619`.
+
 Die Website liegt auf GitHub Pages und kann selbst keine geheimen Schlüssel aufbewahren. Deshalb läuft die KI über diesen kleinen Dienst bei Cloudflare Workers. Er hält den API-Schlüssel, prüft die Herkunft der Anfragen, begrenzt die Zahl der Fragen und gibt nur Text und geprüfte Quellen zurück.
 
 Solange der Dienst nicht eingerichtet ist, beantwortet Heidi auf der Website nur die festen, geprüften Fragen. Sie kennzeichnet das auch so.

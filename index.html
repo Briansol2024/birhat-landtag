@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="preload" href="assets/fonts/thesans-spd-versal-extrabold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/img/birhat-wand.jpg" as="image">
+<link rel="preload" as="image" href="assets/img/birhat-wand-1920.jpg" imagesrcset="assets/img/birhat-wand-640.jpg 640w, assets/img/birhat-wand-960.jpg 960w, assets/img/birhat-wand-1280.jpg 1280w, assets/img/birhat-wand-1920.jpg 1920w, assets/img/birhat-wand-2560.jpg 2560w, assets/img/birhat-wand-3200.jpg 3200w" imagesizes="(max-width: 900px) 960px, max(100vw, 165vh)" fetchpriority="high">
 <link rel="stylesheet" href="assets/styles.css">
 <script>
   // Eingangsanimation: einmal pro Sitzung ganz, danach nur dezent; bei „Bewegung reduzieren“ gar nicht
@@ -51,7 +51,7 @@
 <main id="start">
   <section class="hero" aria-labelledby="hero-name">
     <figure class="hero-foto" data-parallax="0.18">
-      <img src="assets/img/birhat-wand.jpg" alt="Birhat Kaçar im braunen Anzug, an eine graue Hauswand gelehnt" width="1536" height="1024" fetchpriority="high">
+      <img src="assets/img/birhat-wand-1920.jpg" srcset="assets/img/birhat-wand-640.jpg 640w, assets/img/birhat-wand-960.jpg 960w, assets/img/birhat-wand-1280.jpg 1280w, assets/img/birhat-wand-1920.jpg 1920w, assets/img/birhat-wand-2560.jpg 2560w, assets/img/birhat-wand-3200.jpg 3200w" sizes="(max-width: 900px) 960px, max(100vw, 165vh)" alt="Birhat Kaçar im braunen Anzug, an eine graue Hauswand gelehnt" width="3200" height="2134" fetchpriority="high">
       <span class="vorhang" aria-hidden="true"></span>
     </figure>
     <div class="hero-text" id="inhalt">
@@ -167,7 +167,7 @@
 
   <section class="ueber" id="ueber" data-reveal>
     <figure class="ueber-bild">
-      <img src="assets/img/birhat-bank.jpg" alt="Birhat Kaçar sitzt im Herbst auf einer Bank vor einem Backsteingebäude" width="1536" height="1024" loading="lazy">
+      <img src="assets/img/birhat-bank-1280.jpg" srcset="assets/img/birhat-bank-640.jpg 640w, assets/img/birhat-bank-960.jpg 960w, assets/img/birhat-bank-1280.jpg 1280w, assets/img/birhat-bank-1920.jpg 1920w, assets/img/birhat-bank-2560.jpg 2560w" sizes="(max-width: 900px) min(calc(187.5vw - 75px), 862px), 1050px" alt="Birhat Kaçar sitzt im Herbst auf einer Bank vor einem Backsteingebäude" width="2560" height="1706" loading="lazy">
     </figure>
     <div class="ueber-text">
       <span class="kicker rv">Über mich</span>
@@ -307,22 +307,74 @@
 
   <section class="fragen" id="fragen">
     <div class="fragen-kopf">
-      <span class="kicker rv">Frag Heidi · KI-Assistentin</span>
+      <span class="kicker rv">Häufige Fragen</span>
       <h2 class="gross zeilen"><span class="maske"><span>Deine Fragen.</span></span><span class="maske" style="--i:1"><span>Verständlich beantwortet.</span></span></h2>
-      <p class="rv">Heidi ist eine KI, kein Mensch und nicht Birhat. Sie beantwortet Fragen zu Birhat, zur Bewerbung und zur Landtagswahl – nur mit geprüften Angaben aus dieser Website und offiziellen Quellen.</p>
+      <p class="rv">Antworten auf die häufigsten Fragen zu Birhat, zur Bewerbung und zur Landtagswahl, jeweils mit Quelle.</p>
     </div>
-    <div class="chat rv" data-chat>
-      <div class="chat-status" data-chat-status>Heidi wird geladen …</div>
-      <ol class="chat-verlauf" data-chat-verlauf aria-live="polite"></ol>
-      <div class="chat-vorschlaege" data-chat-vorschlaege aria-label="Vorgeschlagene Fragen"></div>
-      <form class="chat-eingabe" data-chat-form>
-        <label class="sr" for="chat-frage">Deine Frage an Heidi</label>
-        <textarea id="chat-frage" rows="1" maxlength="400" placeholder="Deine Frage …" autocomplete="off" enterkeyhint="send"></textarea>
-        <button class="knopf knopf-haupt" type="submit">Fragen</button>
+    <div class="faq rv">
+      <details class="faq-eintrag">
+        <summary>Wer ist Birhat Kaçar?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p>Birhat Kaçar ist 1998 in Soltau geboren und dort aufgewachsen. Er ist Sozialarbeiter, sitzt seit 2016 im Soltauer Stadtrat und führt dort seit 2023 die SPD-Fraktion. Seit 2021 ist er außerdem Abgeordneter im Kreistag Heidekreis. Er bewirbt sich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau.</p>
+          <p class="faq-quelle">Quellen: <a href="https://www.birhatkacar.de/ueber-mich/" target="_blank" rel="noopener">birhatkacar.de – Über mich</a>, <a href="https://www.birhatkacar.de/meine-arbeit/" target="_blank" rel="noopener">birhatkacar.de – Meine Arbeit</a></p>
+        </div>
+      </details>
+      <details class="faq-eintrag">
+        <summary>Was macht Birhat beruflich?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p>Birhat arbeitet seit September 2023 als Sozialarbeiter bei Venito, einer Einrichtung der Dachstiftung Diakonie, in Bad Fallingbostel. Er ist ausgebildeter Erzieher und staatlich anerkannter Sozialarbeiter. Von 2020 bis 2023 war er außerdem wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag.</p>
+          <p class="faq-quelle">Quelle: <a href="https://www.birhatkacar.de/ueber-mich/" target="_blank" rel="noopener">birhatkacar.de – Über mich</a></p>
+        </div>
+      </details>
+      <details class="faq-eintrag">
+        <summary>Wie läuft die Nominierung ab?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p>Wer für eine Partei in einem Wahlkreis antritt, wird von den Parteimitgliedern im Wahlkreis gewählt – entweder direkt in einer Mitgliederversammlung oder durch gewählte Vertreterinnen und Vertreter. Die Abstimmung ist geheim. Die Einzelheiten regelt die Satzung der Partei. Danach reicht die Partei den Wahlvorschlag bei der Kreiswahlleitung ein, zusammen mit einer Niederschrift über die Versammlung. Wann die SPD im Wahlkreis 43 entscheidet, ist hier noch nicht veröffentlicht.</p>
+          <p class="faq-quelle">Quelle: <a href="https://voris.wolterskluwer-online.de/browse/document/87cb5211-c8b4-3431-b8a1-852468852aa5" target="_blank" rel="noopener">Niedersächsisches Landeswahlgesetz, § 18 (VORIS)</a></p>
+        </div>
+      </details>
+      <details class="faq-eintrag">
+        <summary>Ist Birhat bereits als Kandidat nominiert?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p data-status-text>Birhat Kaçar bewirbt sich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau. Er ist noch nicht nominiert. Darüber entscheidet eine Versammlung der SPD im Wahlkreis. Ein Termin dafür ist auf dieser Website noch nicht veröffentlicht.</p>
+        </div>
+      </details>
+      <details class="faq-eintrag">
+        <summary>Welche Orte gehören zum Wahlkreis?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p>Zum Landtagswahlkreis 43 Soltau gehören ab der Landtagswahl 2027 die Städte Soltau, Munster und Schneverdingen, die Gemeinden Bispingen, Neuenkirchen und Wietzendorf aus dem Landkreis Heidekreis sowie die Samtgemeinde Fintel aus dem Landkreis Rotenburg (Wümme) mit Fintel, Helvesiek, Lauenbrück, Stemmen und Vahlde.</p>
+          <p class="faq-quelle">Quelle: <a href="https://www.mi.niedersachsen.de/startseite/aktuelles/presseinformationen/abstimmung-im-landtag-niedersachsen-stellt-wahlkreise-fur-die-landtagswahl-2027-verfassungskonform-neu-auf-249144.html" target="_blank" rel="noopener">Niedersächsisches Innenministerium – neue Wahlkreise für die Landtagswahl 2027</a></p>
+        </div>
+      </details>
+      <details class="faq-eintrag">
+        <summary>Was ist der Unterschied zwischen Erststimme und Zweitstimme?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p>Bei der Landtagswahl in Niedersachsen hat man zwei Stimmen. Mit der Erststimme wählt man eine Person aus dem eigenen Wahlkreis, die Direktkandidatin oder den Direktkandidaten. Mit der Zweitstimme wählt man die Landesliste einer Partei. Die Zweitstimme bestimmt maßgeblich, wie stark eine Partei im Landtag vertreten ist. Parteien brauchen dafür mindestens fünf Prozent.</p>
+          <p class="faq-quelle">Quelle: <a href="https://www.landtag-niedersachsen.de/landtagswahlen/wahlverfahren-wahlsystem/" target="_blank" rel="noopener">Niedersächsischer Landtag – Wahlverfahren, Wahlsystem</a></p>
+        </div>
+      </details>
+      <details class="faq-eintrag">
+        <summary>Wo finde ich offizielle Informationen zur Briefwahl?<i aria-hidden="true"></i></summary>
+        <div class="faq-antwort">
+          <p>Offizielle Informationen zur Landtagswahl gibt die Niedersächsische Landeswahlleitung. Die Briefwahlunterlagen beantragst du bei deiner Stadt oder Gemeinde, in der Regel mit der Wahlbenachrichtigung, die du vor der Wahl per Post bekommst. Fristen und Termine stehen dort und bei deiner Gemeinde.</p>
+          <p class="faq-quelle">Quelle: <a href="https://landeswahlleiter.niedersachsen.de/startseite/wahlen/landtagswahl/landtagswahl_2027/wahl-zum-20-niedersachsischen-landtag-am-26-09-2027-249534.html" target="_blank" rel="noopener">Landeswahlleitung: Landtagswahl 2027</a></p>
+        </div>
+      </details>
+    </div>
+    <p class="faq-stand rv">Stand der Antworten: 3. November 2026</p>
+
+    <div class="mail-frage rv" id="frage-stellen">
+      <h3>Deine Frage ist nicht dabei?</h3>
+      <p>Schreib sie Birhat direkt. Beim Absenden öffnet sich dein Mailprogramm mit deiner Frage. Dort musst du sie nur noch abschicken.</p>
+      <form class="mail-form" data-mail-form data-an="birhat.kacar" data-bei="web.de">
+        <label><span>Dein Name <small>(freiwillig)</small></span><input name="name" autocomplete="name" maxlength="80"></label>
+        <label><span>Deine Frage</span><textarea name="frage" rows="5" maxlength="1500" required></textarea></label>
+        <button class="knopf knopf-haupt" type="submit">Frage per Mail senden</button>
       </form>
-      <p class="chat-recht" data-chat-recht></p>
+      <div class="mail-hinweis" data-mail-hinweis aria-live="polite"></div>
+      <p class="mail-recht">Die Website selbst speichert und überträgt nichts. Mehr dazu im <a href="datenschutz.html#frage">Datenschutz</a>.</p>
+      <noscript><p class="mail-recht">Das Formular braucht JavaScript. Du erreichst Birhat auch über Instagram oder das Kontaktformular auf birhatkacar.de, beides weiter oben unter „Kontakt“.</p></noscript>
     </div>
-    <noscript><p class="chat-ohne-js">Ohne JavaScript ist Heidi nicht verfügbar.</p></noscript>
   </section>
 </main>
 
@@ -337,6 +389,5 @@
 
 <script src="assets/site.js" defer></script>
 <script src="assets/wegweiser.js" defer></script>
-<script src="assets/heidi.js" defer></script>
 </body>
 </html>

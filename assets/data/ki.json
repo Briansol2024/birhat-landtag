@@ -1,4 +1,0 @@
-{
-  "endpunkt": "",
-  "hinweis": "Hier nach der Einrichtung die Adresse des KI-Dienstes eintragen, z. B. https://heidi.<konto>.workers.dev/frage (siehe ki-dienst/LIESMICH.md). Leer = nur feste Antworten."
-}

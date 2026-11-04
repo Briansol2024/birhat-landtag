@@ -225,9 +225,36 @@ scrollen();
 
 // ---------- Status aus der Wissensbasis (zentral in assets/data/wissen.json) ----------
 fetch('assets/data/wissen.json').then(r => r.ok ? r.json() : null).then(w => {
-  const k = $('[data-status-kicker]');
-  if (!w || !k) return;
-  const s = w.status?.aktuell;
-  if (s === 'nominiert') k.textContent = 'SPD-Kandidat · Landtagswahl 2027';
-  if (s === 'gewaehlt') k.textContent = 'Ihr Abgeordneter im Landtag';
+  const s = w?.status?.aktuell, k = $('[data-status-kicker]'), antwort = $('[data-status-text]');
+  if (!s) return;
+  if (k && s === 'nominiert') k.textContent = 'SPD-Kandidat · Landtagswahl 2027';
+  if (k && s === 'gewaehlt') k.textContent = 'Ihr Abgeordneter im Landtag';
+  if (antwort && w.status.texte?.[s]) antwort.textContent = w.status.texte[s];
 }).catch(() => {});
+
+// ---------- Frage per Mail ----------
+// Die Seite verschickt selbst nichts: Das Formular öffnet das Mailprogramm mit fertiger Mail an Birhat.
+// Die Adresse steht geteilt im Formular (data-an, data-bei), damit Sammelprogramme sie nicht direkt finden.
+const mailForm = $('[data-mail-form]');
+if (mailForm) {
+  const hinweis = $('[data-mail-hinweis]'), feld = mailForm.elements.frage;
+  const adresse = `${mailForm.dataset.an}@${mailForm.dataset.bei}`;
+  mailForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const frage = feld.value.trim(), name = mailForm.elements.name.value.trim();
+    if (!frage) { feld.value = ''; feld.reportValidity(); return; }
+    const text = frage + (name ? `\n\n${name}` : '');
+    location.href = `mailto:${adresse}?subject=${encodeURIComponent('Frage über deine Website')}&body=${encodeURIComponent(text)}`;
+    const p = document.createElement('p');
+    p.append('Dein Mailprogramm sollte sich jetzt mit deiner Frage öffnen. Dort nur noch auf Senden tippen. Es öffnet sich nichts? Dann kopier deine Frage und schick sie an ');
+    const a = document.createElement('a'); a.href = 'mailto:' + adresse; a.textContent = adresse;
+    p.append(a, '.');
+    const kopieren = document.createElement('button'); kopieren.type = 'button'; kopieren.className = 'knopf'; kopieren.textContent = 'Frage kopieren';
+    const info = document.createElement('span'); info.setAttribute('role', 'status');
+    kopieren.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(text); info.textContent = 'Kopiert.'; }
+      catch { info.textContent = 'Kopieren ging nicht. Bitte markieren und kopieren.'; }
+    });
+    hinweis.replaceChildren(p, kopieren, info);
+  });
+}

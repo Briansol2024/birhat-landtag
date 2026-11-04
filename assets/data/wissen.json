@@ -1,6 +1,6 @@
 {
   "stand": "2026-11-03",
-  "hinweis": "Zentrale Wissensbasis für Website und KI-Assistent. Nur bestätigte Angaben eintragen. Den Status unter status.aktuell ändern: bewerbung, nominiert oder gewaehlt.",
+  "hinweis": "Status der Bewerbung für die Website: unter status.aktuell bewerbung, nominiert oder gewaehlt eintragen. Der Text dazu erscheint bei den häufigen Fragen. Die übrigen Angaben sind bestätigte Fakten mit Quellen. Nur Bestätigtes eintragen.",
   "status": {
     "aktuell": "bewerbung",
     "seit": "2026-11-03",
@@ -59,49 +59,5 @@
     "wahlkreise-2027": { "titel": "Niedersächsisches Innenministerium – neue Wahlkreise für die Landtagswahl 2027", "url": "https://www.mi.niedersachsen.de/startseite/aktuelles/presseinformationen/abstimmung-im-landtag-niedersachsen-stellt-wahlkreise-fur-die-landtagswahl-2027-verfassungskonform-neu-auf-249144.html" },
     "nlwg-18": { "titel": "Niedersächsisches Landeswahlgesetz, § 18 (VORIS)", "url": "https://voris.wolterskluwer-online.de/browse/document/87cb5211-c8b4-3431-b8a1-852468852aa5" },
     "briefwahl": { "titel": "Landeswahlleitung: Landtagswahl 2027", "url": "https://landeswahlleiter.niedersachsen.de/startseite/wahlen/landtagswahl/landtagswahl_2027/wahl-zum-20-niedersachsischen-landtag-am-26-09-2027-249534.html" }
-  },
-  "faq": [
-    {
-      "id": "wer",
-      "frage": "Wer ist Birhat Kaçar?",
-      "antwort": "Birhat Kaçar ist 1998 in Soltau geboren und dort aufgewachsen. Er ist Sozialarbeiter, sitzt seit 2016 im Soltauer Stadtrat und führt dort seit 2023 die SPD-Fraktion. Seit 2021 ist er außerdem Abgeordneter im Kreistag Heidekreis. Er bewirbt sich um die SPD-Kandidatur im Landtagswahlkreis 43 Soltau.",
-      "quellen": ["birhat-ueber", "birhat-arbeit"]
-    },
-    {
-      "id": "beruf",
-      "frage": "Was macht Birhat beruflich?",
-      "antwort": "Birhat arbeitet seit September 2023 als Sozialarbeiter bei Venito, einer Einrichtung der Dachstiftung Diakonie, in Bad Fallingbostel. Er ist ausgebildeter Erzieher und staatlich anerkannter Sozialarbeiter. Von 2020 bis 2023 war er außerdem wissenschaftlicher Mitarbeiter im Niedersächsischen Landtag.",
-      "quellen": ["birhat-ueber"]
-    },
-    {
-      "id": "nominierung",
-      "frage": "Wie läuft die Nominierung ab?",
-      "antwort": "Wer für eine Partei in einem Wahlkreis antritt, wird von den Parteimitgliedern im Wahlkreis gewählt – entweder direkt in einer Mitgliederversammlung oder durch gewählte Vertreterinnen und Vertreter. Die Abstimmung ist geheim. Die Einzelheiten regelt die Satzung der Partei. Danach reicht die Partei den Wahlvorschlag bei der Kreiswahlleitung ein, zusammen mit einer Niederschrift über die Versammlung. Wann die SPD im Wahlkreis 43 entscheidet, ist hier noch nicht veröffentlicht.",
-      "quellen": ["nlwg-18"]
-    },
-    {
-      "id": "status",
-      "frage": "Ist Birhat bereits als Kandidat nominiert?",
-      "antwort": "@status",
-      "quellen": []
-    },
-    {
-      "id": "orte",
-      "frage": "Welche Orte gehören zum Wahlkreis?",
-      "antwort": "Zum Landtagswahlkreis 43 Soltau gehören ab der Landtagswahl 2027 die Städte Soltau, Munster und Schneverdingen, die Gemeinden Bispingen, Neuenkirchen und Wietzendorf aus dem Landkreis Heidekreis sowie die Samtgemeinde Fintel aus dem Landkreis Rotenburg (Wümme) mit Fintel, Helvesiek, Lauenbrück, Stemmen und Vahlde.",
-      "quellen": ["wahlkreise-2027"]
-    },
-    {
-      "id": "stimmen",
-      "frage": "Was ist der Unterschied zwischen Erststimme und Zweitstimme?",
-      "antwort": "Bei der Landtagswahl in Niedersachsen hat man zwei Stimmen. Mit der Erststimme wählt man eine Person aus dem eigenen Wahlkreis, die Direktkandidatin oder den Direktkandidaten. Mit der Zweitstimme wählt man die Landesliste einer Partei. Die Zweitstimme bestimmt maßgeblich, wie stark eine Partei im Landtag vertreten ist. Parteien brauchen dafür mindestens fünf Prozent.",
-      "quellen": ["landtag-wahlsystem"]
-    },
-    {
-      "id": "briefwahl",
-      "frage": "Wo finde ich offizielle Informationen zur Briefwahl?",
-      "antwort": "Offizielle Informationen zur Landtagswahl gibt die Niedersächsische Landeswahlleitung. Die Briefwahlunterlagen beantragst du bei deiner Stadt oder Gemeinde, in der Regel mit der Wahlbenachrichtigung, die du vor der Wahl per Post bekommst. Fristen und Termine stehen dort und bei deiner Gemeinde.",
-      "quellen": ["briefwahl"]
-    }
-  ]
+  }
 }
