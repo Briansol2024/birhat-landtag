@@ -26,7 +26,8 @@ Statische Seite ohne Baustufe, nicht auf Wix. Sie läuft auf GitHub Pages und sp
 
 ## Offen vor dem öffentlichen Start
 
-- Impressum: Anschrift und E-Mail. Ohne Anschrift darf die Seite nicht öffentlich gehen.
+- Impressum: Anschrift. Ohne Anschrift darf die Seite nicht öffentlich gehen.
+- E-Mail: vorerst birhat.kacar@web.de im Impressum und im Fragen-Formular. Sobald es eine eigene Adresse @birhat2027.de gibt, an beiden Stellen tauschen und bei domain.de den MX-Eintrag setzen.
 - Fotograf/in der beiden Porträts fürs Impressum.
 - Domain birhat2027.de (gekauft bei domain.de, bei DENIC registriert seit 04.11.2026, zeigt noch die Parkseite von domain.de): DNS-Einträge setzen und in GitHub als eigene Domain eintragen.
   - A-Einträge für `@`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
