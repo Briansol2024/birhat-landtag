@@ -103,8 +103,10 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .hero-text{position:relative;display:grid;gap:16px;max-width:520px}
 .hero-kicker{color:#fff}
 .hero-kicker::before{background:var(--rot)}
-.hero-logo{display:block;width:clamp(270px,21vw,300px);height:auto;margin:2px 0 4px}
-.hero-name{font-size:clamp(17px,1.35vw,21px);line-height:1.15;letter-spacing:.16em}
+/* Großes Logo aus deckungsgleichen Ebenen (für die Einstiegsanimation) */
+.hero-logo{position:relative;display:block;width:clamp(310px,25vw,370px);aspect-ratio:832/501;margin:0 0 8px}
+.hero-logo img,.l-schrift-maske{position:absolute;inset:0;width:100%;height:100%}
+.l-schrift-maske{display:block;clip-path:polygon(0 -40%,100% -40%,100% 54%,0 72%)}
 .hero-sub{font-size:clamp(17px,1.4vw,20px);line-height:1.45;max-width:32ch;color:#F1EEEA}
 .hero-aktionen{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
 .hero .knopf:not(.knopf-haupt){border-color:rgba(255,255,255,.65);color:#fff;background:rgba(11,11,12,.18)}
@@ -116,9 +118,7 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
   .hero::after{display:none}
   .hero-foto::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(0deg,var(--nacht),rgba(11,11,12,0))}
   .hero-text{margin-top:-64px;padding:0 20px 36px;max-width:none;z-index:2}
-  .hero-logo{width:clamp(220px,62vw,250px)}
-  .hero-kicker{white-space:nowrap}
-  .hero-name{font-size:17px}
+  .hero-logo{width:min(80vw,340px);margin:0 auto 10px}
 }
 
 /* Eingangsanimation: rote Fläche zieht durchs Bild, Foto kommt mit leichtem Zoom zur Ruhe, danach Text versetzt */
@@ -132,10 +132,22 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .intro-voll .hero-foto img{animation:fotoFrei 1.75s var(--ease) .05s both}
 .intro-voll .marke{animation:markeAuf .7s var(--ease) .5s both}
 .intro-voll .hero-kicker{animation:auf .7s var(--ease) .7s both}
-.intro-voll .hero-logo{animation:auf .85s var(--ease) .72s both}
-.intro-voll .hero-name{animation:auf .7s var(--ease) .86s both}
-.intro-voll .hero-sub{animation:auf .7s var(--ease) .95s both}
-.intro-voll .hero-aktionen{animation:auf .7s var(--ease) 1.1s both}
+/* Logo-Auftritt beim ersten Laden: Schriftzug steigt aus der schrägen Grundlinie, der Kreis dreht ein,
+   der Pfeil schießt nach rechts oben, die Sloganzeilen wehen von links herein, die Punkte setzen den Schlusspunkt */
+.intro-voll .l-schrift{animation:logoSchrift .95s cubic-bezier(.2,1.15,.35,1) .55s both}
+.intro-voll .l-kreis{transform-origin:25.6% 17.7%;animation:logoKreis .75s cubic-bezier(.3,1.45,.5,1) 1.05s both}
+.intro-voll .l-pfeil{transform-origin:25.6% 17.7%;animation:logoPfeil .55s cubic-bezier(.25,1.5,.45,1) 1.45s both}
+.intro-voll .l-zeile1{animation:logoZeile .75s var(--ease) 1.2s both}
+.intro-voll .l-zeile2{animation:logoZeile .75s var(--ease) 1.38s both}
+.intro-voll .l-punkt1{transform-origin:90.9% 63.9%;animation:logoPunkt .5s cubic-bezier(.3,1.9,.5,1) 1.8s both}
+.intro-voll .l-punkt2{transform-origin:89.7% 80.9%;animation:logoPunkt .5s cubic-bezier(.3,1.9,.5,1) 1.95s both}
+@keyframes logoSchrift{from{transform:translateY(78%)}to{transform:none}}
+@keyframes logoKreis{0%{opacity:0;transform:scale(0) rotate(-150deg)}45%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes logoPfeil{0%{opacity:0;transform:translate(-7%,11%) scale(.35)}100%{opacity:1;transform:none}}
+@keyframes logoZeile{0%{opacity:0;transform:translateX(-12%) skewX(-8deg);clip-path:inset(0 100% 0 0)}35%{opacity:1}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@keyframes logoPunkt{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:none}}
+.intro-voll .hero-sub{animation:auf .7s var(--ease) 1.6s both}
+.intro-voll .hero-aktionen{animation:auf .7s var(--ease) 1.75s both}
 .intro-kurz .hero-foto img,.intro-kurz .hero-text{animation:leise .5s ease both}
 
 /* ---------- Ortsbänder ---------- */
@@ -448,7 +460,7 @@ html:not(.js) .insta-folien li+li,html:not(.js) .insta-pfeil,html:not(.js) .inst
 .insta-info:hover .insta-link::after,.insta-info:focus-visible .insta-link::after{transform:translateX(4px)}
 .insta-info:hover .insta-link{color:var(--rot-hell)}
 @media (max-width:900px){
-  .insta-reihe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * var(--rand));padding-inline:var(--rand);scroll-padding-inline:var(--rand);scrollbar-width:none}
+  .insta-reihe{display:flex;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * var(--rand));padding-inline:var(--rand);scroll-padding-inline:var(--rand);padding-block:8px 20px;margin-block:-8px -20px;scrollbar-width:none}
   .insta-reihe::-webkit-scrollbar{display:none}
   .insta-kachel{flex:none;width:74vw;max-width:320px;scroll-snap-align:start}
 }
@@ -553,4 +565,3 @@ a.weg-karte:hover{background:#fff;color:var(--rot);transform:translateX(8px)}
   .thema-seite .fach,.thema-seite .schwerpunkte li{opacity:1!important;transform:none!important}
   .thema-symbol svg *{stroke-dashoffset:0}
 }
-@media (max-width:360px){.hero-kicker{letter-spacing:.1em;font-size:11.5px;gap:8px}.hero-kicker::before{width:18px}}
