@@ -36,17 +36,50 @@ if (satz) {
 const woerter = satz ? $$('.w', satz) : [];
 
 // ---------- Unterschrift: Striche nacheinander schreiben ----------
+// Sie schreibt sich jedes Mal neu, wenn ihre Mitte die Bildschirmmitte erreicht (45 bis 55 % der Höhe), egal aus
+// welcher Richtung. Ist sie ganz aus dem Bild, wird sie unsichtbar zurückgesetzt. Wird die Mitte beim schnellen
+// Scrollen übersprungen, zählt das wie ein Treffer. Landet sie nach einem Sprung schon über der Mitte, startet sie sofort.
 const unterschrift = $('.unterschrift');
 if (unterschrift && !RUHIG) {
   let t = 0;
-  $$('path', unterschrift).forEach(p => {
+  const striche = $$('path', unterschrift).map(p => {
     const len = p.getTotalLength();
     const dauer = Math.max(0.05, len / 1400);   // gleichmäßige, zügige Schreibgeschwindigkeit
+    const uebergang = `stroke-dashoffset ${dauer}s cubic-bezier(.4,0,.6,1) ${t}s`;
     p.style.strokeDasharray = `${len} ${len}`;
     p.style.strokeDashoffset = len;
-    p.style.transition = `stroke-dashoffset ${dauer}s cubic-bezier(.4,0,.6,1) ${t}s`;
+    p.style.transition = uebergang;
     t += dauer + 0.015;
+    return { p, len, uebergang };
   });
+  const gruss = unterschrift.closest('.gruss') || unterschrift;
+  let geschrieben = false, warSichtbar = false, seite = 'unten', geplant = false;
+  const schreiben = () => {
+    geschrieben = true;
+    gruss.classList.add('sichtbar');
+    striche.forEach(s => { s.p.style.strokeDashoffset = 0; });
+  };
+  const zuruecksetzen = () => {
+    geschrieben = false;
+    gruss.classList.remove('sichtbar');
+    striche.forEach(s => { s.p.style.transition = 'none'; s.p.style.strokeDashoffset = s.len; });
+    unterschrift.getBoundingClientRect();   // erst ohne Übergang zurück, dann den Übergang wieder einschalten
+    striche.forEach(s => { s.p.style.transition = s.uebergang; });
+  };
+  const pruefen = () => {
+    geplant = false;
+    const r = unterschrift.getBoundingClientRect(), h = innerHeight;
+    const lage = (r.top + r.height / 2) / h, jetzt = lage < 0.5 ? 'oben' : 'unten';
+    const sichtbar = r.bottom > 0 && r.top < h;
+    if (!sichtbar) { if (geschrieben) zuruecksetzen(); }
+    else if (!geschrieben && (Math.abs(lage - 0.5) <= 0.05 || (jetzt !== seite && (warSichtbar || jetzt === 'oben')))) schreiben();
+    seite = jetzt; warSichtbar = sichtbar;
+  };
+  const planen = () => { if (!geplant) { geplant = true; requestAnimationFrame(pruefen); } };
+  addEventListener('scroll', planen, { passive: true });
+  addEventListener('resize', planen);
+  addEventListener('load', planen);
+  planen();
 }
 
 // ---------- Einblenden ----------
@@ -62,19 +95,9 @@ const beobachter = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   e.target.classList.add('sichtbar');
   $$('[data-zahl]', e.target).forEach(zaehlen);
-  if (e.target.classList.contains('gruss')) $$('path', e.target).forEach(p => { p.style.strokeDashoffset = 0; });
   beobachter.unobserve(e.target);
 }), { rootMargin: '0px 0px -12% 0px' });
 $$('.rv, .zeilen, .zahl, .karte, [data-reveal]').forEach(el => beobachter.observe(el));
-// Die Unterschrift startet erst, wenn sie etwa in der Mitte des Bildschirms ist (Oberkante bei 45 % der Höhe,
-// ihre Mitte dann bei gut 50 %). Liegt sie schon darüber, z. B. nach einem Sprung über das Menü, startet sie sofort.
-const grussBeobachter = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting && e.boundingClientRect.top > innerHeight * 0.4) return;
-  e.target.classList.add('sichtbar');
-  $$('path', e.target).forEach(p => { p.style.strokeDashoffset = 0; });
-  grussBeobachter.unobserve(e.target);
-}), { rootMargin: '-40% 0px -55% 0px' });
-$$('.gruss').forEach(el => grussBeobachter.observe(el));
 
 // ---------- Ortsbänder: anhalten und weiterlaufen ----------
 const baender = $('.baender'), pause = $('.band-pause');
