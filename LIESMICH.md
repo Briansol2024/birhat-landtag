@@ -31,6 +31,7 @@ Statische Seite ohne Baustufe, nicht auf Wix. Sie läuft auf GitHub Pages und sp
 - E-Mail: vorerst birhat.kacar@web.de im Impressum und im Fragen-Formular. Sobald es eine eigene Adresse @birhat2027.de gibt, an beiden Stellen tauschen und bei domain.de den MX-Eintrag setzen.
 - Anschrift (Am Bahnhof 1t, 29614 Soltau) und Fotografin (Sandra Krafft) stehen seit 04.11.2026 im Impressum. Die Domain birhat2027.de läuft.
 - Seit 04.11.2026 für Suchmaschinen freigegeben (auf Brians Ja): Die Startseite ist auffindbar (`canonical`, `sitemap.xml`). Impressum und Datenschutz haben `noindex, follow`, damit Birhats Anschrift nicht in den Suchergebnissen steht. `robots.txt` sperrt nur `ki-dienst/` und `LIESMICH.md`.
+- Linkvorschau (WhatsApp, Facebook, X und andere), seit 05.11.2026: Open-Graph- und Twitter-Card-Angaben stehen im Kopf von `index.html` direkt nach `canonical`, ohne JavaScript. Das Bild ist `assets/img/linkvorschau.jpg` (1200 × 630, unter 100 KB): das weiße Kampagnenlogo mittig auf dunklem Grund mit rotem Band. Das Logo bleibt auch bei einem quadratischen Zuschnitt ganz sichtbar. Wird das Bild ersetzt, bekommt es einen neuen Dateinamen, weil Facebook und WhatsApp alte Vorschauen eine Weile zwischenspeichern.
 
 ## Wegweiser: nicht vollständig belegte Punkte (Stand 03.11.2026)
 
