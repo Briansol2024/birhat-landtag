@@ -134,6 +134,70 @@ $$('.akk').forEach(akk => {
   });
 });
 
+// ---------- Themen: Forderungen direkt auf der Seite aufklappen (immer nur eine; ohne JavaScript stehen alle offen) ----------
+// Öffnen per Knopf oder Klick auf die Kachel, schließen per Knopf in der Kachel, „Schließen“ im Feld oder Escape.
+// Direktlink möglich, z. B. birhat2027.de/#forderungen-mobilitaet
+{
+  const bahnen = $('.bahnen');
+  const themen = $$('.bahn.thema').map(karte => {
+    const knopf = $('.bahn-knopf', karte);
+    return { karte, knopf, text: $('[data-knopf-text]', knopf), feld: document.getElementById(knopf.getAttribute('aria-controls')) };
+  }).filter(t => t.feld);
+  // Ohne Bewegung springen: html hat scroll-behavior:smooth, deshalb kurz abschalten
+  const springen = y => { const h = document.documentElement, alt = h.style.scrollBehavior; h.style.scrollBehavior = 'auto'; scrollTo(0, y); h.style.scrollBehavior = alt; };
+  const gleiten = y => scrollTo({ top: y, behavior: RUHIG ? 'auto' : 'smooth' });
+  const umschalten = (t, offen, zurueckZumKnopf, ohneHolen) => {
+    const vorher = t.karte.getBoundingClientRect().top;
+    themen.forEach(x => {
+      const an = offen && x === t;
+      x.karte.classList.toggle('offen', an);
+      x.feld.classList.toggle('auf', an);
+      x.knopf.setAttribute('aria-expanded', String(an));
+      x.text.textContent = an ? 'Forderungen schließen' : 'Forderungen ansehen';
+    });
+    bahnen.classList.toggle('hat-offen', offen);
+    // Schließt sich ein Feld über der Kachel (am Handy), bleibt die Kachel trotzdem unter dem Finger stehen
+    const nachher = t.karte.getBoundingClientRect().top;
+    if (Math.abs(nachher - vorher) > 1) springen(scrollY + nachher - vorher);
+    if (offen && !ohneHolen) {
+      // Liegt das Feld weit unten, ein Stück hochholen. Die Kachel bleibt dabei ganz unter der Kopfleiste sichtbar.
+      const r = t.feld.getBoundingClientRect();
+      if (r.top > innerHeight * 0.72) {
+        const weg = Math.min(r.top - innerHeight * 0.35, t.karte.getBoundingClientRect().top - 84);
+        if (weg > 0) gleiten(scrollY + weg);
+      }
+    } else if (zurueckZumKnopf) {
+      t.knopf.focus({ preventScroll: true });
+      const r = t.karte.getBoundingClientRect();
+      if (r.top < 80 || r.bottom > innerHeight) gleiten(scrollY + r.top - Math.max(90, (innerHeight - r.height) / 2));
+    }
+  };
+  const istOffen = t => t.knopf.getAttribute('aria-expanded') === 'true';
+  themen.forEach(t => {
+    t.knopf.addEventListener('click', () => umschalten(t, !istOffen(t)));
+    t.karte.addEventListener('click', e => {
+      if (e.target.closest('a, button') || String(getSelection())) return;   // Knopf hat eigenen Klick; markierter Text bleibt markiert
+      umschalten(t, !istOffen(t));
+    });
+    t.karte.addEventListener('keydown', e => { if (e.key === 'Escape' && istOffen(t)) umschalten(t, false, true); });
+    t.feld.addEventListener('keydown', e => { if (e.key === 'Escape') umschalten(t, false, true); });
+    $$('[data-schliessen]', t.feld).forEach(b => b.addEventListener('click', () => umschalten(t, false, true)));
+  });
+  // Beim Direktlink das Feld öffnen und ohne Gleiten an seinen Anfang springen. Der Browser springt beim Laden selbst noch
+  // einmal zum Ziel (und nachladende Inhalte können verschieben), deshalb nach dem Laden noch einmal ausrichten.
+  const ausAdresse = () => {
+    const t = themen.find(x => location.hash === '#' + x.feld.id);
+    if (!t) return;
+    umschalten(t, true, false, true);
+    const ausrichten = () => springen(scrollY + t.feld.getBoundingClientRect().top - 84);
+    ausrichten();
+    requestAnimationFrame(() => requestAnimationFrame(ausrichten));
+    if (document.readyState !== 'complete') addEventListener('load', () => setTimeout(ausrichten, 0), { once: true });
+  };
+  addEventListener('hashchange', ausAdresse);
+  ausAdresse();
+}
+
 // ---------- Wahlkreis: Ortskarte ----------
 const ortKarte = $('.ort-karte');
 let ORTE = null;
