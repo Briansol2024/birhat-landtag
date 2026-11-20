@@ -260,21 +260,19 @@ mark.offen{background:#FFE36B;color:#141414;padding:0 .2em;box-shadow:inset 0 -2
 .fo-nr{flex:none;display:grid;place-items:center;width:34px;height:34px;margin-top:-5px;border-radius:50%;background:var(--farbe);color:#fff;font:800 15px/1 var(--display)}
 .fo-pruef{margin:12px 0 0 48px;font-size:15px;line-height:1.45}
 .fo-pruef b{display:inline-block;margin-right:6px;padding:4px 8px 3px;border-radius:6px;background:#FFE36B;box-shadow:inset 0 -2px 0 #E0B800;font:800 12.5px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase}
-.fo-teile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.6vw,40px);margin-top:18px;padding-left:48px}
+.fo-teile{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3.2vw,48px);margin-top:18px;padding-left:48px}
 .fo-teil h5{margin:0 0 6px;font:800 13px/1.25 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--farbe)}
 .fo-teil p{font-size:17px;line-height:1.55;hyphens:auto;-webkit-hyphens:auto}
 .fo-teil p+p{margin-top:10px}
-.fo-ebenen{margin:0;display:grid;gap:12px}
-.fo-ebenen dt{display:inline-block;margin-bottom:4px;padding:4px 9px 3px;border-radius:99px;border:1.5px solid var(--tinte);font:800 12px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase}
-.fo-ebenen .ich dt{background:var(--rot-tief);border-color:var(--rot-tief);color:#fff}
-.fo-ebenen dd{margin:0;font-size:16px;line-height:1.5;hyphens:auto;-webkit-hyphens:auto}
+/* „Im Landtag“: die eigene Rolle als Absatz innerhalb von „Was ich vorhabe“ */
+.fo-teil .fo-landtag{margin-top:14px;padding:2px 0 2px 14px;border-left:3px solid var(--farbe)}
+.fo-landtag strong{color:var(--farbe)}
 .fo-quelle{margin:16px 0 0 48px;font-size:14px;line-height:1.5;color:var(--leise)}
 .fo-quelle a{color:var(--rot-tief);overflow-wrap:anywhere}
 .fo-fuss{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:clamp(16px,2vw,24px);border-top:1.5px solid rgba(20,20,20,.16)}
 .fo-stand{font-size:14px;color:var(--leise)}
 .fo-fuss .knopf{display:none}
 .js .fo-fuss .knopf{display:inline-flex}
-@media (max-width:1180px){.fo-teile{grid-template-columns:repeat(2,minmax(0,1fr))}.fo-wer{grid-column:1/-1}}
 @media (max-width:900px){
   .bahnen{grid-template-columns:minmax(0,1fr);gap:10px}
   .bahn,.bahn.thema{grid-column:auto}
